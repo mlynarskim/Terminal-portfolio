@@ -47,7 +47,7 @@ export default function BootScreen({ onEnter }: Props) {
               transition={{ delay: 0.3, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="font-mono text-muted text-xs mb-6 tracking-widest uppercase">
-                Mateusz OS · v1.0
+                Portfolio OS · v1.0
               </div>
 
               <motion.button

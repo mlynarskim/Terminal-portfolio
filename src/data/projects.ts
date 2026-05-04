@@ -27,7 +27,7 @@ export const projects: Project[] = [
     name: 'Travel Rules',
     tagline: 'The traveler\'s rule book — iOS',
     description:
-      'Native iOS app that helps travelers navigate local laws, etiquette, and customs before they land. Covers 100+ countries with offline-first data, push notifications for travel alerts, and a beautiful SwiftUI interface designed for quick lookups on the go.',
+      'Native iOS app that helps travelers navigate local laws, etiquette, and customs before they land. Covers 100+ countries with offline-first data. Features a built-in AI assistant that generates a personalized travel plan in minutes — just pick your destination and travel style. Beautiful SwiftUI interface designed for quick lookups on the go.',
     tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS', 'CoreData'],
     color: '#00FFB3',
     emoji: '✈️',
