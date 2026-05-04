@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback } from 'react'
+import { useRef, useState, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { WindowId } from '../hooks/useWindowManager'
 
@@ -30,9 +30,15 @@ export default function Window({
   children,
 }: WindowProps) {
   const [size, setSize] = useState({ w: width, h: height })
+  const [minimized, setMinimized] = useState(false)
   const resizing = useRef(false)
   const startPos = useRef({ x: 0, y: 0 })
   const startSize = useRef({ w: width, h: height })
+
+  // Reset minimized when re-opened
+  useEffect(() => {
+    if (isOpen) setMinimized(false)
+  }, [isOpen])
 
   const onResizeStart = useCallback((e: React.MouseEvent) => {
     e.preventDefault()
@@ -75,8 +81,8 @@ export default function Window({
             position: 'fixed',
             left: initialPosition.x,
             top: initialPosition.y,
-            width: size.w,
-            maxWidth: 'calc(100vw - 24px)',
+            width: minimized ? 'auto' : size.w,
+            maxWidth: minimized ? 320 : 'calc(100vw - 24px)',
             maxHeight: 'calc(100vh - 56px)',
             zIndex,
           }}
@@ -95,7 +101,13 @@ export default function Window({
             >
               <span className="absolute inset-0 flex items-center justify-center text-red-900 opacity-0 group-hover:opacity-100 text-[8px] font-bold leading-none">×</span>
             </button>
-            <div className="w-3 h-3 rounded-full bg-yellow-500 opacity-50 flex-shrink-0" />
+            <button
+              onClick={(e) => { e.stopPropagation(); setMinimized(v => !v) }}
+              className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-400 transition-colors flex-shrink-0 group relative"
+              aria-label="Minimize"
+            >
+              <span className="absolute inset-0 flex items-center justify-center text-yellow-900 opacity-0 group-hover:opacity-100 text-[8px] font-bold leading-none">−</span>
+            </button>
             <div className="w-3 h-3 rounded-full bg-green-500 opacity-50 flex-shrink-0" />
             <span className="flex-1 text-center text-xs font-mono text-muted -ml-4 pointer-events-none">
               {title}
@@ -103,23 +115,27 @@ export default function Window({
           </div>
 
           {/* Content */}
-          <div
-            className="bg-panel flex-1 overflow-auto"
-            style={{ height: size.h - 44 }}
-          >
-            {children}
-          </div>
+          {!minimized && (
+            <div
+              className="bg-panel flex-1 overflow-auto"
+              style={{ height: size.h - 44 }}
+            >
+              {children}
+            </div>
+          )}
 
           {/* Resize handle — bottom-right corner */}
-          <div
-            onMouseDown={onResizeStart}
-            className="absolute bottom-0 right-0 w-4 h-4 cursor-nwse-resize z-10 flex items-end justify-end pr-0.5 pb-0.5"
-            title="Drag to resize"
-          >
-            <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-              <path d="M7 1L1 7M7 4L4 7M7 7L7 7" stroke="#4B5563" strokeWidth="1.2" strokeLinecap="round"/>
-            </svg>
-          </div>
+          {!minimized && (
+            <div
+              onMouseDown={onResizeStart}
+              className="absolute bottom-0 right-0 w-4 h-4 cursor-nwse-resize z-10 flex items-end justify-end pr-0.5 pb-0.5"
+              title="Drag to resize"
+            >
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <path d="M7 1L1 7M7 4L4 7M7 7L7 7" stroke="#4B5563" strokeWidth="1.2" strokeLinecap="round"/>
+              </svg>
+            </div>
+          )}
         </motion.div>
       )}
     </AnimatePresence>
