@@ -30,7 +30,7 @@ export default function TopBar({ onOpenPalette }: TopBarProps) {
     >
       <div className="flex items-center gap-2">
         <span className="text-accent font-mono text-sm font-semibold tracking-tight" style={{ textShadow: '0 0 12px rgba(0,255,179,0.4)' }}>
-          Mateusz OS
+          Portfolio OS
         </span>
         <span className="text-border text-xs font-mono">v1.0</span>
       </div>

@@ -92,8 +92,16 @@ export default function CommandPalette({ isOpen, onClose, onSelect }: Props) {
                 <input
                   ref={inputRef}
                   value={query}
-                  onChange={(e) => setQuery(e.target.value)}
+                  onChange={(e) => {
+                    // allow only letters, digits, spaces — no special chars or scripts
+                    const safe = e.target.value.replace(/[^a-zA-Z0-9 ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/g, '')
+                    setQuery(safe)
+                  }}
                   placeholder="Type a command..."
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck={false}
                   className="flex-1 bg-transparent outline-none text-sm font-mono text-gray-100 placeholder-muted"
                 />
                 <kbd className="text-[10px] text-muted border border-border rounded px-1 py-0.5 font-mono">esc</kbd>

@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { WindowId } from '../hooks/useWindowManager'
 
@@ -15,6 +15,9 @@ interface WindowProps {
   children: React.ReactNode
 }
 
+const MIN_W = 320
+const MIN_H = 240
+
 export default function Window({
   title,
   isOpen,
@@ -26,7 +29,35 @@ export default function Window({
   height = 480,
   children,
 }: WindowProps) {
-  const constraintsRef = useRef<HTMLDivElement>(null)
+  const [size, setSize] = useState({ w: width, h: height })
+  const resizing = useRef(false)
+  const startPos = useRef({ x: 0, y: 0 })
+  const startSize = useRef({ w: width, h: height })
+
+  const onResizeStart = useCallback((e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    resizing.current = true
+    startPos.current = { x: e.clientX, y: e.clientY }
+    startSize.current = { ...size }
+
+    const onMove = (ev: MouseEvent) => {
+      if (!resizing.current) return
+      const dx = ev.clientX - startPos.current.x
+      const dy = ev.clientY - startPos.current.y
+      setSize({
+        w: Math.max(MIN_W, startSize.current.w + dx),
+        h: Math.max(MIN_H, startSize.current.h + dy),
+      })
+    }
+    const onUp = () => {
+      resizing.current = false
+      window.removeEventListener('mousemove', onMove)
+      window.removeEventListener('mouseup', onUp)
+    }
+    window.addEventListener('mousemove', onMove)
+    window.addEventListener('mouseup', onUp)
+  }, [size])
 
   return (
     <AnimatePresence>
@@ -35,6 +66,7 @@ export default function Window({
           drag
           dragMomentum={false}
           dragElastic={0}
+          dragListener={!resizing.current}
           initial={{ opacity: 0, scale: 0.92, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.92, y: 10 }}
@@ -43,17 +75,17 @@ export default function Window({
             position: 'fixed',
             left: initialPosition.x,
             top: initialPosition.y,
-            width,
+            width: size.w,
             maxWidth: 'calc(100vw - 24px)',
-            maxHeight: 'calc(100vh - 80px)',
+            maxHeight: 'calc(100vh - 56px)',
             zIndex,
           }}
           onMouseDown={onFocus}
           className="rounded-xl overflow-hidden shadow-window border border-border flex flex-col"
         >
-          {/* Title bar */}
+          {/* Title bar — drag handle */}
           <div
-            className="flex items-center gap-2 px-4 py-3 bg-panel border-b border-border select-none cursor-grab active:cursor-grabbing"
+            className="flex items-center gap-2 px-4 py-3 bg-panel border-b border-border select-none cursor-grab active:cursor-grabbing flex-shrink-0"
             style={{ touchAction: 'none' }}
           >
             <button
@@ -73,9 +105,20 @@ export default function Window({
           {/* Content */}
           <div
             className="bg-panel flex-1 overflow-auto"
-            style={{ height: height - 44 }}
+            style={{ height: size.h - 44 }}
           >
             {children}
+          </div>
+
+          {/* Resize handle — bottom-right corner */}
+          <div
+            onMouseDown={onResizeStart}
+            className="absolute bottom-0 right-0 w-4 h-4 cursor-nwse-resize z-10 flex items-end justify-end pr-0.5 pb-0.5"
+            title="Drag to resize"
+          >
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+              <path d="M7 1L1 7M7 4L4 7M7 7L7 7" stroke="#4B5563" strokeWidth="1.2" strokeLinecap="round"/>
+            </svg>
           </div>
         </motion.div>
       )}
