@@ -7,6 +7,8 @@ export interface ProjectLink {
   primary?: boolean
 }
 
+export type BuildStatus = 'live' | 'coming-soon' | 'beta' | 'wip'
+
 export interface Project {
   id: string
   name: string
@@ -17,8 +19,11 @@ export interface Project {
   emoji: string
   platform: Platform
   links: ProjectLink[]
-  screenshots?: string[] // paths to images, e.g. /screenshots/travel-rules-1.jpg
-  screenshotCount?: number // how many placeholder slots to show
+  screenshots?: string[]
+  screenshotCount?: number
+  status?: BuildStatus
+  version?: string
+  socialLinks?: ProjectLink[]
 }
 
 export const projects: Project[] = [
@@ -32,25 +37,28 @@ export const projects: Project[] = [
     color: '#00FFB3',
     emoji: '✈️',
     platform: 'ios',
+    status: 'live',
+    version: '3.2.4',
     links: [
-      {
-        label: 'App Store',
-        url: 'https://apps.apple.com/pl/app/travel-rules/id6451070215?l=pl',
-        icon: '🍎',
-        primary: true,
-      },
-      {
-        label: 'Landing page',
-        url: 'https://travelrules.eu/app',
-        icon: '🌐',
-      },
-      {
-        label: 'Website',
-        url: 'https://www.travelrules.eu',
-        icon: '🔗',
-      },
+      { label: 'App Store', url: 'https://apps.apple.com/pl/app/travel-rules/id6451070215?l=pl', icon: '🍎', primary: true },
+      { label: 'Landing page', url: 'https://travelrules.eu/app', icon: '🌐' },
+      { label: 'Website', url: 'https://www.travelrules.eu', icon: '🔗' },
     ],
-    screenshotCount: 5,
+    socialLinks: [
+      { label: 'TikTok', url: 'https://www.tiktok.com/@travelrules.app', icon: '🎵' },
+      { label: 'Instagram', url: 'https://www.instagram.com/travelrules.app/', icon: '📸' },
+      { label: 'YouTube', url: 'https://youtube.com/@travelrulesapp', icon: '▶️' },
+      { label: 'ProductHunt', url: 'https://www.producthunt.com/products/travel-rules', icon: '🚀' },
+      { label: 'Threads', url: 'https://www.threads.com/@travelrules.app', icon: '🧵' },
+    ],
+    screenshots: [
+      '/screens/travel-rules/screen-1.png',
+      '/screens/travel-rules/screen-2.png',
+      '/screens/travel-rules/screen-3.png',
+      '/screens/travel-rules/screen-4.png',
+      '/screens/travel-rules/screen-5.png',
+      '/screens/travel-rules/screen-6.png',
+    ],
   },
   {
     id: 'rate-that-beach',
@@ -62,8 +70,35 @@ export const projects: Project[] = [
     color: '#3B82F6',
     emoji: '🏖️',
     platform: 'ios+android',
+    status: 'coming-soon',
+    version: '1.0',
     links: [],
-    screenshotCount: 4,
+    screenshots: [
+      '/screens/rate-that-beach/screen-1.png',
+      '/screens/rate-that-beach/screen-2.png',
+      '/screens/rate-that-beach/screen-3.png',
+      '/screens/rate-that-beach/screen-4.png',
+      '/screens/rate-that-beach/screen-5.png',
+    ],
+  },
+  {
+    id: 'solos',
+    name: 'SOLOS',
+    tagline: 'AI-powered movie curator — web app',
+    description:
+      'Solves the "what to watch tonight?" problem using Google Gemini AI. Users set their mood, number of viewers, and streaming platforms — SOLOS curates the perfect film pick and explains why it fits. Includes a Watchlist, watch history, deep links to streaming platforms, and a Stripe-powered PRO tier (3 free picks, then lifetime access).',
+    tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Gemini AI', 'Firebase', 'Express', 'Stripe'],
+    color: '#A78BFA',
+    emoji: '🎬',
+    platform: 'web',
+    status: 'beta',
+    links: [],
+    screenshots: [
+      '/screens/solos/screen-1.png',
+      '/screens/solos/screen-2.png',
+      '/screens/solos/screen-3.png',
+      '/screens/solos/screen-4.png',
+    ],
   },
   {
     id: 'travel-rules-hub',
@@ -75,42 +110,35 @@ export const projects: Project[] = [
     color: '#F59E0B',
     emoji: '🌐',
     platform: 'web',
+    status: 'live',
     links: [
-      {
-        label: 'travelrules.eu',
-        url: 'https://www.travelrules.eu',
-        icon: '🌐',
-        primary: true,
-      },
-      {
-        label: 'App landing',
-        url: 'https://travelrules.eu/app',
-        icon: '📱',
-      },
-      {
-        label: 'Planner',
-        url: 'https://travelrules.eu/planer',
-        icon: '📋',
-      },
-      {
-        label: 'Ebook',
-        url: 'https://travelrules.eu/ebook',
-        icon: '📖',
-      },
+      { label: 'travelrules.eu', url: 'https://www.travelrules.eu', icon: '🌐', primary: true },
+      { label: 'App landing', url: 'https://travelrules.eu/app', icon: '📱' },
+      { label: 'Planner', url: 'https://travelrules.eu/planer', icon: '📋' },
+      { label: 'Ebook', url: 'https://travelrules.eu/ebook', icon: '📖' },
     ],
     screenshotCount: 3,
   },
   {
-    id: 'solos',
-    name: 'SOLOS',
-    tagline: 'AI-powered movie curator — web app',
+    id: 'panda',
+    name: 'Panda',
+    tagline: 'Dating app — iOS & Android',
     description:
-      'Solves the "what to watch tonight?" problem using Google Gemini AI. Users set their mood, number of viewers, and streaming platforms — SOLOS curates the perfect film pick and explains why it fits. Includes a Watchlist, watch history, deep links to streaming platforms, and a Stripe-powered PRO tier (3 free picks, then lifetime access).',
-    tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Gemini AI', 'Firebase', 'Firestore', 'Express', 'Stripe'],
-    color: '#A78BFA',
-    emoji: '🎬',
-    platform: 'web',
-    links: [],
-    screenshotCount: 4,
+      'A modern dating app built for genuine connections. Clean interface, smart matching, and a focus on meaningful interactions over endless swiping. Cross-platform, built with React Native and Expo.',
+    tech: ['React Native', 'Expo', 'TypeScript', 'Firebase'],
+    color: '#FB7185',
+    emoji: '🐼',
+    platform: 'ios+android',
+    status: 'wip',
+    links: [
+      { label: 'GitHub', url: 'https://github.com/mlynarskim/Panda-app', icon: '⌨️', primary: true },
+    ],
+    screenshotCount: 3,
   },
+]
+
+export const currentlyBuilding = [
+  { project: 'Travel Rules', detail: 'v3.2.4 live on App Store', color: '#00FFB3', status: 'live' as const },
+  { project: 'Rate That Beach', detail: 'v1.0 — coming to App Store & Play Store', color: '#3B82F6', status: 'coming-soon' as const },
+  { project: 'SOLOS', detail: 'in beta testing', color: '#A78BFA', status: 'beta' as const },
 ]

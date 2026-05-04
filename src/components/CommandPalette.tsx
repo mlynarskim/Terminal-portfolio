@@ -18,6 +18,7 @@ const commands: Command[] = [
   { id: 'rate-that-beach', label: 'Open Rate That Beach', description: 'iOS + Android · React Native', action: 'project-rate-that-beach', emoji: '🏖️' },
   { id: 'travel-rules-hub', label: 'Open Travel Rules HUB', description: 'Web platform', action: 'project-travel-rules-hub', emoji: '🌐' },
   { id: 'solos', label: 'Open SOLOS', description: 'AI movie curator · web app', action: 'project-solos', emoji: '🎬' },
+  { id: 'panda', label: 'Open Panda', description: 'Dating app · iOS + Android', action: 'project-panda', emoji: '🐼' },
 ]
 
 interface Props {
