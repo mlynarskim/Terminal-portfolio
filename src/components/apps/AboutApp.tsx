@@ -13,6 +13,8 @@ const lines = [
   { type: 'prop', key: 'aiTools', value: '["Claude", "Cursor", "Gemini"]', color: '#C084FC' },
   { type: 'prop', key: 'availability', value: '"Open to work & new projects"', color: '#00FFB3' },
   { type: 'close', text: '}' },
+  { type: 'blank' },
+  { type: 'secret', text: '// psst — try the classic cheat code 🕹️' },
 ]
 
 export default function AboutApp() {
@@ -41,6 +43,7 @@ export default function AboutApp() {
             </span>
             {line.type === 'blank' && <div className="h-4" />}
             {line.type === 'comment' && <span className="text-gray-600">{line.text}</span>}
+            {line.type === 'secret' && <span className="text-gray-700 hover:text-gray-500 transition-colors duration-300 cursor-default select-none">{line.text}</span>}
             {line.type === 'keyword' && (
               <span>
                 <span className="text-purple-400">{line.text}</span>
