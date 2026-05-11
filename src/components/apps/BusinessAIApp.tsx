@@ -132,27 +132,15 @@ export default function BusinessAIApp() {
         {/* CTA */}
         <div className="space-y-2 pt-1">
           <motion.a
-            href="/demos/beauty.html"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:mlynarski.mateusz@gmail.com"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
             className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl font-semibold text-sm"
             style={{ background: '#00FFB3', color: '#0B0B0F' }}
           >
-            <span>🚀</span>
-            <span>Open Demos</span>
-            <span>→</span>
-          </motion.a>
-          <motion.a
-            href="mailto:mlynarski.mateusz@gmail.com"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
-            className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl font-semibold text-sm border border-border transition-all hover:border-accent/40"
-            style={{ background: 'rgba(26,26,31,0.6)', color: '#e5e7eb' }}
-          >
             <span>✉️</span>
             <span>Contact</span>
+            <span>→</span>
           </motion.a>
         </div>
 
@@ -161,25 +149,29 @@ export default function BusinessAIApp() {
           <div className="text-[10px] text-muted font-mono mb-2 uppercase tracking-wider">Live demos</div>
           <div className="space-y-1.5">
             {[
-              { label: 'beauty-ai.demo', url: '/demos/beauty.html', color: '#FB7185', icon: '💅' },
-              { label: 'workshop-ai.demo', url: '/demos/workshop.html', color: '#F59E0B', icon: '🔧' },
-              { label: 'agro-ai.demo', url: '/demos/agro.html', color: '#34D399', icon: '🌾' },
+              { label: 'beauty-ai.demo', url: '/demos/beauty.html', color: '#FB7185', icon: '💅', desc: 'Nail Studio · AI chat' },
+              { label: 'workshop-ai.demo', url: '/demos/workshop.html', color: '#F59E0B', icon: '🔧', desc: 'Auto-Expert · AI chat' },
+              { label: 'agro-ai.demo', url: '/demos/agro.html', color: '#34D399', icon: '🌾', desc: 'Martur Agrousługi · AI chat' },
             ].map((d) => (
               <a
                 key={d.label}
                 href={d.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border hover:border-opacity-60 transition-all font-mono text-xs"
-                style={{ background: 'rgba(26,26,31,0.6)', color: d.color }}
+                className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-border hover:border-opacity-60 transition-all font-mono"
+                style={{ background: 'rgba(26,26,31,0.6)' }}
               >
-                <span>{d.icon}</span>
-                <span className="flex-1">{d.label}</span>
-                <span className="text-muted text-[9px] border border-border rounded px-1 py-0.5"
-                  style={{ borderColor: `${d.color}30`, background: `${d.color}10`, color: d.color }}>
-                  AI Powered
+                <span className="text-base flex-shrink-0">{d.icon}</span>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs" style={{ color: d.color }}>{d.label}</div>
+                  <div className="text-[9px] text-muted">{d.desc}</div>
+                </div>
+                <span
+                  className="text-[10px] px-2 py-1 rounded-lg border flex-shrink-0 font-semibold transition-all"
+                  style={{ borderColor: `${d.color}40`, background: `${d.color}12`, color: d.color }}
+                >
+                  Open Demo ↗
                 </span>
-                <span className="text-muted">↗</span>
               </a>
             ))}
           </div>

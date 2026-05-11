@@ -117,146 +117,195 @@
         &copy; 2026 Nail Art Studio. Design with Love.
     </footer>
 
+<!-- Floating AI Chat Widget -->
+<style>
+.beauty-chat-widget { position:fixed; bottom:24px; right:24px; z-index:9999; }
+.beauty-chat-toggle {
+    width:56px; height:56px;
+    background:linear-gradient(135deg,#D4A373,#F4B8A8);
+    border-radius:50%; border:none; cursor:pointer;
+    box-shadow:0 4px 20px rgba(212,163,115,0.5);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.35rem; transition:all 0.2s; position:relative;
+}
+.beauty-chat-toggle:hover { transform:scale(1.08); box-shadow:0 6px 28px rgba(212,163,115,0.6); }
+.beauty-chat-badge {
+    position:absolute; top:-3px; right:-3px;
+    background:#F9A8D4; width:13px; height:13px;
+    border-radius:50%; border:2px solid white;
+    animation:bpulse 2s infinite;
+}
+@keyframes bpulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.25);} }
+.beauty-chat-window {
+    position:absolute; bottom:68px; right:0;
+    width:320px;
+    background:#FFF9F8;
+    border:1px solid #F4C0B0;
+    border-radius:22px;
+    box-shadow:0 20px 60px rgba(180,100,80,0.18);
+    overflow:hidden; display:none; flex-direction:column;
+    max-height:460px;
+}
+.beauty-chat-window.open { display:flex; }
+.beauty-chat-header {
+    background:linear-gradient(135deg,#D4A373,#E8A898);
+    padding:13px 16px;
+    display:flex; align-items:center; gap:10px; flex-shrink:0;
+}
+.beauty-chat-avatar {
+    width:34px; height:34px;
+    background:rgba(255,255,255,0.25); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+}
+.beauty-chat-msgs {
+    flex:1; padding:14px;
+    overflow-y:auto; display:flex; flex-direction:column; gap:10px;
+    min-height:160px; max-height:260px;
+}
+.bmsg-bot {
+    background:#FFF0F0; border:1px solid #F4D0C8;
+    border-radius:14px 14px 14px 4px;
+    padding:9px 12px; font-size:13px; color:#5C3A3A; line-height:1.5;
+    max-width:88%;
+}
+.bmsg-user {
+    background:linear-gradient(135deg,#D4A373,#E8A898);
+    color:white; border-radius:14px 14px 4px 14px;
+    padding:9px 12px; font-size:13px; line-height:1.5;
+    max-width:88%; align-self:flex-end;
+}
+.bmsg-loading {
+    background:#FFF0F0; border:1px solid #F4D0C8;
+    border-radius:12px; padding:9px 12px; font-size:12px; color:#D4A373;
+}
+.beauty-chat-input-row {
+    padding:9px 11px; border-top:1px solid #F4D0C8;
+    background:#FFFAF9; display:flex; align-items:center; gap:8px; flex-shrink:0;
+}
+.beauty-chat-input {
+    flex:1; background:#FFF5F2; border:1px solid #F4C0B0;
+    border-radius:10px; padding:8px 11px; font-size:13px; color:#5C3A3A;
+    outline:none; font-family:'Poppins',sans-serif;
+}
+.beauty-chat-input:focus { border-color:#D4A373; }
+.beauty-chat-send {
+    background:linear-gradient(135deg,#D4A373,#E8A898);
+    color:white; border:none; border-radius:10px;
+    padding:8px 14px; font-size:13px; font-weight:600;
+    cursor:pointer; transition:all 0.15s; flex-shrink:0;
+}
+.beauty-chat-send:hover { background:linear-gradient(135deg,#BC8A5F,#D4A373); }
+.beauty-chat-send:disabled { opacity:0.4; cursor:default; }
+</style>
 
-<!-- AI Assistant Section -->
-<section id="ai-asystent" style="background:#0B0B0F;padding:60px 0;">
-  <div style="max-width:680px;margin:0 auto;padding:0 24px;">
-    <div style="margin-bottom:20px;display:flex;align-items:center;gap:12px;">
-      <span style="font-family:monospace;font-size:11px;color:#00FFB3;border:1px solid #00FFB330;background:#00FFB312;padding:3px 10px;border-radius:999px;">● AI Powered</span>
-      <span style="font-family:monospace;font-size:11px;color:#6B7280;">Gemini 2.5 Flash</span>
-    </div>
-    <h2 style="font-family:monospace;font-size:1.3rem;color:#F9FAFB;margin-bottom:6px;">AI Asystent</h2>
-    <p style="font-family:monospace;font-size:12px;color:#6B7280;margin-bottom:20px;">Zadaj pytanie o usługi, cennik lub umów wizytę</p>
-
-    <div id="ai-chat-box" style="background:#12121A;border:1px solid #1F2937;border-radius:12px;overflow:hidden;">
-      <!-- Header -->
-      <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid #1F2937;background:#0D0D14;">
-        <div style="display:flex;gap:5px;">
-          <div style="width:8px;height:8px;border-radius:50%;background:#00FFB3;"></div>
-          <div style="width:8px;height:8px;border-radius:50%;background:#00FFB380;"></div>
-          <div style="width:8px;height:8px;border-radius:50%;background:#00FFB340;"></div>
+<div class="beauty-chat-widget">
+    <div id="beautyChatWindow" class="beauty-chat-window">
+        <div class="beauty-chat-header">
+            <div class="beauty-chat-avatar">💅</div>
+            <div class="flex-1">
+                <div style="font-weight:600;color:white;font-size:13.5px;">Asystentka Salonu</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.75);">Rezerwacje · Cennik · Pytania</div>
+            </div>
+            <button onclick="beautyToggle()" style="background:rgba(255,255,255,0.18);border:none;border-radius:8px;padding:4px 8px;cursor:pointer;color:white;font-size:13px;">✕</button>
         </div>
-        <span style="font-family:monospace;font-size:10px;color:#6B7280;flex:1;">assistant.sh</span>
-        <span id="ai-counter" style="font-family:monospace;font-size:9px;color:#4B5563;">10/10</span>
-      </div>
-
-      <!-- Messages -->
-      <div id="ai-messages" style="padding:16px;min-height:120px;max-height:320px;overflow-y:auto;font-family:monospace;font-size:13px;display:flex;flex-direction:column;gap:12px;">
-        <div style="padding-left:12px;border-left:2px solid #00FFB330;">
-          <span style="color:#D1D5DB;line-height:1.6;">Cześć! Jestem asystentem salonu. Pytaj o manicure, żel, nail art lub godziny otwarcia.</span>
+        <div id="beautyChatMsgs" class="beauty-chat-msgs">
+            <div class="bmsg-bot">Cześć! 💕 Jestem asystentką salonu. Pytaj o manicure hybrydowy, żel, nail art, terminy lub cennik. Chętnie pomogę!</div>
         </div>
-      </div>
-
-      <!-- Input -->
-      <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-top:1px solid #1F2937;background:#0D0D14;">
-        <span style="color:#00FFB3;font-family:monospace;font-size:14px;flex-shrink:0;">&gt;</span>
-        <input id="ai-input"
-          placeholder="Zapytaj o usługi, rezerwację..."
-          autocomplete="off" spellcheck="false"
-          style="flex:1;background:transparent;border:none;outline:none;font-family:monospace;font-size:13px;color:#E5E7EB;"
-          onkeydown="if(event.key==='Enter')aiSend()"
-        />
-        <button onclick="aiSend()" style="font-family:monospace;font-size:10px;padding:4px 10px;border:1px solid #1F2937;border-radius:6px;background:transparent;color:#6B7280;cursor:pointer;"
-          onmouseover="this.style.color='#00FFB3';this.style.borderColor='#00FFB340'"
-          onmouseout="this.style.color='#6B7280';this.style.borderColor='#1F2937'">
-          send
-        </button>
-      </div>
+        <div class="beauty-chat-input-row">
+            <input id="beautyInput" class="beauty-chat-input" placeholder="Zapytaj o termin, usługę..."
+                   autocomplete="off" spellcheck="false"
+                   onkeydown="if(event.key==='Enter')beautySend()">
+            <button id="beautySendBtn" class="beauty-chat-send" onclick="beautySend()">Wyślij</button>
+        </div>
+        <div style="padding:5px 12px 8px;background:#FFFAF9;border-top:1px solid #F4D0C8;text-align:center;">
+            <span style="font-size:10px;color:#D4A0A0;">Demo AI · </span>
+            <a href="https://mlynarskimateusz.pl" style="font-size:10px;color:#D4A373;text-decoration:none;">mlynarskimateusz.pl</a>
+            <span id="beautyCounter" style="font-size:10px;color:#D4A0A0;margin-left:8px;"></span>
+        </div>
     </div>
-
-    <p style="font-family:monospace;font-size:10px;color:#374151;margin-top:12px;text-align:center;">
-      Demo — <a href="https://mlynarskimateusz.pl" style="color:#00FFB3;text-decoration:none;">Portfolio OS</a> by Mateusz Młynarski
-    </p>
-  </div>
-</section>
+    <button class="beauty-chat-toggle" onclick="beautyToggle()" title="Asystentka AI">
+        <span id="beautyIcon">💅</span>
+        <div class="beauty-chat-badge"></div>
+    </button>
+</div>
 
 <script>
 (function(){
-  const API_KEY = 'AIzaSyAUYxMyzHBCQ12DhhAC7yXQCt2jAFrHarw';
-  const SYSTEM = `Jesteś AI asystentem salonu kosmetycznego specjalizującego się w stylizacji paznokci. Odpowiadaj krótko, po polsku, profesjonalnie i przyjaźnie. Pomagaj z: manicure hybrydowym, żelem, nail art, rezerwacjami, godzinami otwarcia. Nie podawaj cen których nie znasz. Nie odpowiadaj na tematy niezwiązane z salonem.`;
-  const MAX = 10;
-  let count = parseInt(sessionStorage.getItem('ai_n') || '0');
-  let history = [];
+    const API_KEY = 'AIzaSyAUYxMyzHBCQ12DhhAC7yXQCt2jAFrHarw';
+    const SYSTEM = `Jesteś miłą i profesjonalną asystentką salonu paznokci (Nail Art Studio). Odpowiadaj krótko, po polsku, przyjaźnie i z energią. Pomagaj z: manicure hybrydowym, żelem, nail art, rezerwacjami, godzinami otwarcia. Jeśli nie znasz ceny, powiedz że można zapytać bezpośrednio. Nie odpowiadaj na tematy niezwiązane z salonem.`;
+    const MAX = 10;
+    let count = parseInt(sessionStorage.getItem('beauty_n') || '0');
+    let history = [];
+    let open = false;
 
-  function updateCounter(){
-    const el = document.getElementById('ai-counter');
-    if(el) el.textContent = (MAX-count)+'/'+MAX;
-    if(MAX-count <= 3 && el) el.style.color = '#F59E0B';
-  }
-  updateCounter();
-
-  function addMsg(role, text){
-    const box = document.getElementById('ai-messages');
-    const d = document.createElement('div');
-    if(role==='user'){
-      d.innerHTML = '<div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:#00FFB3;flex-shrink:0;">&gt;</span><span style="color:#E5E7EB;">'+escHtml(text)+'</span></div>';
-    } else {
-      d.innerHTML = '<div style="padding-left:12px;border-left:2px solid #00FFB330;"><span style="color:#D1D5DB;line-height:1.6;">'+escHtml(text)+'</span></div>';
+    function updateCounter(){
+        const el = document.getElementById('beautyCounter');
+        if(el) el.textContent = (MAX-count > 0 ? (MAX-count)+'/'+MAX+' pytań' : 'limit demo');
     }
-    box.appendChild(d);
-    box.scrollTop = box.scrollHeight;
-  }
-
-  function addLoading(){
-    const box = document.getElementById('ai-messages');
-    const d = document.createElement('div');
-    d.id = 'ai-loading';
-    d.innerHTML = '<div style="padding-left:12px;border-left:2px solid #00FFB330;color:#6B7280;font-style:italic;">thinking...</div>';
-    box.appendChild(d);
-    box.scrollTop = box.scrollHeight;
-  }
-
-  function removeLoading(){
-    const l = document.getElementById('ai-loading');
-    if(l) l.remove();
-  }
-
-  function showLimit(){
-    const box = document.getElementById('ai-messages');
-    const d = document.createElement('div');
-    d.innerHTML = '<div style="text-align:center;padding:12px;border:1px solid #F59E0B30;border-radius:8px;background:#F59E0B08;"><div style="color:#F59E0B;font-size:12px;margin-bottom:4px;">Demo limit reached.</div><div style="color:#6B7280;font-size:11px;">Contact for full implementation.</div></div>';
-    box.appendChild(d);
-    box.scrollTop = box.scrollHeight;
-    const inp = document.getElementById('ai-input');
-    if(inp){ inp.disabled=true; inp.placeholder='Demo limit reached.'; }
-  }
-
-  function escHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-
-  window.aiSend = function(){
-    const inp = document.getElementById('ai-input');
-    const text = (inp.value||'').trim();
-    if(!text || inp.disabled) return;
-    if(count >= MAX){ showLimit(); return; }
-
-    inp.value = '';
-    count++;
-    sessionStorage.setItem('ai_n', count);
     updateCounter();
-    addMsg('user', text);
-    addLoading();
 
-    const contents = [...history.map(m=>({role:m.r==='a'?'model':'user',parts:[{text:m.t}]})),{role:'user',parts:[{text:text}]}];
+    window.beautyToggle = function(){
+        open = !open;
+        const w = document.getElementById('beautyChatWindow');
+        const icon = document.getElementById('beautyIcon');
+        if(open){ w.classList.add('open'); icon.textContent='✕'; }
+        else { w.classList.remove('open'); icon.textContent='💅'; }
+    };
 
-    fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key='+API_KEY, {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({
-        systemInstruction:{parts:[{text:SYSTEM}]},
-        contents,
-        generationConfig:{maxOutputTokens:200,temperature:0.7}
-      })
-    })
-    .then(r=>r.json())
-    .then(d=>{
-      removeLoading();
-      const reply = d.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || 'Przepraszam, spróbuj ponownie.';
-      addMsg('assistant', reply);
-      history.push({r:'u',t:text},{r:'a',t:reply});
-      if(count >= MAX) setTimeout(showLimit, 500);
-    })
-    .catch(()=>{ removeLoading(); addMsg('assistant','Błąd połączenia. Spróbuj ponownie.'); count--; sessionStorage.setItem('ai_n',count); updateCounter(); });
-  };
+    function addMsg(role, text){
+        const box = document.getElementById('beautyChatMsgs');
+        const d = document.createElement('div');
+        d.className = role === 'user' ? 'bmsg-user' : 'bmsg-bot';
+        d.textContent = text;
+        box.appendChild(d);
+        box.scrollTop = box.scrollHeight;
+    }
+
+    function addLoading(){
+        const box = document.getElementById('beautyChatMsgs');
+        const d = document.createElement('div');
+        d.id = 'beautyLoading'; d.className = 'bmsg-loading';
+        d.textContent = 'Piszę...';
+        box.appendChild(d); box.scrollTop = box.scrollHeight;
+    }
+
+    function removeLoading(){ const l=document.getElementById('beautyLoading'); if(l)l.remove(); }
+
+    function showLimit(){
+        const box = document.getElementById('beautyChatMsgs');
+        const d = document.createElement('div');
+        d.innerHTML = '<div style="text-align:center;padding:10px 8px;border:1px solid #F4C0B0;border-radius:12px;background:#FFF0F0;"><div style="color:#D4A373;font-size:12.5px;font-weight:600;margin-bottom:3px;">Limit demo osiągnięty</div><div style="color:#B08080;font-size:12px;">Napisz: <a href="mailto:salon@example.pl" style="color:#D4A373;font-weight:600;">napisz do nas</a></div></div>';
+        box.appendChild(d); box.scrollTop = box.scrollHeight;
+        const inp=document.getElementById('beautyInput'); const btn=document.getElementById('beautySendBtn');
+        if(inp){inp.disabled=true;inp.placeholder='Limit demo osiągnięty.';}
+        if(btn) btn.disabled=true;
+    }
+
+    window.beautySend = function(){
+        const inp = document.getElementById('beautyInput');
+        const text = (inp.value||'').trim();
+        if(!text || inp.disabled) return;
+        if(count >= MAX){ showLimit(); return; }
+
+        inp.value = '';
+        count++; sessionStorage.setItem('beauty_n', count); updateCounter();
+        addMsg('user', text); addLoading();
+
+        const contents = [...history.map(m=>({role:m.r==='a'?'model':'user',parts:[{text:m.t}]})),{role:'user',parts:[{text:text}]}];
+
+        fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key='+API_KEY, {
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ systemInstruction:{parts:[{text:SYSTEM}]}, contents, generationConfig:{maxOutputTokens:200,temperature:0.7} })
+        })
+        .then(r=>r.json())
+        .then(d=>{
+            removeLoading();
+            const reply = d.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || 'Przepraszam, spróbuj ponownie.';
+            addMsg('assistant', reply); history.push({r:'u',t:text},{r:'a',t:reply});
+            if(count >= MAX) setTimeout(showLimit, 600);
+        })
+        .catch(()=>{ removeLoading(); addMsg('assistant','Błąd połączenia. Spróbuj ponownie.'); count--; sessionStorage.setItem('beauty_n',count); updateCounter(); });
+    };
 })();
 </script>
 

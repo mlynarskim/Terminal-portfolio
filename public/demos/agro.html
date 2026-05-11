@@ -3,264 +3,610 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro-Serwis | Nowoczesne Usługi Rolnicze</title>
+    <title>Martur | Kompleksowe Agrousługi i Roboty Ziemne</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, #2C1F0A 0%, #3D2C0F 40%, #1A1206 100%);
+        }
+        .accent { color: #A8862A; }
+        .btn-primary {
+            background: linear-gradient(135deg, #8B6914, #A8862A);
+            color: white;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover { background: linear-gradient(135deg, #A8862A, #C9A84C); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(168,134,42,0.35); }
+        .service-card {
+            background: white;
+            border: 1px solid #E8DCC8;
+            border-radius: 16px;
+            transition: all 0.25s;
+        }
+        .service-card:hover {
+            border-color: #A8862A;
+            box-shadow: 0 8px 32px rgba(92,75,30,0.12);
+            transform: translateY(-3px);
+        }
+        .service-icon {
+            width: 56px; height: 56px;
+            background: linear-gradient(135deg, #FDF5E6, #F5E6C8);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem;
+        }
+        .chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 9999; }
+        .chat-toggle {
+            width: 58px; height: 58px;
+            background: linear-gradient(135deg, #8B6914, #A8862A);
+            border-radius: 50%;
+            border: none; cursor: pointer;
+            box-shadow: 0 4px 20px rgba(92,75,30,0.45);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            transition: all 0.2s;
+            position: relative;
+        }
+        .chat-toggle:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(92,75,30,0.55); }
+        .chat-badge {
+            position: absolute; top: -4px; right: -4px;
+            background: #22C55E;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot { 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.2); } }
+        .chat-window {
+            position: absolute;
+            bottom: 72px; right: 0;
+            width: 340px;
+            background: #FFFDF8;
+            border: 1px solid #D4B896;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(60,40,10,0.25);
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            max-height: 480px;
+        }
+        .chat-window.open { display: flex; }
+        .chat-header {
+            background: linear-gradient(135deg, #6B4F18, #8B6914);
+            padding: 14px 16px;
+            display: flex; align-items: center; gap: 10px;
+            flex-shrink: 0;
+        }
+        .chat-avatar {
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem;
+        }
+        .chat-messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-height: 180px;
+            max-height: 280px;
+        }
+        .msg-bot {
+            background: #F5EDD8;
+            border: 1px solid #DDD0B0;
+            border-radius: 14px 14px 14px 4px;
+            padding: 10px 13px;
+            font-size: 13.5px;
+            color: #3D2C0F;
+            line-height: 1.5;
+            max-width: 90%;
+        }
+        .msg-user {
+            background: linear-gradient(135deg, #8B6914, #A8862A);
+            color: white;
+            border-radius: 14px 14px 4px 14px;
+            padding: 10px 13px;
+            font-size: 13.5px;
+            line-height: 1.5;
+            max-width: 90%;
+            align-self: flex-end;
+        }
+        .msg-loading {
+            background: #F5EDD8;
+            border: 1px solid #DDD0B0;
+            border-radius: 14px;
+            padding: 10px 13px;
+            font-size: 13px;
+            color: #8B6914;
+        }
+        .chat-input-row {
+            padding: 10px 12px;
+            border-top: 1px solid #E8DCC8;
+            background: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+        .chat-input {
+            flex: 1;
+            background: #FDF5E6;
+            border: 1px solid #D4B896;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 13px;
+            color: #3D2C0F;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+        }
+        .chat-input:focus { border-color: #A8862A; }
+        .chat-send {
+            background: linear-gradient(135deg, #8B6914, #A8862A);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+            flex-shrink: 0;
+        }
+        .chat-send:hover { background: linear-gradient(135deg, #A8862A, #C9A84C); }
+        .chat-send:disabled { opacity: 0.45; cursor: default; }
+        .section-tag {
+            display: inline-block;
+            background: #FDF0D5;
+            color: #8B6914;
+            border: 1px solid #D4B896;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 12px;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-[#FAFAF7] text-[#2C1F0A]">
 
-    <div class="bg-green-800 text-white py-2 text-sm">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <span><i class="fas fa-map-marker-alt mr-2 text-green-300"></i>Działamy w promieniu 50km od [Twoja Miejscowość]</span>
-            <span class="hidden md:inline"><i class="fas fa-phone-alt mr-2 text-green-300"></i>+48 000 000 000</span>
+    <!-- Top bar -->
+    <div style="background:#3D2C0F;" class="text-amber-200 py-2 text-sm">
+        <div class="container mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-1 text-xs sm:text-sm">
+            <span><i class="fas fa-map-marker-alt mr-2 opacity-70"></i>Brzeg / Żłobizna – woj. opolskie</span>
+            <span><i class="fas fa-phone-alt mr-2 opacity-70"></i>+48 535 711 656</span>
         </div>
     </div>
 
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <!-- Nav -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-amber-100">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black text-green-700 tracking-tight uppercase">
-                AGRO<span class="text-gray-900">-PRO</span>
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <div style="background:#5C4B1E;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 14h2l1-4h14l2 4h2" stroke="#F5DFA0" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="5" cy="17" r="3" stroke="#F5DFA0" stroke-width="1.5"/>
+                        <circle cx="19" cy="17" r="2" stroke="#F5DFA0" stroke-width="1.5"/>
+                        <path d="M4 10V7l6-4h5l3 3v4" stroke="#F5DFA0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13 3v7" stroke="#F5DFA0" stroke-width="1.2" stroke-linecap="round"/>
+                        <path d="M19 7h4v3h-4" stroke="#F5DFA0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="font-bold text-lg leading-tight" style="color:#3D2C0F;">MARTUR</div>
+                    <div class="text-[10px] uppercase tracking-widest" style="color:#8B6914;">Agrousługi · Roboty Ziemne</div>
+                </div>
+            </a>
+
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-[#4A3520]">
+                <a href="#uslugi" class="hover:text-amber-700 transition">Usługi</a>
+                <a href="#maszyny" class="hover:text-amber-700 transition">Park Maszynowy</a>
+                <a href="#obszar" class="hover:text-amber-700 transition">Obszar działania</a>
+                <a href="#kontakt" class="hover:text-amber-700 transition">Kontakt</a>
             </div>
-            <div class="hidden md:flex space-x-6 font-semibold uppercase text-sm">
-                <a href="#maszyny" class="hover:text-green-600 transition">Park Maszynowy</a>
-                <a href="#uslugi" class="hover:text-green-600 transition">Zakres Prac</a>
-                <a href="#kontakt" class="hover:text-green-600 transition">Kontakt</a>
-            </div>
-            <a href="#kontakt" class="bg-green-700 text-white px-6 py-2 rounded font-bold hover:bg-green-800 transition">
-                Zamów usługę
+
+            <a href="tel:+48535711656" class="btn-primary px-5 py-2.5 rounded-xl text-sm font-semibold shadow-sm">
+                <i class="fas fa-phone mr-2 text-xs opacity-80"></i>Zadzwoń
             </a>
         </div>
     </nav>
 
-    <section class="relative h-[500px] flex items-center text-white">
+    <!-- Hero -->
+    <section class="hero-bg min-h-[580px] flex items-center text-white relative overflow-hidden">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover brightness-[0.4]" alt="Pole uprawne">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000"
+                 class="w-full h-full object-cover"
+                 style="opacity:0.18;" alt="Pola uprawne">
         </div>
-        <div class="container mx-auto px-6 relative z-10 text-center md:text-left">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 uppercase">Profesjonalne <br><span class="text-green-400">Usługi Rolnicze</span></h1>
-            <p class="text-lg md:text-xl mb-8 max-w-xl text-gray-200">Terminowość, nowoczesny sprzęt i lata doświadczenia w polu. Sprawdź, jak możemy pomóc w Twoim gospodarstwie.</p>
-            <div class="flex flex-col md:flex-row gap-4">
-                <div class="bg-white/10 backdrop-blur-md p-4 rounded border border-white/20">
-                    <span class="block text-2xl font-bold">15+</span>
-                    <span class="text-xs uppercase text-green-300 italic">lat doświadczenia</span>
+        <!-- decorative shapes -->
+        <div class="absolute top-0 right-0 w-96 h-96 rounded-full" style="background:radial-gradient(circle,rgba(168,134,42,0.12),transparent 70%);transform:translate(30%,-30%);"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full" style="background:radial-gradient(circle,rgba(168,134,42,0.1),transparent 70%);transform:translate(-30%,30%);"></div>
+
+        <div class="container mx-auto px-6 relative z-10 py-16">
+            <div class="max-w-2xl">
+                <div class="section-tag mb-6" style="background:rgba(168,134,42,0.2);color:#D4A84C;border-color:rgba(168,134,42,0.3);">
+                    Woj. opolskie · Brzeg / Żłobizna
                 </div>
-                <div class="bg-white/10 backdrop-blur-md p-4 rounded border border-white/20">
-                    <span class="block text-2xl font-bold">100%</span>
-                    <span class="text-xs uppercase text-green-300 italic">zadowolonych rolników</span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-5 leading-tight">
+                    Kompleksowe<br>
+                    <span style="color:#C9A84C;">Agrousługi</span><br>
+                    i Roboty Ziemne
+                </h1>
+                <p class="text-lg md:text-xl mb-8 max-w-xl text-amber-100 leading-relaxed">
+                    Profesjonalny sprzęt, terminowość i uczciwe podejście do każdego zlecenia.
+                    Koszenie, odśnieżanie, ziemne – jedz na skrót, zadzwoń do Martur.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="tel:+48535711656" class="btn-primary px-8 py-3.5 rounded-xl font-bold text-base text-center shadow-lg">
+                        <i class="fas fa-phone mr-2"></i>+48 535 711 656
+                    </a>
+                    <a href="#uslugi"
+                       class="px-8 py-3.5 rounded-xl font-bold text-base text-center transition"
+                       style="border:2px solid rgba(200,160,60,0.5);color:#D4A84C;"
+                       onmouseover="this.style.background='rgba(168,134,42,0.15)'"
+                       onmouseout="this.style.background='transparent'">
+                        Zobacz usługi
+                    </a>
+                </div>
+            </div>
+
+            <!-- stats -->
+            <div class="grid grid-cols-3 gap-4 mt-14 max-w-lg">
+                <div class="text-center p-4 rounded-2xl" style="background:rgba(255,255,255,0.06);border:1px solid rgba(200,160,60,0.2);">
+                    <div class="text-2xl font-bold" style="color:#C9A84C;">6+</div>
+                    <div class="text-xs uppercase tracking-wide text-amber-200 mt-1">usług</div>
+                </div>
+                <div class="text-center p-4 rounded-2xl" style="background:rgba(255,255,255,0.06);border:1px solid rgba(200,160,60,0.2);">
+                    <div class="text-2xl font-bold" style="color:#C9A84C;">24/7</div>
+                    <div class="text-xs uppercase tracking-wide text-amber-200 mt-1">odśnieżanie</div>
+                </div>
+                <div class="text-center p-4 rounded-2xl" style="background:rgba(255,255,255,0.06);border:1px solid rgba(200,160,60,0.2);">
+                    <div class="text-2xl font-bold" style="color:#C9A84C;">100%</div>
+                    <div class="text-xs uppercase tracking-wide text-amber-200 mt-1">na czas</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="uslugi" class="py-20">
+    <!-- Services -->
+    <section id="uslugi" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-black mb-12 border-l-8 border-green-600 pl-4 uppercase">Zakres naszych usług</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 shadow-md rounded-lg hover:translate-y-[-5px] transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1594140720485-649e499d6342?auto=format&fit=crop&q=80&w=400" class="w-full h-40 object-cover rounded mb-4 shadow-inner" alt="Orka">
-                    <h3 class="text-xl font-bold mb-2">Uprawa i Orka</h3>
-                    <p class="text-gray-600 text-sm">Orka pługami obracalnymi, kultywatorowanie, przygotowanie pod siew.</p>
+            <div class="text-center mb-14">
+                <span class="section-tag mb-4">Zakres usług</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 text-[#2C1F0A]">Co robimy?</h2>
+                <p class="text-gray-500 mt-3 max-w-lg mx-auto">Kompleksowa obsługa klientów indywidualnych, firm i samorządów. Nowoczesny sprzęt i doświadczenie w terenie.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="service-card p-6">
+                    <div class="service-icon mb-4">🌿</div>
+                    <h3 class="font-bold text-lg mb-2 text-[#2C1F0A]">Koszenie trawy i poboczy</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Koszenie przydrożnych poboczy, trawników, skarp i nieużytków. Szybkie realizacje na dużych powierzchniach.</p>
                 </div>
-                <div class="bg-white p-6 shadow-md rounded-lg hover:translate-y-[-5px] transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1592919016382-706df83b9fa1?auto=format&fit=crop&q=80&w=400" class="w-full h-40 object-cover rounded mb-4 shadow-inner" alt="Zbiory">
-                    <h3 class="text-xl font-bold mb-2">Zbiory Zbóż</h3>
-                    <p class="text-gray-600 text-sm">Koszenie kombajnem z przystawką do kukurydzy i rzepaku. Szybki odbiór ziarna.</p>
+
+                <div class="service-card p-6">
+                    <div class="service-icon mb-4">❄️</div>
+                    <h3 class="font-bold text-lg mb-2 text-[#2C1F0A]">Odśnieżanie</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Całodobowe odśnieżanie dróg, parkingów, placów i posesji. Gotowość dyżurowa przez całą zimę.</p>
                 </div>
-                <div class="bg-white p-6 shadow-md rounded-lg hover:translate-y-[-5px] transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1624720114708-0cbd6ee41f4e?auto=format&fit=crop&q=80&w=400" class="w-full h-40 object-cover rounded mb-4 shadow-inner" alt="Nawożenie">
-                    <h3 class="text-xl font-bold mb-2">Rozsiew Nawozów</h3>
-                    <p class="text-gray-600 text-sm">Precyzyjne nawożenie mineralne oraz wywóz gnojowicy/obornika.</p>
+
+                <div class="service-card p-6">
+                    <div class="service-icon mb-4">🚿</div>
+                    <h3 class="font-bold text-lg mb-2 text-[#2C1F0A]">Zamiatanie dróg</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Mechaniczne zamiatanie dróg, ulic, chodników i placów. Usuwanie piachu, liści i zanieczyszczeń po zimie.</p>
                 </div>
-                <div class="bg-white p-6 shadow-md rounded-lg hover:translate-y-[-5px] transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?auto=format&fit=crop&q=80&w=400" class="w-full h-40 object-cover rounded mb-4 shadow-inner" alt="Sianokosy">
-                    <h3 class="text-xl font-bold mb-2">Sianokosy</h3>
-                    <p class="text-gray-600 text-sm">Koszenie traw, przetrząsanie, zgrabianie oraz prasowanie bel (siano, słoma).</p>
+
+                <div class="service-card p-6">
+                    <div class="service-icon mb-4">🏗️</div>
+                    <h3 class="font-bold text-lg mb-2 text-[#2C1F0A]">Roboty ziemne</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Wykopy, niwelacja terenu, nasypy, rowy odwadniające. Obsługa maszyn do prac ziemnych różnego zakresu.</p>
                 </div>
+
+                <div class="service-card p-6">
+                    <div class="service-icon mb-4">🌾</div>
+                    <h3 class="font-bold text-lg mb-2 text-[#2C1F0A]">Prace polowe</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Usługi rolnicze – orka, bronowanie, siew, zbiór. Wsparcie w sezonie dla rolników indywidualnych.</p>
+                </div>
+
+                <div class="service-card p-6">
+                    <div class="service-icon mb-4">🌳</div>
+                    <h3 class="font-bold text-lg mb-2 text-[#2C1F0A]">Rozdrabnianie gałęzi</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Rębak do gałęzi i odpadów drzewnych. Szybkie rozdrabnianie po wycinkach, porządkowanie terenu po burzach.</p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section class="bg-green-900 py-16 text-white overflow-hidden relative">
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <h2 class="text-3xl font-bold mb-6 italic">Wolne terminy na nadchodzący sezon!</h2>
-            <p class="mb-8 text-green-100 uppercase tracking-widest font-semibold">Zadzwoń i zarezerwuj maszynę już dzisiaj</p>
-            <a href="tel:000000000" class="bg-white text-green-900 px-10 py-4 rounded-full text-2xl font-black hover:scale-105 transition inline-block">
-                <i class="fas fa-phone mr-2"></i> 000 000 000
-            </a>
-        </div>
-    </section>
-
-    <section id="kontakt" class="py-20 bg-gray-100">
+    <!-- Park maszynowy -->
+    <section id="maszyny" class="py-20" style="background:#F7F3EA;">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-2xl p-8 md:p-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-                    <div>
-                        <h2 class="text-3xl font-bold mb-6 text-green-800">Biuro Obsługi</h2>
-                        <p class="mb-4">Działamy 7 dni w tygodniu w okresie żniwnym.</p>
-                        <ul class="space-y-4 font-medium">
-                            <li class="flex items-center"><i class="fas fa-envelope text-green-600 mr-3"></i> agro@uslugi.pl</li>
-                            <li class="flex items-center"><i class="fas fa-map-pin text-green-600 mr-3"></i> ul. Polna 4, 00-000 Wieś</li>
-                        </ul>
+            <div class="text-center mb-14">
+                <span class="section-tag mb-4">Sprzęt</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 text-[#2C1F0A]">Park Maszynowy</h2>
+                <p class="text-gray-500 mt-3 max-w-lg mx-auto">Dysponujemy własnym sprzętem gotowym do pracy w każdych warunkach.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white rounded-2xl p-5 text-center border border-amber-100 hover:border-amber-300 transition">
+                    <div class="text-3xl mb-3">🚜</div>
+                    <div class="font-semibold text-sm text-[#3D2C0F]">Ciągnik</div>
+                    <div class="text-xs text-gray-400 mt-1">z osprzętem</div>
+                </div>
+                <div class="bg-white rounded-2xl p-5 text-center border border-amber-100 hover:border-amber-300 transition">
+                    <div class="text-3xl mb-3">🚛</div>
+                    <div class="font-semibold text-sm text-[#3D2C0F]">Zamiatarka</div>
+                    <div class="text-xs text-gray-400 mt-1">mechaniczna</div>
+                </div>
+                <div class="bg-white rounded-2xl p-5 text-center border border-amber-100 hover:border-amber-300 transition">
+                    <div class="text-3xl mb-3">⚙️</div>
+                    <div class="font-semibold text-sm text-[#3D2C0F]">Pług odśnieżny</div>
+                    <div class="text-xs text-gray-400 mt-1">+ piaskownica</div>
+                </div>
+                <div class="bg-white rounded-2xl p-5 text-center border border-amber-100 hover:border-amber-300 transition">
+                    <div class="text-3xl mb-3">🔩</div>
+                    <div class="font-semibold text-sm text-[#3D2C0F]">Rębak</div>
+                    <div class="text-xs text-gray-400 mt-1">do gałęzi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Obszar -->
+    <section id="obszar" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-3xl text-center">
+            <span class="section-tag mb-4">Zasięg</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-5 text-[#2C1F0A]">Gdzie działamy?</h2>
+            <p class="text-gray-500 leading-relaxed max-w-xl mx-auto mb-8">
+                Świadczymy usługi głównie na terenie powiatu brzeskiego i okolic — Brzeg, Żłobizna i gminy sąsiednie.
+                W przypadku większych zleceń możliwy wyjazd dalej. Skontaktuj się, żeby omówić szczegóły.
+            </p>
+            <div class="inline-flex items-center gap-3 px-6 py-3 rounded-2xl border border-amber-200 bg-amber-50">
+                <i class="fas fa-map-marker-alt text-amber-700"></i>
+                <span class="font-semibold text-amber-900">Brzeg / Żłobizna – woj. opolskie</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" style="background:#2C1F0A;" class="py-20 text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="section-tag mb-4" style="background:rgba(168,134,42,0.2);color:#D4A84C;border-color:rgba(168,134,42,0.3);">Kontakt</span>
+                    <h2 class="text-3xl font-bold mt-4 mb-3">Napisz lub zadzwoń</h2>
+                    <p style="color:#B89A70;" class="mb-8 leading-relaxed">Odpowiadamy szybko. Wycena usług jest bezpłatna — po krótkim opisie zlecenia podamy orientacyjną cenę.</p>
+                    <div class="space-y-5">
+                        <a href="tel:+48535711656"
+                           class="flex items-center gap-4 group">
+                            <div style="background:rgba(168,134,42,0.2);border:1px solid rgba(168,134,42,0.3);"
+                                 class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-amber-400 text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs uppercase tracking-widest text-amber-600 mb-0.5">Telefon</div>
+                                <div class="font-semibold group-hover:text-amber-300 transition">+48 535 711 656</div>
+                            </div>
+                        </a>
+                        <a href="mailto:agrousługi.martur@gmail.com"
+                           class="flex items-center gap-4 group">
+                            <div style="background:rgba(168,134,42,0.2);border:1px solid rgba(168,134,42,0.3);"
+                                 class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-amber-400 text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs uppercase tracking-widest text-amber-600 mb-0.5">E-mail</div>
+                                <div class="font-semibold group-hover:text-amber-300 transition text-sm">agrousługi.martur@gmail.com</div>
+                            </div>
+                        </a>
+                        <a href="https://www.facebook.com/martur.agrouslugi" target="_blank" rel="noopener noreferrer"
+                           class="flex items-center gap-4 group">
+                            <div style="background:rgba(168,134,42,0.2);border:1px solid rgba(168,134,42,0.3);"
+                                 class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-facebook text-amber-400 text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs uppercase tracking-widest text-amber-600 mb-0.5">Facebook</div>
+                                <div class="font-semibold group-hover:text-amber-300 transition">martur.agrouslugi</div>
+                            </div>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <div style="background:rgba(168,134,42,0.2);border:1px solid rgba(168,134,42,0.3);"
+                                 class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-amber-400 text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs uppercase tracking-widest text-amber-600 mb-0.5">Lokalizacja</div>
+                                <div class="font-semibold">Brzeg / Żłobizna, woj. opolskie</div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <form class="space-y-4">
-                            <input type="text" placeholder="Imię / Nazwa Gospodarstwa" class="w-full p-4 border rounded focus:ring-2 focus:ring-green-600 outline-none">
-                            <input type="tel" placeholder="Numer telefonu" class="w-full p-4 border rounded focus:ring-2 focus:ring-green-600 outline-none">
-                            <textarea placeholder="Opis zlecenia (ilość hektarów, rodzaj prac)" class="w-full p-4 border rounded h-32 focus:ring-2 focus:ring-green-600 outline-none"></textarea>
-                            <button class="w-full bg-green-700 text-white py-4 font-bold rounded hover:bg-green-800">Wyślij zapytanie</button>
-                        </form>
+                </div>
+                <div>
+                    <div class="rounded-2xl p-8" style="background:rgba(255,255,255,0.05);border:1px solid rgba(168,134,42,0.2);">
+                        <h3 class="font-bold text-lg mb-6 text-amber-200">Wyślij wiadomość</h3>
+                        <div class="space-y-4">
+                            <input type="text" placeholder="Imię i nazwisko"
+                                   class="w-full px-4 py-3 rounded-xl text-sm outline-none"
+                                   style="background:rgba(255,255,255,0.07);border:1px solid rgba(168,134,42,0.25);color:#F5DFA0;font-family:'Inter',sans-serif;"
+                                   onfocus="this.style.borderColor='rgba(168,134,42,0.6)'"
+                                   onblur="this.style.borderColor='rgba(168,134,42,0.25)'">
+                            <input type="tel" placeholder="Numer telefonu"
+                                   class="w-full px-4 py-3 rounded-xl text-sm outline-none"
+                                   style="background:rgba(255,255,255,0.07);border:1px solid rgba(168,134,42,0.25);color:#F5DFA0;font-family:'Inter',sans-serif;"
+                                   onfocus="this.style.borderColor='rgba(168,134,42,0.6)'"
+                                   onblur="this.style.borderColor='rgba(168,134,42,0.25)'">
+                            <textarea placeholder="Opisz zlecenie (usługa, lokalizacja, przybliżony termin)..."
+                                      class="w-full px-4 py-3 rounded-xl text-sm outline-none h-28 resize-none"
+                                      style="background:rgba(255,255,255,0.07);border:1px solid rgba(168,134,42,0.25);color:#F5DFA0;font-family:'Inter',sans-serif;"
+                                      onfocus="this.style.borderColor='rgba(168,134,42,0.6)'"
+                                      onblur="this.style.borderColor='rgba(168,134,42,0.25)'"></textarea>
+                            <button class="btn-primary w-full py-3.5 rounded-xl font-bold text-sm">
+                                Wyślij zapytanie →
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-gray-500 py-10 text-center">
-        <p>&copy; 2026 AGRO-PRO. Twoje zbiory są naszym priorytetem.</p>
+    <!-- Footer -->
+    <footer style="background:#1A1206;" class="py-8 text-center text-xs text-amber-900">
+        <div class="flex items-center justify-center gap-2 mb-2">
+            <div style="background:#5C4B1E;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="12" viewBox="0 0 26 22" fill="none">
+                    <path d="M1 14h2l1-4h14l2 4h2" stroke="#F5DFA0" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="5" cy="17" r="3" stroke="#F5DFA0" stroke-width="2"/>
+                    <circle cx="19" cy="17" r="2" stroke="#F5DFA0" stroke-width="2"/>
+                    <path d="M4 10V7l6-4h5l3 3v4" stroke="#F5DFA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <span class="text-amber-700 font-semibold">MARTUR Agrousługi</span>
+        </div>
+        <p class="text-amber-900">© 2026 Martur – Kompleksowe Agrousługi i Roboty Ziemne · Brzeg, woj. opolskie</p>
+        <p class="mt-1 text-amber-950 text-[10px]">
+            Strona wykonana przez <a href="https://mlynarskimateusz.pl" class="text-amber-800 hover:text-amber-600 transition">Mateusz Młynarski</a>
+        </p>
     </footer>
 
-
-<!-- AI Assistant Section -->
-<section id="ai-asystent" style="background:#0B0B0F;padding:60px 0;">
-  <div style="max-width:680px;margin:0 auto;padding:0 24px;">
-    <div style="margin-bottom:20px;display:flex;align-items:center;gap:12px;">
-      <span style="font-family:monospace;font-size:11px;color:#00FFB3;border:1px solid #00FFB330;background:#00FFB312;padding:3px 10px;border-radius:999px;">● AI Powered</span>
-      <span style="font-family:monospace;font-size:11px;color:#6B7280;">Gemini 2.5 Flash</span>
-    </div>
-    <h2 style="font-family:monospace;font-size:1.3rem;color:#F9FAFB;margin-bottom:6px;">AI Asystent</h2>
-    <p style="font-family:monospace;font-size:12px;color:#6B7280;margin-bottom:20px;">Zapytaj o usługi rolnicze lub dostępność maszyn</p>
-
-    <div id="ai-chat-box" style="background:#12121A;border:1px solid #1F2937;border-radius:12px;overflow:hidden;">
-      <!-- Header -->
-      <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid #1F2937;background:#0D0D14;">
-        <div style="display:flex;gap:5px;">
-          <div style="width:8px;height:8px;border-radius:50%;background:#00FFB3;"></div>
-          <div style="width:8px;height:8px;border-radius:50%;background:#00FFB380;"></div>
-          <div style="width:8px;height:8px;border-radius:50%;background:#00FFB340;"></div>
+    <!-- Floating AI Chat Widget -->
+    <div class="chat-widget">
+        <div id="chatWindow" class="chat-window">
+            <div class="chat-header">
+                <div class="chat-avatar">🌿</div>
+                <div class="flex-1">
+                    <div class="font-semibold text-white text-sm">Asystent Martur</div>
+                    <div class="text-xs" style="color:rgba(255,255,255,0.65);">Pytaj o usługi i wyceny</div>
+                </div>
+                <button onclick="toggleChat()" style="background:rgba(255,255,255,0.1);border:none;border-radius:8px;padding:5px 8px;cursor:pointer;color:white;font-size:14px;">✕</button>
+            </div>
+            <div id="chatMessages" class="chat-messages">
+                <div class="msg-bot">Dzień dobry! Jestem asystentem firmy Martur. Pytaj o zakres usług, obszar działania, sprzęt lub wyceny. Chętnie pomogę! 🌾</div>
+            </div>
+            <div class="chat-input-row">
+                <input id="chatInput" class="chat-input" placeholder="Zapytaj o usługi..."
+                       autocomplete="off" spellcheck="false"
+                       onkeydown="if(event.key==='Enter')chatSend()">
+                <button id="chatSendBtn" class="chat-send" onclick="chatSend()">Wyślij</button>
+            </div>
+            <div style="padding:6px 12px 8px;background:white;border-top:1px solid #F0E8D8;text-align:center;">
+                <span style="font-size:10px;color:#B8A080;">Demo AI · </span>
+                <a href="https://mlynarskimateusz.pl" style="font-size:10px;color:#8B6914;text-decoration:none;">mlynarskimateusz.pl</a>
+                <span id="chatCounter" style="font-size:10px;color:#B8A080;margin-left:8px;"></span>
+            </div>
         </div>
-        <span style="font-family:monospace;font-size:10px;color:#6B7280;flex:1;">assistant.sh</span>
-        <span id="ai-counter" style="font-family:monospace;font-size:9px;color:#4B5563;">10/10</span>
-      </div>
-
-      <!-- Messages -->
-      <div id="ai-messages" style="padding:16px;min-height:120px;max-height:320px;overflow-y:auto;font-family:monospace;font-size:13px;display:flex;flex-direction:column;gap:12px;">
-        <div style="padding-left:12px;border-left:2px solid #00FFB330;">
-          <span style="color:#D1D5DB;line-height:1.6;">Dzień dobry! Jestem asystentem firmy rolniczej. Pytaj o koszenie, oranie, nawożenie lub dostępność sprzętu.</span>
-        </div>
-      </div>
-
-      <!-- Input -->
-      <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-top:1px solid #1F2937;background:#0D0D14;">
-        <span style="color:#00FFB3;font-family:monospace;font-size:14px;flex-shrink:0;">&gt;</span>
-        <input id="ai-input"
-          placeholder="Zapytaj o usługi agro, terminy..."
-          autocomplete="off" spellcheck="false"
-          style="flex:1;background:transparent;border:none;outline:none;font-family:monospace;font-size:13px;color:#E5E7EB;"
-          onkeydown="if(event.key==='Enter')aiSend()"
-        />
-        <button onclick="aiSend()" style="font-family:monospace;font-size:10px;padding:4px 10px;border:1px solid #1F2937;border-radius:6px;background:transparent;color:#6B7280;cursor:pointer;"
-          onmouseover="this.style.color='#00FFB3';this.style.borderColor='#00FFB340'"
-          onmouseout="this.style.color='#6B7280';this.style.borderColor='#1F2937'">
-          send
+        <button class="chat-toggle" onclick="toggleChat()" title="Asystent AI">
+            <span id="chatIcon">💬</span>
+            <div class="chat-badge"></div>
         </button>
-      </div>
     </div>
 
-    <p style="font-family:monospace;font-size:10px;color:#374151;margin-top:12px;text-align:center;">
-      Demo — <a href="https://mlynarskimateusz.pl" style="color:#00FFB3;text-decoration:none;">Portfolio OS</a> by Mateusz Młynarski
-    </p>
-  </div>
-</section>
+    <script>
+    (function(){
+        const API_KEY = 'AIzaSyAy8ATFPRoZPe2ZJ8NsMc21v-WmTD9tzyA';
+        const SYSTEM = `Jesteś pomocnym asystentem firmy Martur – Kompleksowe Agrousługi i Roboty Ziemne z siedzibą w Brzegu / Żłobiznie (woj. opolskie). Odpowiadaj krótko, po polsku, przyjaźnie i rzeczowo. Firma oferuje: koszenie trawy i poboczy, odśnieżanie (24/7 w sezonie), zamiatanie dróg, roboty ziemne, prace polowe i usługi rolnicze, rozdrabnianie gałęzi. Kontakt: +48 535 711 656, agrousługi.martur@gmail.com, Facebook: martur.agrouslugi. Jeśli pytanie wykracza poza zakres firmy, uprzejmie przekieruj do kontaktu telefonicznego.`;
+        const MAX = 10;
+        let count = parseInt(sessionStorage.getItem('agro_n') || '0');
+        let history = [];
+        let open = false;
 
-<script>
-(function(){
-  const API_KEY = 'AIzaSyAy8ATFPRoZPe2ZJ8NsMc21v-WmTD9tzyA';
-  const SYSTEM = `Jesteś AI asystentem firmy świadczącej usługi rolnicze. Odpowiadaj krótko, po polsku, rzeczowo. Pomagaj z: koszeniem, oraniem, nawożeniem, zbiorami, dostępnością maszyn, terminami. Nie podawaj cen usług. Nie odpowiadaj na tematy niezwiązane z usługami rolniczymi.`;
-  const MAX = 10;
-  let count = parseInt(sessionStorage.getItem('ai_n') || '0');
-  let history = [];
+        function updateCounter(){
+            const el = document.getElementById('chatCounter');
+            if(el) el.textContent = (MAX-count > 0 ? (MAX-count)+'/'+MAX+' pytań' : 'limit demo');
+        }
+        updateCounter();
 
-  function updateCounter(){
-    const el = document.getElementById('ai-counter');
-    if(el) el.textContent = (MAX-count)+'/'+MAX;
-    if(MAX-count <= 3 && el) el.style.color = '#F59E0B';
-  }
-  updateCounter();
+        window.toggleChat = function(){
+            open = !open;
+            const w = document.getElementById('chatWindow');
+            const icon = document.getElementById('chatIcon');
+            if(open){ w.classList.add('open'); icon.textContent='✕'; }
+            else { w.classList.remove('open'); icon.textContent='💬'; }
+        };
 
-  function addMsg(role, text){
-    const box = document.getElementById('ai-messages');
-    const d = document.createElement('div');
-    if(role==='user'){
-      d.innerHTML = '<div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:#00FFB3;flex-shrink:0;">&gt;</span><span style="color:#E5E7EB;">'+escHtml(text)+'</span></div>';
-    } else {
-      d.innerHTML = '<div style="padding-left:12px;border-left:2px solid #00FFB330;"><span style="color:#D1D5DB;line-height:1.6;">'+escHtml(text)+'</span></div>';
-    }
-    box.appendChild(d);
-    box.scrollTop = box.scrollHeight;
-  }
+        function addMsg(role, text){
+            const box = document.getElementById('chatMessages');
+            const d = document.createElement('div');
+            d.className = role === 'user' ? 'msg-user' : 'msg-bot';
+            d.textContent = text;
+            box.appendChild(d);
+            box.scrollTop = box.scrollHeight;
+        }
 
-  function addLoading(){
-    const box = document.getElementById('ai-messages');
-    const d = document.createElement('div');
-    d.id = 'ai-loading';
-    d.innerHTML = '<div style="padding-left:12px;border-left:2px solid #00FFB330;color:#6B7280;font-style:italic;">thinking...</div>';
-    box.appendChild(d);
-    box.scrollTop = box.scrollHeight;
-  }
+        function addLoading(){
+            const box = document.getElementById('chatMessages');
+            const d = document.createElement('div');
+            d.id = 'chatLoading';
+            d.className = 'msg-loading';
+            d.innerHTML = '<span class="dots">●</span> pisze...';
+            box.appendChild(d);
+            box.scrollTop = box.scrollHeight;
+        }
 
-  function removeLoading(){
-    const l = document.getElementById('ai-loading');
-    if(l) l.remove();
-  }
+        function removeLoading(){
+            const l = document.getElementById('chatLoading');
+            if(l) l.remove();
+        }
 
-  function showLimit(){
-    const box = document.getElementById('ai-messages');
-    const d = document.createElement('div');
-    d.innerHTML = '<div style="text-align:center;padding:12px;border:1px solid #F59E0B30;border-radius:8px;background:#F59E0B08;"><div style="color:#F59E0B;font-size:12px;margin-bottom:4px;">Demo limit reached.</div><div style="color:#6B7280;font-size:11px;">Contact for full implementation.</div></div>';
-    box.appendChild(d);
-    box.scrollTop = box.scrollHeight;
-    const inp = document.getElementById('ai-input');
-    if(inp){ inp.disabled=true; inp.placeholder='Demo limit reached.'; }
-  }
+        function showLimit(){
+            const box = document.getElementById('chatMessages');
+            const d = document.createElement('div');
+            d.innerHTML = '<div style="text-align:center;padding:12px 8px;border:1px solid #D4B896;border-radius:12px;background:#FDF5E6;"><div style="color:#8B6914;font-size:12.5px;font-weight:600;margin-bottom:4px;">Limit demo osiągnięty</div><div style="color:#9C8060;font-size:12px;">Zadzwoń: <a href="tel:+48535711656" style="color:#8B6914;font-weight:600;">+48 535 711 656</a></div></div>';
+            box.appendChild(d);
+            box.scrollTop = box.scrollHeight;
+            const inp = document.getElementById('chatInput');
+            const btn = document.getElementById('chatSendBtn');
+            if(inp){ inp.disabled=true; inp.placeholder='Limit demo osiągnięty.'; }
+            if(btn){ btn.disabled=true; }
+        }
 
-  function escHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+        window.chatSend = function(){
+            const inp = document.getElementById('chatInput');
+            const text = (inp.value||'').trim();
+            if(!text || inp.disabled) return;
+            if(count >= MAX){ showLimit(); return; }
 
-  window.aiSend = function(){
-    const inp = document.getElementById('ai-input');
-    const text = (inp.value||'').trim();
-    if(!text || inp.disabled) return;
-    if(count >= MAX){ showLimit(); return; }
+            inp.value = '';
+            count++;
+            sessionStorage.setItem('agro_n', count);
+            updateCounter();
+            addMsg('user', text);
+            addLoading();
 
-    inp.value = '';
-    count++;
-    sessionStorage.setItem('ai_n', count);
-    updateCounter();
-    addMsg('user', text);
-    addLoading();
+            const contents = [...history.map(m=>({role:m.r==='a'?'model':'user',parts:[{text:m.t}]})),{role:'user',parts:[{text:text}]}];
 
-    const contents = [...history.map(m=>({role:m.r==='a'?'model':'user',parts:[{text:m.t}]})),{role:'user',parts:[{text:text}]}];
-
-    fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key='+API_KEY, {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({
-        systemInstruction:{parts:[{text:SYSTEM}]},
-        contents,
-        generationConfig:{maxOutputTokens:200,temperature:0.7}
-      })
-    })
-    .then(r=>r.json())
-    .then(d=>{
-      removeLoading();
-      const reply = d.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || 'Przepraszam, spróbuj ponownie.';
-      addMsg('assistant', reply);
-      history.push({r:'u',t:text},{r:'a',t:reply});
-      if(count >= MAX) setTimeout(showLimit, 500);
-    })
-    .catch(()=>{ removeLoading(); addMsg('assistant','Błąd połączenia. Spróbuj ponownie.'); count--; sessionStorage.setItem('ai_n',count); updateCounter(); });
-  };
-})();
-</script>
+            fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key='+API_KEY, {
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({
+                    systemInstruction:{parts:[{text:SYSTEM}]},
+                    contents,
+                    generationConfig:{maxOutputTokens:220,temperature:0.65}
+                })
+            })
+            .then(r=>r.json())
+            .then(d=>{
+                removeLoading();
+                const reply = d.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || 'Przepraszam, spróbuj ponownie.';
+                addMsg('assistant', reply);
+                history.push({r:'u',t:text},{r:'a',t:reply});
+                if(count >= MAX) setTimeout(showLimit, 600);
+            })
+            .catch(()=>{
+                removeLoading();
+                addMsg('assistant','Błąd połączenia. Zadzwoń na +48 535 711 656.');
+                count--; sessionStorage.setItem('agro_n',count); updateCounter();
+            });
+        };
+    })();
+    </script>
 
 </body>
 </html>
