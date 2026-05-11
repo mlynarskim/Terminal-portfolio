@@ -151,7 +151,7 @@ export default function BusinessAIApp() {
             {[
               { label: 'beauty-ai.demo', url: '/demos/beauty.html', color: '#FB7185', icon: '💅', desc: 'Nail Studio · AI chat' },
               { label: 'workshop-ai.demo', url: '/demos/workshop.html', color: '#F59E0B', icon: '🔧', desc: 'Auto-Expert · AI chat' },
-              { label: 'agro-ai.demo', url: '/demos/agro.html', color: '#34D399', icon: '🌾', desc: 'Martur Agrousługi · AI chat' },
+              { label: 'Martur Agrousługi', url: '/demos/agro.html', color: '#34D399', icon: '🌾', desc: 'Agrousługi · Roboty Ziemne' },
             ].map((d) => (
               <a
                 key={d.label}
