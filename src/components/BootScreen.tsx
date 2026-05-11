@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../contexts/LanguageContext'
 
 interface Props {
   onEnter: () => void
   onSimple: () => void
 }
 
-const BOOT_LINES = [
-  { text: '> Initializing Portfolio OS v1.0...', delay: 0 },
-  { text: '> Loading 5 projects...', delay: 500 },
-  { text: '> All systems ready.', delay: 950 },
-]
-
 export default function BootScreen({ onEnter, onSimple }: Props) {
+  const { t } = useLanguage()
   const [visible, setVisible] = useState(true)
   const [bootStep, setBootStep] = useState(0)
   const [showPrompt, setShowPrompt] = useState(false)
+
+  const BOOT_LINES = [
+    { text: t.boot.init, delay: 0 },
+    { text: t.boot.loading, delay: 500 },
+    { text: t.boot.ready, delay: 950 },
+  ]
 
   useEffect(() => {
     const timers: ReturnType<typeof setTimeout>[] = []
@@ -98,10 +100,10 @@ export default function BootScreen({ onEnter, onSimple }: Props) {
                       className="text-2xl sm:text-3xl font-mono font-medium tracking-tight mb-1"
                       style={{ color: '#00FFB3', textShadow: '0 0 30px rgba(0,255,179,0.5)' }}
                     >
-                      Press Enter to start
+                      {t.boot.pressEnter}
                       <span className="cursor-blink ml-1 opacity-70">_</span>
                     </div>
-                    <div className="text-xs text-muted font-mono">or click anywhere</div>
+                    <div className="text-xs text-muted font-mono">{t.boot.orClick}</div>
                   </motion.button>
 
                   <motion.div
@@ -114,14 +116,14 @@ export default function BootScreen({ onEnter, onSimple }: Props) {
                       onClick={handleEnter}
                       className="text-xs text-muted hover:text-gray-400 transition-colors font-mono underline underline-offset-2"
                     >
-                      skip intro
+                      {t.boot.skipIntro}
                     </button>
                     <span className="text-muted/30 font-mono text-xs">·</span>
                     <button
                       onClick={onSimple}
                       className="text-xs text-muted/50 hover:text-gray-400 transition-colors font-mono underline underline-offset-2"
                     >
-                      simple view
+                      {t.boot.simpleView}
                     </button>
                   </motion.div>
                 </motion.div>
@@ -143,7 +145,7 @@ export default function BootScreen({ onEnter, onSimple }: Props) {
             className="absolute bottom-10 left-0 right-0 flex justify-center px-6"
           >
             <p className="text-[10px] font-mono text-muted/40 text-center">
-              Best experienced on desktop
+              {t.boot.mobileHint}
             </p>
           </motion.div>
         </motion.div>

@@ -5,7 +5,11 @@ import TopBar from './components/TopBar'
 import Desktop from './components/Desktop'
 import CommandPalette from './components/CommandPalette'
 import SimpleView from './components/SimpleView'
+import WallpaperPicker from './components/WallpaperPicker'
 import type { WindowId } from './hooks/useWindowManager'
+import { useLanguage } from './contexts/LanguageContext'
+import { getWallpaper, DEFAULT_WALLPAPER } from './data/wallpapers'
+import type { WallpaperId } from './data/wallpapers'
 
 type Mode = 'boot' | 'desktop' | 'simple'
 
@@ -16,12 +20,24 @@ function isMobileDevice() {
 }
 
 export default function App() {
+  const { t } = useLanguage()
   const [mode, setMode] = useState<Mode>('boot')
   const [paletteOpen, setPaletteOpen] = useState(false)
+  const [wallpaperPickerOpen, setWallpaperPickerOpen] = useState(false)
   const [pendingOpen, setPendingOpen] = useState<WindowId | null>(null)
   const [isMobile, setIsMobile] = useState(isMobileDevice)
   const [easterEgg, setEasterEgg] = useState(false)
+  const [wallpaperId, setWallpaperId] = useState<WallpaperId>(() => {
+    return (localStorage.getItem('wallpaper') as WallpaperId) ?? DEFAULT_WALLPAPER
+  })
   const konamiProgress = useRef(0)
+
+  const wallpaper = getWallpaper(wallpaperId)
+
+  const handleSetWallpaper = (id: WallpaperId) => {
+    setWallpaperId(id)
+    localStorage.setItem('wallpaper', id)
+  }
 
   useEffect(() => {
     const onResize = () => setIsMobile(isMobileDevice())
@@ -79,7 +95,7 @@ export default function App() {
               onClick={() => setMode('desktop')}
               className="text-xs font-mono text-muted hover:text-accent transition-colors border border-border rounded px-2 py-1"
             >
-              ← OS view
+              {t.osView}
             </button>
           )}
         </div>
@@ -89,7 +105,26 @@ export default function App() {
   }
 
   return (
-    <div className="w-full" style={{ height: '100dvh', overflow: 'hidden', background: '#0B0B0F' }}>
+    <div
+      className="w-full"
+      style={{
+        height: '100dvh',
+        overflow: 'hidden',
+        background: mode === 'desktop' ? wallpaper.background : '#0B0B0F',
+        transition: 'background 0.6s ease',
+      }}
+    >
+      {/* Grid overlay for wallpapers that need it (e.g. Matrix) */}
+      {mode === 'desktop' && wallpaper.gridColor && (
+        <div
+          className="fixed inset-0 pointer-events-none z-0"
+          style={{
+            backgroundImage: `linear-gradient(${wallpaper.gridColor} 1px, transparent 1px), linear-gradient(90deg, ${wallpaper.gridColor} 1px, transparent 1px)`,
+            backgroundSize: '40px 40px',
+          }}
+        />
+      )}
+
       {mode === 'boot' && (
         <BootScreen onEnter={handleEnter} onSimple={() => setMode('simple')} />
       )}
@@ -99,6 +134,7 @@ export default function App() {
           <TopBar onOpenPalette={() => setPaletteOpen(true)} />
           <Desktop
             onOpenPalette={() => setPaletteOpen(true)}
+            onOpenWallpaperPicker={() => setWallpaperPickerOpen(true)}
             externalOpen={pendingOpen}
             onExternalHandled={() => setPendingOpen(null)}
           />
@@ -106,6 +142,12 @@ export default function App() {
             isOpen={paletteOpen}
             onClose={() => setPaletteOpen(false)}
             onSelect={handlePaletteSelect}
+          />
+          <WallpaperPicker
+            isOpen={wallpaperPickerOpen}
+            current={wallpaperId}
+            onSelect={handleSetWallpaper}
+            onClose={() => setWallpaperPickerOpen(false)}
           />
         </>
       )}
@@ -130,9 +172,9 @@ export default function App() {
             >
               <div className="text-6xl mb-4">🕹️</div>
               <div className="text-2xl font-bold mb-2" style={{ color: '#00FFB3' }}>
-                +30 lives unlocked
+                {t.easter.unlocked}
               </div>
-              <div className="text-sm text-muted">You found the easter egg. Congrats!</div>
+              <div className="text-sm text-muted">{t.easter.congrats}</div>
               <div className="mt-4 text-xs text-muted/50">↑↑↓↓←→←→BA</div>
             </motion.div>
           </motion.div>

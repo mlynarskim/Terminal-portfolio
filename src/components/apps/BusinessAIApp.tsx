@@ -1,51 +1,10 @@
 import { motion } from 'framer-motion'
-
-const services = [
-  {
-    id: 'chatbots',
-    icon: '🤖',
-    title: 'AI Chatbots',
-    desc: 'Custom assistants trained on your business — handle FAQs, bookings and support 24/7.',
-    color: '#00FFB3',
-  },
-  {
-    id: 'booking',
-    icon: '📅',
-    title: 'Booking Assistants',
-    desc: 'AI that books appointments, sends reminders and reduces no-shows automatically.',
-    color: '#3B82F6',
-  },
-  {
-    id: 'support',
-    icon: '💬',
-    title: 'Customer Support AI',
-    desc: 'Instant, accurate answers to customer questions — no waiting, no missed messages.',
-    color: '#A78BFA',
-  },
-  {
-    id: 'websites',
-    icon: '🌐',
-    title: 'AI-powered Websites',
-    desc: 'Modern business sites with built-in AI assistants. Stand out from generic templates.',
-    color: '#F59E0B',
-  },
-  {
-    id: 'leads',
-    icon: '📈',
-    title: 'Lead Generation Tools',
-    desc: 'AI forms and flows that qualify leads automatically before they reach you.',
-    color: '#FB7185',
-  },
-]
-
-const industries = [
-  { icon: '💅', label: 'Beauty salons' },
-  { icon: '🔧', label: 'Workshops' },
-  { icon: '🍽️', label: 'Restaurants' },
-  { icon: '🏪', label: 'Local businesses' },
-]
+import { useLanguage } from '../../contexts/LanguageContext'
 
 export default function BusinessAIApp() {
+  const { t } = useLanguage()
+  const { services, industries } = t.businessAI
+
   return (
     <div className="h-full flex flex-col overflow-auto">
       {/* Header */}
@@ -61,14 +20,14 @@ export default function BusinessAIApp() {
           <div className="flex items-center gap-2 mb-2">
             <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border"
               style={{ color: '#00FFB3', borderColor: '#00FFB330', background: '#00FFB312' }}>
-              ● AI powered
+              {t.businessAI.badge}
             </span>
           </div>
-          <h2 className="text-base font-bold text-gray-100 leading-snug mb-1">
-            AI tools and automations<br />for modern businesses
+          <h2 className="text-base font-bold text-gray-100 leading-snug mb-1" style={{ whiteSpace: 'pre-line' }}>
+            {t.businessAI.heading}
           </h2>
           <p className="text-xs font-mono text-muted">
-            Ship faster. Automate more. Stand out online.
+            {t.businessAI.sub}
           </p>
         </motion.div>
       </div>
@@ -78,7 +37,7 @@ export default function BusinessAIApp() {
 
         {/* Services */}
         <div>
-          <div className="text-[10px] text-muted font-mono mb-3 uppercase tracking-wider">Services</div>
+          <div className="text-[10px] text-muted font-mono mb-3 uppercase tracking-wider">{t.businessAI.servicesHeader}</div>
           <div className="space-y-2">
             {services.map((s, i) => (
               <motion.div
@@ -114,7 +73,7 @@ export default function BusinessAIApp() {
 
         {/* Industries */}
         <div>
-          <div className="text-[10px] text-muted font-mono mb-3 uppercase tracking-wider">Industries</div>
+          <div className="text-[10px] text-muted font-mono mb-3 uppercase tracking-wider">{t.businessAI.industriesHeader}</div>
           <div className="grid grid-cols-2 gap-2">
             {industries.map((ind) => (
               <div
@@ -139,19 +98,19 @@ export default function BusinessAIApp() {
             style={{ background: '#00FFB3', color: '#0B0B0F' }}
           >
             <span>✉️</span>
-            <span>Contact</span>
+            <span>{t.businessAI.ctaBtn}</span>
             <span>→</span>
           </motion.a>
         </div>
 
         {/* Demo links */}
         <div>
-          <div className="text-[10px] text-muted font-mono mb-2 uppercase tracking-wider">Live demos</div>
+          <div className="text-[10px] text-muted font-mono mb-2 uppercase tracking-wider">{t.businessAI.demosHeader}</div>
           <div className="space-y-1.5">
             {[
-              { label: 'beauty-ai.demo', url: '/demos/beauty.html', color: '#FB7185', icon: '💅', desc: 'Nail Studio · AI chat' },
-              { label: 'workshop-ai.demo', url: '/demos/workshop.html', color: '#F59E0B', icon: '🔧', desc: 'Auto-Expert · AI chat' },
-              { label: 'Martur Agrousługi', url: '/demos/agro.html', color: '#34D399', icon: '🌾', desc: 'Agrousługi · Roboty Ziemne' },
+              { label: 'beauty-ai.demo', url: '/demos/beauty.html', color: '#FB7185', icon: '💅', desc: t.projects.demoTaglines['beauty-ai'] },
+              { label: 'workshop-ai.demo', url: '/demos/workshop.html', color: '#F59E0B', icon: '🔧', desc: t.projects.demoTaglines['workshop-ai'] },
+              { label: 'Martur Agrousługi', url: '/demos/agro.html', color: '#34D399', icon: '🌾', desc: t.projects.demoTaglines['agro-ai'] },
             ].map((d) => (
               <a
                 key={d.label}
@@ -170,7 +129,7 @@ export default function BusinessAIApp() {
                   className="text-[10px] px-2 py-1 rounded-lg border flex-shrink-0 font-semibold transition-all"
                   style={{ borderColor: `${d.color}40`, background: `${d.color}12`, color: d.color }}
                 >
-                  Open Demo ↗
+                  {t.projects.demo}
                 </span>
               </a>
             ))}

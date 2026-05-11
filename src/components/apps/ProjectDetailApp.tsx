@@ -2,32 +2,34 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Project, BuildStatus } from '../../data/projects'
 import PhoneMockup from '../PhoneMockup'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 interface Props {
   project: Project
 }
 
-const statusConfig: Record<BuildStatus, { label: string; color: string; bg: string; dot: string }> = {
-  live:          { label: 'Live',         color: '#00FFB3', bg: '#00FFB312', dot: '#00FFB3' },
-  'coming-soon': { label: 'Coming soon',  color: '#3B82F6', bg: '#3B82F612', dot: '#3B82F6' },
-  beta:          { label: 'Beta',         color: '#A78BFA', bg: '#A78BFA12', dot: '#A78BFA' },
-  wip:           { label: 'In progress',  color: '#F59E0B', bg: '#F59E0B12', dot: '#F59E0B' },
-}
-
 export default function ProjectDetailApp({ project }: Props) {
+  const { t } = useLanguage()
   const [webScreen, setWebScreen] = useState(0)
   const isMobile = project.platform === 'ios' || project.platform === 'ios+android'
   const primaryLink = project.links.find((l) => l.primary) ?? project.links[0]
   const secondaryLinks = project.links.filter((l) => !l.primary)
 
-  const status = project.status ? statusConfig[project.status] : null
+  const statusColors: Record<BuildStatus, { color: string; bg: string; dot: string }> = {
+    live:          { color: '#00FFB3', bg: '#00FFB312', dot: '#00FFB3' },
+    'coming-soon': { color: '#3B82F6', bg: '#3B82F612', dot: '#3B82F6' },
+    beta:          { color: '#A78BFA', bg: '#A78BFA12', dot: '#A78BFA' },
+    wip:           { color: '#F59E0B', bg: '#F59E0B12', dot: '#F59E0B' },
+  }
+
+  const statusCfg = project.status ? statusColors[project.status] : null
+  const statusLabel = project.status ? t.projectDetail.status[project.status] : null
 
   // Web screenshots
   const webScreenshots = !isMobile
-    ? (project.screenshots ?? Array.from({ length: project.screenshotCount ?? 0 }, (_, i) => ''))
+    ? (project.screenshots ?? Array.from({ length: project.screenshotCount ?? 0 }, () => ''))
     : []
   const hasWebScreens = webScreenshots.some(s => s.length > 0)
-  const webCount = hasWebScreens ? webScreenshots.filter(s => s.length > 0).length : (project.screenshotCount ?? 0)
   const webImages = webScreenshots.filter(s => s.length > 0)
 
   return (
@@ -63,36 +65,36 @@ export default function ProjectDetailApp({ project }: Props) {
           {project.platform === 'ios' && (
             <span className="text-[10px] px-2 py-0.5 rounded-full font-mono border"
               style={{ color: '#00FFB3', borderColor: '#00FFB330', background: '#00FFB312' }}>
-              iOS · Swift · Xcode
+              {t.projectDetail.platform.ios}
             </span>
           )}
           {project.platform === 'ios+android' && (
             <span className="text-[10px] px-2 py-0.5 rounded-full font-mono border"
               style={{ color: '#3B82F6', borderColor: '#3B82F630', background: '#3B82F612' }}>
-              iOS + Android · React Native
+              {t.projectDetail.platform['ios+android']}
             </span>
           )}
           {project.platform === 'web' && (
             <span className="text-[10px] px-2 py-0.5 rounded-full font-mono border"
               style={{ color: project.color, borderColor: `${project.color}30`, background: `${project.color}12` }}>
-              Web app
+              {t.projectDetail.platform.web}
             </span>
           )}
 
           {/* Status badge */}
-          {status && (
+          {statusCfg && statusLabel && (
             <span
               className="text-[10px] px-2 py-0.5 rounded-full font-mono border flex items-center gap-1"
-              style={{ color: status.color, borderColor: `${status.color}30`, background: status.bg }}
+              style={{ color: statusCfg.color, borderColor: `${statusCfg.color}30`, background: statusCfg.bg }}
             >
               <span
                 className="w-1.5 h-1.5 rounded-full inline-block flex-shrink-0"
                 style={{
-                  background: status.dot,
-                  boxShadow: project.status === 'live' ? `0 0 6px ${status.dot}` : 'none',
+                  background: statusCfg.dot,
+                  boxShadow: project.status === 'live' ? `0 0 6px ${statusCfg.dot}` : 'none',
                 }}
               />
-              {status.label}
+              {statusLabel}
             </span>
           )}
         </div>
@@ -178,7 +180,7 @@ export default function ProjectDetailApp({ project }: Props) {
                 style={{ background: `${project.color}06` }}
               >
                 <span className="text-2xl">{project.emoji}</span>
-                <span className="text-xs font-mono text-muted">screenshots coming soon</span>
+                <span className="text-xs font-mono text-muted">{t.projectDetail.screenshotsComingSoon}</span>
               </div>
             )}
 
@@ -204,16 +206,16 @@ export default function ProjectDetailApp({ project }: Props) {
 
         {/* Tech stack */}
         <div>
-          <div className="text-[10px] text-muted font-mono mb-2 uppercase tracking-wider">Tech stack</div>
+          <div className="text-[10px] text-muted font-mono mb-2 uppercase tracking-wider">{t.projectDetail.techStack}</div>
           <div className="flex flex-wrap gap-1.5">
-            {project.tech.map((t) => (
+            {project.tech.map((tech) => (
               <motion.span
-                key={t}
+                key={tech}
                 whileHover={{ scale: 1.05 }}
                 className="text-xs px-2 py-1 rounded-lg font-mono cursor-default"
                 style={{ background: `${project.color}12`, color: project.color, border: `1px solid ${project.color}25` }}
               >
-                {t}
+                {tech}
               </motion.span>
             ))}
           </div>
@@ -222,7 +224,7 @@ export default function ProjectDetailApp({ project }: Props) {
         {/* Links */}
         {project.links.length > 0 && (
           <div className="space-y-2">
-            <div className="text-[10px] text-muted font-mono mb-2 uppercase tracking-wider">Links</div>
+            <div className="text-[10px] text-muted font-mono mb-2 uppercase tracking-wider">{t.projectDetail.links}</div>
             {primaryLink && (
               <motion.a
                 href={primaryLink.url}
@@ -260,14 +262,14 @@ export default function ProjectDetailApp({ project }: Props) {
 
         {project.links.length === 0 && (
           <div className="text-xs font-mono text-muted border border-border rounded-lg px-3 py-2">
-            🚧 Coming soon — links will be added on launch
+            {t.projectDetail.comingSoonLinks}
           </div>
         )}
 
         {/* Social links */}
         {project.socialLinks && project.socialLinks.length > 0 && (
           <div>
-            <div className="text-[10px] text-muted font-mono mb-2 uppercase tracking-wider">Follow</div>
+            <div className="text-[10px] text-muted font-mono mb-2 uppercase tracking-wider">{t.projectDetail.follow}</div>
             <div className="flex flex-wrap gap-2">
               {project.socialLinks.map((link) => (
                 <a
