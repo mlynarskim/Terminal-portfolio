@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 const email = 'mlynarski.mateusz@gmail.com'
 
@@ -13,6 +14,7 @@ const socials = [
 ]
 
 export default function ContactApp() {
+  const { t } = useLanguage()
   const [copied, setCopied] = useState(false)
 
   const copy = () => {
@@ -30,8 +32,8 @@ export default function ContactApp() {
         className="text-center pt-2"
       >
         <div className="text-3xl mb-2">👋</div>
-        <h2 className="text-base font-semibold text-gray-100">Let's build something</h2>
-        <p className="text-xs text-muted font-mono mt-1">Got an app idea? Need an MVP? I'm available for new projects.</p>
+        <h2 className="text-base font-semibold text-gray-100">{t.contact.heading}</h2>
+        <p className="text-xs text-muted font-mono mt-1">{t.contact.sub}</p>
       </motion.div>
 
       {/* Email */}
@@ -53,7 +55,7 @@ export default function ContactApp() {
             animate={{ opacity: 1, y: 0 }}
             className={`text-xs flex-shrink-0 ${copied ? 'text-accent' : 'text-muted group-hover:text-accent'} transition-colors`}
           >
-            {copied ? '✓ copied' : 'copy'}
+            {copied ? t.contact.copied : t.contact.copy}
           </motion.span>
         </button>
 
@@ -63,7 +65,7 @@ export default function ContactApp() {
           style={{ background: '#00FFB3', color: '#0B0B0F' }}
         >
           <span>✉️</span>
-          <span>Let's build something</span>
+          <span>{t.contact.cta}</span>
         </a>
       </motion.div>
 
@@ -73,7 +75,7 @@ export default function ContactApp() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.14 }}
       >
-        <div className="text-[10px] text-muted font-mono mb-2 uppercase tracking-wider">Find me online</div>
+        <div className="text-[10px] text-muted font-mono mb-2 uppercase tracking-wider">{t.contact.findMe}</div>
         <div className="grid grid-cols-2 gap-1.5">
           {socials.map((s) => (
             <a

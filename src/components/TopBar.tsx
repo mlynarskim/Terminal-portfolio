@@ -1,24 +1,27 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../contexts/LanguageContext'
 
 interface TopBarProps {
   onOpenPalette: () => void
 }
 
 export default function TopBar({ onOpenPalette }: TopBarProps) {
+  const { lang, setLang, t } = useLanguage()
   const [time, setTime] = useState('')
   const [date, setDate] = useState('')
 
   useEffect(() => {
+    const locale = lang === 'pl' ? 'pl-PL' : 'en-US'
     const update = () => {
       const now = new Date()
-      setTime(now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }))
-      setDate(now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }))
+      setTime(now.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit', hour12: false }))
+      setDate(now.toLocaleDateString(locale, { weekday: 'short', month: 'short', day: 'numeric' }))
     }
     update()
     const id = setInterval(update, 1000)
     return () => clearInterval(id)
-  }, [])
+  }, [lang])
 
   return (
     <motion.div
@@ -36,12 +39,31 @@ export default function TopBar({ onOpenPalette }: TopBarProps) {
       </div>
 
       <div className="flex items-center gap-4">
+        {/* Language switcher */}
+        <div className="flex items-center gap-1 font-mono text-[11px]">
+          <button
+            onClick={() => setLang('pl')}
+            className="transition-colors px-1 py-0.5 rounded"
+            style={{ color: lang === 'pl' ? '#00FFB3' : '#4B5563', fontWeight: lang === 'pl' ? 600 : 400 }}
+          >
+            PL
+          </button>
+          <span style={{ color: '#2D2D35' }}>|</span>
+          <button
+            onClick={() => setLang('en')}
+            className="transition-colors px-1 py-0.5 rounded"
+            style={{ color: lang === 'en' ? '#00FFB3' : '#4B5563', fontWeight: lang === 'en' ? 600 : 400 }}
+          >
+            EN
+          </button>
+        </div>
+
         <button
           onClick={onOpenPalette}
           className="flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors font-mono border border-border rounded px-2 py-0.5 hover:border-accent/30"
         >
           <kbd className="text-[10px]">⌘K</kbd>
-          <span>palette</span>
+          <span>{t.topbar.palette}</span>
         </button>
 
         <div className="text-right">

@@ -1,27 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { WindowId } from '../hooks/useWindowManager'
-
-interface Command {
-  id: string
-  label: string
-  description: string
-  action: WindowId
-  emoji: string
-}
-
-const commands: Command[] = [
-  { id: 'projects', label: 'Projects', description: 'View all projects', action: 'projects', emoji: '📁' },
-  { id: 'business-ai', label: 'Business AI', description: 'AI tools for businesses', action: 'business-ai', emoji: '🤖' },
-  { id: 'assistant', label: 'Assistant', description: 'Ask me anything', action: 'assistant', emoji: '💬' },
-  { id: 'about', label: 'About', description: 'About Mateusz', action: 'about', emoji: '👤' },
-  { id: 'contact', label: 'Contact', description: 'Get in touch', action: 'contact', emoji: '✉️' },
-  { id: 'travel-rules', label: 'Open Travel Rules', description: 'iOS app · Swift', action: 'project-travel-rules', emoji: '✈️' },
-  { id: 'rate-that-beach', label: 'Open Rate That Beach', description: 'iOS + Android · React Native', action: 'project-rate-that-beach', emoji: '🏖️' },
-  { id: 'travel-rules-hub', label: 'Open Travel Rules HUB', description: 'Web platform', action: 'project-travel-rules-hub', emoji: '🌐' },
-  { id: 'solos', label: 'Open SOLOS', description: 'AI movie curator · web app', action: 'project-solos', emoji: '🎬' },
-  { id: 'panda', label: 'Open Panda', description: 'Dating app · iOS + Android', action: 'project-panda', emoji: '🐼' },
-]
+import { useLanguage } from '../contexts/LanguageContext'
 
 interface Props {
   isOpen: boolean
@@ -30,9 +10,12 @@ interface Props {
 }
 
 export default function CommandPalette({ isOpen, onClose, onSelect }: Props) {
+  const { t } = useLanguage()
   const [query, setQuery] = useState('')
   const [selected, setSelected] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  const commands = t.commandPalette.commands
 
   const filtered = query.trim()
     ? commands.filter(
@@ -59,7 +42,7 @@ export default function CommandPalette({ isOpen, onClose, onSelect }: Props) {
       if (e.key === 'ArrowDown') { e.preventDefault(); setSelected((s) => Math.min(s + 1, filtered.length - 1)) }
       if (e.key === 'ArrowUp') { e.preventDefault(); setSelected((s) => Math.max(s - 1, 0)) }
       if (e.key === 'Enter' && filtered[selected]) {
-        onSelect(filtered[selected].action)
+        onSelect(filtered[selected].action as WindowId)
         onClose()
       }
     }
@@ -96,11 +79,10 @@ export default function CommandPalette({ isOpen, onClose, onSelect }: Props) {
                   ref={inputRef}
                   value={query}
                   onChange={(e) => {
-                    // allow only letters, digits, spaces — no special chars or scripts
                     const safe = e.target.value.replace(/[^a-zA-Z0-9 ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/g, '')
                     setQuery(safe)
                   }}
-                  placeholder="Type a command..."
+                  placeholder={t.commandPalette.placeholder}
                   autoComplete="off"
                   autoCorrect="off"
                   autoCapitalize="off"
@@ -112,12 +94,12 @@ export default function CommandPalette({ isOpen, onClose, onSelect }: Props) {
 
               <div className="py-1 max-h-72 overflow-y-auto">
                 {filtered.length === 0 && (
-                  <div className="px-4 py-6 text-center text-muted text-sm font-mono">No results</div>
+                  <div className="px-4 py-6 text-center text-muted text-sm font-mono">{t.commandPalette.noResults}</div>
                 )}
                 {filtered.map((cmd, i) => (
                   <button
                     key={cmd.id}
-                    onClick={() => { onSelect(cmd.action); onClose() }}
+                    onClick={() => { onSelect(cmd.action as WindowId); onClose() }}
                     onMouseEnter={() => setSelected(i)}
                     className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors"
                     style={{ background: i === selected ? 'rgba(0,255,179,0.06)' : 'transparent' }}

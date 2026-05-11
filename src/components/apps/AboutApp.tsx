@@ -1,23 +1,26 @@
 import { motion } from 'framer-motion'
-
-const lines = [
-  { type: 'comment', text: '// mateusz.ts — last updated 2026' },
-  { type: 'blank' },
-  { type: 'keyword', text: 'const', label: ' mateusz = {' },
-  { type: 'prop', key: 'role', value: '"AI Builder & App Developer"', color: '#A78BFA' },
-  { type: 'prop', key: 'focus', value: '["AI Tools", "iOS", "Android", "Automations"]', color: '#34D399' },
-  { type: 'prop', key: 'mission', value: '"Save time, automate tasks, stand out online"', color: '#FCD34D' },
-  { type: 'prop', key: 'nativeTools', value: '["Swift", "SwiftUI", "Xcode"]', color: '#60A5FA' },
-  { type: 'prop', key: 'crossPlatform', value: '["React Native", "Expo", "TypeScript"]', color: '#34D399' },
-  { type: 'prop', key: 'backend', value: '["Firebase", "Firestore", "Node.js"]', color: '#F97316' },
-  { type: 'prop', key: 'aiTools', value: '["Claude", "Cursor", "Gemini"]', color: '#C084FC' },
-  { type: 'prop', key: 'availability', value: '"Open to work & new projects"', color: '#00FFB3' },
-  { type: 'close', text: '}' },
-  { type: 'blank' },
-  { type: 'secret', text: '// psst — try the classic cheat code 🕹️' },
-]
+import { useLanguage } from '../../contexts/LanguageContext'
 
 export default function AboutApp() {
+  const { t } = useLanguage()
+
+  const lines = [
+    { type: 'comment', text: '// mateusz.ts — last updated 2026' },
+    { type: 'blank' },
+    { type: 'keyword', text: 'const', label: ' mateusz = {' },
+    { type: 'prop', key: 'role', value: t.about.role, color: '#A78BFA' },
+    { type: 'prop', key: 'focus', value: t.about.focus, color: '#34D399' },
+    { type: 'prop', key: 'mission', value: t.about.mission, color: '#FCD34D' },
+    { type: 'prop', key: 'nativeTools', value: '["Swift", "SwiftUI", "Xcode"]', color: '#60A5FA' },
+    { type: 'prop', key: 'crossPlatform', value: '["React Native", "Expo", "TypeScript"]', color: '#34D399' },
+    { type: 'prop', key: 'backend', value: '["Firebase", "Firestore", "Node.js"]', color: '#F97316' },
+    { type: 'prop', key: 'aiTools', value: '["Claude", "Cursor", "Gemini"]', color: '#C084FC' },
+    { type: 'prop', key: 'availability', value: t.about.availability, color: '#00FFB3' },
+    { type: 'close', text: '}' },
+    { type: 'blank' },
+    { type: 'secret', text: t.about.secret },
+  ]
+
   return (
     <div className="h-full flex flex-col p-5 font-mono text-sm">
       <div className="flex items-center gap-2 mb-4">
@@ -78,7 +81,7 @@ export default function AboutApp() {
           className="text-[10px] font-mono px-2 py-0.5 rounded-full border"
           style={{ color: '#00FFB3', borderColor: '#00FFB330', background: '#00FFB312' }}
         >
-          ✦ open to work
+          {t.about.openToWork}
         </span>
       </motion.div>
     </div>

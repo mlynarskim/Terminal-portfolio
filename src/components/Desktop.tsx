@@ -11,9 +11,11 @@ import ProjectDetailApp from './apps/ProjectDetailApp'
 import { useWindowManager } from '../hooks/useWindowManager'
 import type { WindowId } from '../hooks/useWindowManager'
 import { projects, currentlyBuilding } from '../data/projects'
+import { useLanguage } from '../contexts/LanguageContext'
 
 interface Props {
   onOpenPalette: () => void
+  onOpenWallpaperPicker: () => void
   externalOpen: WindowId | null
   onExternalHandled: () => void
 }
@@ -25,9 +27,11 @@ const statusDot: Record<string, string> = {
   'wip':          '#F59E0B',
 }
 
-export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled }: Props) {
+export default function Desktop({ onOpenPalette, onOpenWallpaperPicker, externalOpen, onExternalHandled }: Props) {
   const wm = useWindowManager()
+  const { t, lang } = useLanguage()
   const [showToast, setShowToast] = useState(false)
+  const [contextMenu, setContextMenu] = useState<{ x: number; y: number } | null>(null)
 
   useEffect(() => {
     if (externalOpen) {
@@ -42,12 +46,30 @@ export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled
     return () => { clearTimeout(t1); clearTimeout(t2) }
   }, [])
 
+  // Close context menu on click anywhere
+  useEffect(() => {
+    const close = () => setContextMenu(null)
+    window.addEventListener('click', close)
+    return () => window.removeEventListener('click', close)
+  }, [])
+
+  const handleContextMenu = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Only show on bare desktop (not inside a window or icon)
+    const target = e.target as HTMLElement
+    if (target.closest('[data-window]') || target.closest('[data-appicon]')) return
+    e.preventDefault()
+    // Keep menu within viewport
+    const x = Math.min(e.clientX, window.innerWidth - 180)
+    const y = Math.min(e.clientY, window.innerHeight - 80)
+    setContextMenu({ x, y })
+  }
+
   const appIcons = [
-    { id: 'projects' as WindowId,    label: 'Projects',    emoji: '📁', color: '#00FFB3' },
-    { id: 'business-ai' as WindowId, label: 'Business AI', emoji: '🤖', color: '#A78BFA' },
-    { id: 'assistant' as WindowId,   label: 'Assistant',   emoji: '💬', color: '#3B82F6' },
-    { id: 'about' as WindowId,       label: 'About',       emoji: '👤', color: '#F59E0B' },
-    { id: 'contact' as WindowId,     label: 'Contact',     emoji: '✉️', color: '#FB7185' },
+    { id: 'projects' as WindowId,    label: t.apps.projects,   emoji: '📁', color: '#00FFB3' },
+    { id: 'business-ai' as WindowId, label: t.apps.businessAI, emoji: '🤖', color: '#A78BFA' },
+    { id: 'assistant' as WindowId,   label: t.apps.assistant,  emoji: '💬', color: '#3B82F6' },
+    { id: 'about' as WindowId,       label: t.apps.about,      emoji: '👤', color: '#F59E0B' },
+    { id: 'contact' as WindowId,     label: t.apps.contact,    emoji: '✉️', color: '#FB7185' },
   ]
 
   const projectPositions = [
@@ -56,7 +78,10 @@ export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled
   ]
 
   return (
-    <div className="fixed inset-0 pt-10">
+    <div
+      className="fixed inset-0 pt-10"
+      onContextMenu={handleContextMenu}
+    >
       <div className="scanline" />
 
       {/* Desktop icons */}
@@ -67,14 +92,15 @@ export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled
         className="absolute top-16 left-6 flex flex-col gap-5"
       >
         {appIcons.map((app) => (
-          <AppIcon
-            key={app.id}
-            label={app.label}
-            emoji={app.emoji}
-            accentColor={app.color}
-            isOpen={wm.isOpen(app.id)}
-            onClick={() => wm.openWindow(app.id)}
-          />
+          <div key={app.id} data-appicon>
+            <AppIcon
+              label={app.label}
+              emoji={app.emoji}
+              accentColor={app.color}
+              isOpen={wm.isOpen(app.id)}
+              onClick={() => wm.openWindow(app.id)}
+            />
+          </div>
         ))}
       </motion.div>
 
@@ -90,7 +116,7 @@ export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled
           className="rounded-xl border border-border px-3 py-3"
           style={{ background: 'rgba(18,18,26,0.85)', backdropFilter: 'blur(12px)' }}
         >
-          <div className="text-[9px] text-muted uppercase tracking-widest mb-2">Currently building</div>
+          <div className="text-[9px] text-muted uppercase tracking-widest mb-2">{t.desktop.currentlyBuilding}</div>
           <div className="space-y-2">
             {currentlyBuilding.map((item) => (
               <div key={item.project} className="flex items-start gap-2">
@@ -122,8 +148,7 @@ export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled
           onClick={onOpenPalette}
           className="text-xs text-muted hover:text-accent transition-colors font-mono"
         >
-          <kbd className="border border-border rounded px-1 py-0.5 mr-1">⌘K</kbd>
-          command palette
+          {t.desktop.cmdHint}
         </button>
       </motion.div>
 
@@ -142,61 +167,89 @@ export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled
               style={{ background: 'rgba(18,18,26,0.95)', backdropFilter: 'blur(12px)' }}
             >
               <span className="text-accent">✦</span>
-              Press
-              <kbd className="border border-border rounded px-1 py-0.5 text-accent">⌘K</kbd>
-              to open command palette
+              {t.desktop.cmdHint}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
+      {/* Right-click context menu */}
+      <AnimatePresence>
+        {contextMenu && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.1 }}
+            className="fixed z-[180] rounded-xl overflow-hidden border border-border shadow-window"
+            style={{
+              left: contextMenu.x,
+              top: contextMenu.y,
+              background: 'rgba(18,18,26,0.97)',
+              backdropFilter: 'blur(16px)',
+              minWidth: 168,
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => { setContextMenu(null); onOpenWallpaperPicker() }}
+              className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm text-gray-300 hover:bg-white/5 hover:text-accent transition-colors font-mono text-left"
+            >
+              <span>🖼️</span>
+              <span>{lang === 'pl' ? 'Zmień tapetę' : 'Change wallpaper'}</span>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* ── Windows ── */}
-      <Window id="projects" title="Projects.app" isOpen={wm.isOpen('projects')} zIndex={wm.getZ('projects')}
-        onClose={() => wm.closeWindow('projects')} onFocus={() => wm.focusWindow('projects')}
-        initialPosition={{ x: 100, y: 55 }} width={580} height={520}>
-        <ProjectsApp onOpenProject={(id) => wm.openWindow(id)} />
-      </Window>
-
-      <Window id="business-ai" title="Business AI.app" isOpen={wm.isOpen('business-ai')} zIndex={wm.getZ('business-ai')}
-        onClose={() => wm.closeWindow('business-ai')} onFocus={() => wm.focusWindow('business-ai')}
-        initialPosition={{ x: 140, y: 65 }} width={480} height={560}>
-        <BusinessAIApp />
-      </Window>
-
-      <Window id="assistant" title="Assistant.app" isOpen={wm.isOpen('assistant')} zIndex={wm.getZ('assistant')}
-        onClose={() => wm.closeWindow('assistant')} onFocus={() => wm.focusWindow('assistant')}
-        initialPosition={{ x: 200, y: 75 }} width={520} height={480}>
-        <AssistantApp />
-      </Window>
-
-      <Window id="about" title="About.app" isOpen={wm.isOpen('about')} zIndex={wm.getZ('about')}
-        onClose={() => wm.closeWindow('about')} onFocus={() => wm.focusWindow('about')}
-        initialPosition={{ x: 180, y: 80 }} width={500} height={380}>
-        <AboutApp />
-      </Window>
-
-      <Window id="contact" title="Contact.app" isOpen={wm.isOpen('contact')} zIndex={wm.getZ('contact')}
-        onClose={() => wm.closeWindow('contact')} onFocus={() => wm.focusWindow('contact')}
-        initialPosition={{ x: 220, y: 100 }} width={400} height={440}>
-        <ContactApp />
-      </Window>
-
-      {/* Project detail windows */}
-      {projects.map((project, i) => (
-        <Window
-          key={project.id}
-          id={`project-${project.id}` as WindowId}
-          title={project.name}
-          isOpen={wm.isOpen(`project-${project.id}` as WindowId)}
-          zIndex={wm.getZ(`project-${project.id}` as WindowId)}
-          onClose={() => wm.closeWindow(`project-${project.id}` as WindowId)}
-          onFocus={() => wm.focusWindow(`project-${project.id}` as WindowId)}
-          initialPosition={projectPositions[i] ?? { x: 140 + i * 20, y: 70 + i * 20 }}
-          width={500} height={560}
-        >
-          <ProjectDetailApp project={project} />
+      <div data-window>
+        <Window id="projects" title="Projects.app" isOpen={wm.isOpen('projects')} zIndex={wm.getZ('projects')}
+          onClose={() => wm.closeWindow('projects')} onFocus={() => wm.focusWindow('projects')}
+          initialPosition={{ x: 100, y: 55 }} width={580} height={520}>
+          <ProjectsApp onOpenProject={(id) => wm.openWindow(id)} />
         </Window>
-      ))}
+
+        <Window id="business-ai" title="Business AI.app" isOpen={wm.isOpen('business-ai')} zIndex={wm.getZ('business-ai')}
+          onClose={() => wm.closeWindow('business-ai')} onFocus={() => wm.focusWindow('business-ai')}
+          initialPosition={{ x: 140, y: 65 }} width={480} height={560}>
+          <BusinessAIApp />
+        </Window>
+
+        <Window id="assistant" title="Assistant.app" isOpen={wm.isOpen('assistant')} zIndex={wm.getZ('assistant')}
+          onClose={() => wm.closeWindow('assistant')} onFocus={() => wm.focusWindow('assistant')}
+          initialPosition={{ x: 200, y: 75 }} width={520} height={480}>
+          <AssistantApp />
+        </Window>
+
+        <Window id="about" title="About.app" isOpen={wm.isOpen('about')} zIndex={wm.getZ('about')}
+          onClose={() => wm.closeWindow('about')} onFocus={() => wm.focusWindow('about')}
+          initialPosition={{ x: 180, y: 80 }} width={500} height={380}>
+          <AboutApp />
+        </Window>
+
+        <Window id="contact" title="Contact.app" isOpen={wm.isOpen('contact')} zIndex={wm.getZ('contact')}
+          onClose={() => wm.closeWindow('contact')} onFocus={() => wm.focusWindow('contact')}
+          initialPosition={{ x: 220, y: 100 }} width={400} height={440}>
+          <ContactApp />
+        </Window>
+
+        {projects.map((project, i) => (
+          <Window
+            key={project.id}
+            id={`project-${project.id}` as WindowId}
+            title={project.name}
+            isOpen={wm.isOpen(`project-${project.id}` as WindowId)}
+            zIndex={wm.getZ(`project-${project.id}` as WindowId)}
+            onClose={() => wm.closeWindow(`project-${project.id}` as WindowId)}
+            onFocus={() => wm.focusWindow(`project-${project.id}` as WindowId)}
+            initialPosition={projectPositions[i] ?? { x: 140 + i * 20, y: 70 + i * 20 }}
+            width={500} height={560}
+          >
+            <ProjectDetailApp project={project} />
+          </Window>
+        ))}
+      </div>
     </div>
   )
 }
