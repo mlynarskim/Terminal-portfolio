@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nail Art Studio | Twoje Piękne Dłonie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        h1, h2, .serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-[#FFF9F8] text-[#4A4444]">
+
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-pink-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-widest text-[#D4A373]">NAIL<span class="font-light italic text-pink-300">STUDIO</span></div>
+            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+                <a href="#uslugi" class="hover:text-pink-400 transition">Usługi</a>
+                <a href="#portfolio" class="hover:text-pink-400 transition">Portfolio</a>
+                <a href="#cennik" class="hover:text-pink-400 transition">Cennik</a>
+                <a href="#kontakt" class="hover:text-pink-400 transition">Kontakt</a>
+            </div>
+            <a href="https://booksy.com" class="bg-[#D4A373] text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#BC8A5F] transition shadow-md">
+                Zarezerwuj
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-[80vh] flex items-center">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="z-10">
+                <span class="text-pink-400 font-semibold tracking-widest uppercase text-sm">Profesjonalna stylizacja paznokci</span>
+                <h1 class="text-5xl md:text-7xl mt-4 mb-6 leading-tight">Podkreśl swoje <br><span class="italic">naturalne</span> piękno.</h1>
+                <p class="text-gray-600 mb-8 max-w-md leading-relaxed">Zapraszam Cię do świata precyzji i relaksu. Tworzę stylizacje, które nie tylko zachwycają, ale są bezpieczne dla Twojej płytki.</p>
+                <div class="flex space-x-4">
+                    <a href="#kontakt" class="border-2 border-[#D4A373] text-[#D4A373] px-8 py-3 rounded-full font-bold hover:bg-[#D4A373] hover:text-white transition">Napisz do mnie</a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -top-10 -left-10 w-64 h-64 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+                <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&q=80&w=800" class="rounded-[40px] shadow-2xl relative z-10 w-full h-[500px] object-cover" alt="Stylizacja paznokci">
+            </div>
+        </div>
+    </section>
+
+    <section id="uslugi" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl mb-4">Czym się zajmuję?</h2>
+                <div class="w-20 h-1 bg-pink-200 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="text-center p-6 group hover:bg-[#FFF9F8] rounded-3xl transition">
+                    <div class="w-16 h-16 bg-pink-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white transition shadow-sm">
+                        <i class="fas fa-magic text-[#D4A373] text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Manicure Hybrydowy</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Trwałość do 3 tygodni i nasycone kolory z najwyższej jakości produktów.</p>
+                </div>
+                <div class="text-center p-6 group hover:bg-[#FFF9F8] rounded-3xl transition">
+                    <div class="w-16 h-16 bg-pink-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white transition shadow-sm">
+                        <i class="fas fa-gem text-[#D4A373] text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Przedłużanie Żelowe</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Marzysz o długich paznokciach? Stworzę idealny kształt dopasowany do dłoni.</p>
+                </div>
+                <div class="text-center p-6 group hover:bg-[#FFF9F8] rounded-3xl transition">
+                    <div class="w-16 h-16 bg-pink-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white transition shadow-sm">
+                        <i class="fas fa-paint-brush text-[#D4A373] text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Nail Art</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Ręcznie malowane wzory, ombre czy minimalistyczne zdobienia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl text-center mb-12">Moje Prace</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=400" class="rounded-2xl hover:opacity-90 transition cursor-pointer" alt="Paznokcie 1">
+                <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&q=80&w=400" class="rounded-2xl hover:opacity-90 transition cursor-pointer" alt="Paznokcie 2">
+                <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&q=80&w=400" class="rounded-2xl hover:opacity-90 transition cursor-pointer" alt="Paznokcie 3">
+                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=400" class="rounded-2xl hover:opacity-90 transition cursor-pointer" alt="Paznokcie 4">
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="py-20 bg-[#F4EDE9]">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="bg-white rounded-[40px] shadow-xl overflow-hidden flex flex-col md:flex-row">
+                <div class="bg-[#D4A373] text-white p-12 md:w-1/3">
+                    <h2 class="text-3xl mb-6">Znajdź mnie</h2>
+                    <div class="space-y-6 text-sm">
+                        <p><i class="fab fa-instagram mr-3"></i> @stylizacja_paznokci</p>
+                        <p><i class="fas fa-phone mr-3"></i> +48 000 000 000</p>
+                        <p><i class="fas fa-map-marker-alt mr-3"></i> Piękna 5, Warszawa</p>
+                    </div>
+                </div>
+                <div class="p-12 md:w-2/3">
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Imię" class="w-full p-3 border-b border-gray-200 focus:outline-none focus:border-pink-300">
+                        <input type="email" placeholder="E-mail" class="w-full p-3 border-b border-gray-200 focus:outline-none focus:border-pink-300">
+                        <textarea placeholder="Twoja wiadomość (pytanie o wolny termin?)" class="w-full p-3 border-b border-gray-200 focus:outline-none focus:border-pink-300 h-24"></textarea>
+                        <button class="w-full py-4 text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-pink-400 transition">Wyślij wiadomość</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-xs text-gray-400 uppercase tracking-[0.2em]">
+        &copy; 2026 Nail Art Studio. Design with Love.
+    </footer>
+
+</body>
+</html>

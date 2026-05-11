@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Expert | Profesjonalny Mechanik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-red-600 tracking-tighter">
+                <i class="fas fa-car-side mr-2"></i>AUTO-EXPERT
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#oferta" class="hover:text-red-600 transition">Oferta</a>
+                <a href="#realizacje" class="hover:text-red-600 transition">Realizacje</a>
+                <a href="#opinie" class="hover:text-red-600 transition">Opinie</a>
+                <a href="#kontakt" class="hover:text-red-600 transition">Kontakt</a>
+            </div>
+            <a href="tel:123456789" class="bg-red-600 text-white px-5 py-2 rounded-full font-bold hover:bg-red-700 transition">
+                Zadzwoń teraz
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative bg-gray-900 h-[600px] flex items-center text-white">
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover opacity-40" alt="Warsztat samochodowy">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Twój samochód w rękach <span class="text-red-500">specjalistów</span>.</h1>
+            <p class="text-xl mb-8 max-w-2xl text-gray-300">Szybka diagnoza, uczciwa cena i gwarancja na każdą naprawę. Od 15 lat dbamy o bezpieczeństwo kierowców w [Twoje Miasto].</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#kontakt" class="bg-red-600 text-center px-8 py-4 rounded-lg text-lg font-bold hover:bg-red-700 transition">Umów wizytę</a>
+                <a href="#oferta" class="bg-white text-gray-900 text-center px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-200 transition">Zobacz usługi</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="oferta" class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-12 uppercase tracking-wide">Nasze Usługi</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm border-b-4 border-red-600 hover:shadow-lg transition">
+                    <i class="fas fa-tools text-4xl text-red-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Mechanika Ogólna</h3>
+                    <p class="text-gray-600">Hamulce, zawieszenie, rozrządy i wymiana oleju. Szybko i solidnie.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm border-b-4 border-red-600 hover:shadow-lg transition">
+                    <i class="fas fa-laptop-code text-4xl text-red-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Diagnostyka Komputerowa</h3>
+                    <p class="text-gray-600">Precyzyjne wykrywanie błędów silnika i elektroniki najnowszym sprzętem.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm border-b-4 border-red-600 hover:shadow-lg transition">
+                    <i class="fas fa-snowflake text-4xl text-red-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Serwis Klimatyzacji</h3>
+                    <p class="text-gray-600">Nabijanie, sprawdzanie szczelności i pełne odgrzybianie systemów.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="realizacje" class="bg-gray-100 py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">OSTATNIE REALIZACJE</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800" class="rounded-lg shadow-md h-64 w-full object-cover" alt="Praca przy silniku">
+                <img src="https://images.unsplash.com/photo-1517524008410-b44c6058bbda?auto=format&fit=crop&q=80&w=800" class="rounded-lg shadow-md h-64 w-full object-cover" alt="Hamulce">
+                <img src="https://images.unsplash.com/photo-1632733711679-5292d77435f3?auto=format&fit=crop&q=80&w=800" class="rounded-lg shadow-md h-64 w-full object-cover" alt="Diagnostyka">
+            </div>
+        </div>
+    </section>
+
+    <section id="opinie" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-12 uppercase">Zaufali nam</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+                <blockquote class="bg-gray-50 p-8 rounded-lg italic">
+                    <p class="mb-4">"Wzorowy kontakt i bardzo szybka naprawa alternatora. Auto odebrane tego samego dnia. Polecam każdemu!"</p>
+                    <footer class="font-bold">— Marcin J.</footer>
+                </blockquote>
+                <blockquote class="bg-gray-50 p-8 rounded-lg italic">
+                    <p class="mb-4">"Jako jedyni w mieście poradzili sobie z elektroniką w moim Audi. Uczciwe podejście do klienta i zero naciągania."</p>
+                    <footer class="font-bold">— Katarzyna S.</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="bg-gray-900 text-white py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Skontaktuj się z nami</h2>
+                    <p class="text-gray-400 mb-8">Odpowiadamy w ciągu 30 minut w godzinach pracy warsztatu.</p>
+                    <div class="space-y-4">
+                        <p><i class="fas fa-map-marker-alt text-red-500 mr-4"></i>ul. Warsztatowa 12, 00-001 Miasto</p>
+                        <p><i class="fas fa-phone text-red-500 mr-4"></i>+48 123 456 789</p>
+                        <p><i class="fas fa-envelope text-red-500 mr-4"></i>biuro@auto-expert.pl</p>
+                        <p><i class="fas fa-clock text-red-500 mr-4"></i>Pon - Pt: 8:00 - 18:00</p>
+                    </div>
+                </div>
+                <form class="bg-white p-8 rounded-xl text-gray-900 space-y-4">
+                    <input type="text" placeholder="Imię i Nazwisko" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600">
+                    <input type="tel" placeholder="Numer telefonu" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600">
+                    <textarea placeholder="W czym możemy pomóc?" class="w-full p-3 border rounded-lg h-32 focus:outline-none focus:ring-2 focus:ring-red-600"></textarea>
+                    <button class="w-full bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition uppercase">Wyślij zapytanie</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-500 py-6 text-center border-t border-gray-800">
+        <p>&copy; 2026 AUTO-EXPERT. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+</body>
+</html>
