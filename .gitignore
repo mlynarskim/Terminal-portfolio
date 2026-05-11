@@ -2,6 +2,8 @@ node_modules
 dist
 .DS_Store
 *.local
+.env
+.env.local
 
 # Raw screenshots source folder (already copied to public/screens/)
 screens/

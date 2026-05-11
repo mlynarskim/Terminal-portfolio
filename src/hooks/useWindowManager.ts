@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 
-export type WindowId = 'projects' | 'about' | 'contact' | `project-${string}`
+export type WindowId = 'projects' | 'about' | 'contact' | 'business-ai' | 'assistant' | `project-${string}`
 
 export interface WindowState {
   id: WindowId

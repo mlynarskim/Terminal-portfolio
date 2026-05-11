@@ -12,6 +12,8 @@ interface Command {
 
 const commands: Command[] = [
   { id: 'projects', label: 'Projects', description: 'View all projects', action: 'projects', emoji: '📁' },
+  { id: 'business-ai', label: 'Business AI', description: 'AI tools for businesses', action: 'business-ai', emoji: '🤖' },
+  { id: 'assistant', label: 'Assistant', description: 'Ask me anything', action: 'assistant', emoji: '💬' },
   { id: 'about', label: 'About', description: 'About Mateusz', action: 'about', emoji: '👤' },
   { id: 'contact', label: 'Contact', description: 'Get in touch', action: 'contact', emoji: '✉️' },
   { id: 'travel-rules', label: 'Open Travel Rules', description: 'iOS app · Swift', action: 'project-travel-rules', emoji: '✈️' },
