@@ -5,6 +5,8 @@ import Window from './Window'
 import ProjectsApp from './apps/ProjectsApp'
 import AboutApp from './apps/AboutApp'
 import ContactApp from './apps/ContactApp'
+import BusinessAIApp from './apps/BusinessAIApp'
+import AssistantApp from './apps/AssistantApp'
 import ProjectDetailApp from './apps/ProjectDetailApp'
 import { useWindowManager } from '../hooks/useWindowManager'
 import type { WindowId } from '../hooks/useWindowManager'
@@ -34,7 +36,6 @@ export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled
     }
   }, [externalOpen])
 
-  // Show ⌘K toast once after load
   useEffect(() => {
     const t1 = setTimeout(() => setShowToast(true), 1800)
     const t2 = setTimeout(() => setShowToast(false), 5200)
@@ -42,17 +43,16 @@ export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled
   }, [])
 
   const appIcons = [
-    { id: 'projects' as WindowId, label: 'Projects', emoji: '📁', color: '#00FFB3' },
-    { id: 'about' as WindowId, label: 'About', emoji: '👤', color: '#3B82F6' },
-    { id: 'contact' as WindowId, label: 'Contact', emoji: '✉️', color: '#A78BFA' },
+    { id: 'projects' as WindowId,    label: 'Projects',    emoji: '📁', color: '#00FFB3' },
+    { id: 'business-ai' as WindowId, label: 'Business AI', emoji: '🤖', color: '#A78BFA' },
+    { id: 'assistant' as WindowId,   label: 'Assistant',   emoji: '💬', color: '#3B82F6' },
+    { id: 'about' as WindowId,       label: 'About',       emoji: '👤', color: '#F59E0B' },
+    { id: 'contact' as WindowId,     label: 'Contact',     emoji: '✉️', color: '#FB7185' },
   ]
 
   const projectPositions = [
-    { x: 120, y: 60 },
-    { x: 160, y: 80 },
-    { x: 200, y: 100 },
-    { x: 240, y: 120 },
-    { x: 280, y: 140 },
+    { x: 120, y: 60 }, { x: 160, y: 80 }, { x: 200, y: 100 },
+    { x: 240, y: 120 }, { x: 280, y: 140 },
   ]
 
   return (
@@ -78,7 +78,7 @@ export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled
         ))}
       </motion.div>
 
-      {/* Currently building widget — bottom right */}
+      {/* Currently building widget */}
       <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -127,7 +127,7 @@ export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled
         </button>
       </motion.div>
 
-      {/* ⌘K toast hint */}
+      {/* ⌘K toast */}
       <AnimatePresence>
         {showToast && (
           <motion.div
@@ -150,11 +150,23 @@ export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled
         )}
       </AnimatePresence>
 
-      {/* App windows */}
+      {/* ── Windows ── */}
       <Window id="projects" title="Projects.app" isOpen={wm.isOpen('projects')} zIndex={wm.getZ('projects')}
         onClose={() => wm.closeWindow('projects')} onFocus={() => wm.focusWindow('projects')}
-        initialPosition={{ x: 100, y: 55 }} width={580} height={480}>
+        initialPosition={{ x: 100, y: 55 }} width={580} height={520}>
         <ProjectsApp onOpenProject={(id) => wm.openWindow(id)} />
+      </Window>
+
+      <Window id="business-ai" title="Business AI.app" isOpen={wm.isOpen('business-ai')} zIndex={wm.getZ('business-ai')}
+        onClose={() => wm.closeWindow('business-ai')} onFocus={() => wm.focusWindow('business-ai')}
+        initialPosition={{ x: 140, y: 65 }} width={480} height={560}>
+        <BusinessAIApp />
+      </Window>
+
+      <Window id="assistant" title="Assistant.app" isOpen={wm.isOpen('assistant')} zIndex={wm.getZ('assistant')}
+        onClose={() => wm.closeWindow('assistant')} onFocus={() => wm.focusWindow('assistant')}
+        initialPosition={{ x: 200, y: 75 }} width={520} height={480}>
+        <AssistantApp />
       </Window>
 
       <Window id="about" title="About.app" isOpen={wm.isOpen('about')} zIndex={wm.getZ('about')}
@@ -174,14 +186,13 @@ export default function Desktop({ onOpenPalette, externalOpen, onExternalHandled
         <Window
           key={project.id}
           id={`project-${project.id}` as WindowId}
-          title={`${project.name}`}
+          title={project.name}
           isOpen={wm.isOpen(`project-${project.id}` as WindowId)}
           zIndex={wm.getZ(`project-${project.id}` as WindowId)}
           onClose={() => wm.closeWindow(`project-${project.id}` as WindowId)}
           onFocus={() => wm.focusWindow(`project-${project.id}` as WindowId)}
           initialPosition={projectPositions[i] ?? { x: 140 + i * 20, y: 70 + i * 20 }}
-          width={500}
-          height={560}
+          width={500} height={560}
         >
           <ProjectDetailApp project={project} />
         </Window>
