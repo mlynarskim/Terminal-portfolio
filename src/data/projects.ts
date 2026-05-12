@@ -122,6 +122,25 @@ export const projects: Project[] = [
     screenshotCount: 3,
   },
   {
+    id: 'calmie',
+    name: 'Calmie',
+    tagline: 'Meditation & breathing app — iOS',
+    description:
+      'Native iOS app for guided meditation and breathing exercises. Features multiple breathing patterns (Box Breathing 4-4-4-4 and more), session timer with a circular progress ring, progress tracking with streaks, sessions and total minutes. Clean, calming UI with a warm purple-to-rose gradient designed to help users slow down and focus.',
+    tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS'],
+    color: '#A78BFA',
+    emoji: '🧘',
+    platform: 'ios',
+    status: 'coming-soon',
+    links: [],
+    screenshots: [
+      '/screens/calmie/screen-1.png',
+      '/screens/calmie/screen-2.png',
+      '/screens/calmie/screen-3.png',
+      '/screens/calmie/screen-4.png',
+    ],
+  },
+  {
     id: 'panda',
     name: 'Panda',
     tagline: 'Dating app — iOS & Android',

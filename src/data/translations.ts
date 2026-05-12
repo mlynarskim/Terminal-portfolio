@@ -1,7 +1,7 @@
 export const pl = {
   boot: {
     init: '> Inicjalizacja Portfolio OS v1.0...',
-    loading: '> Ładowanie 5 projektów...',
+    loading: '> Ładowanie 6 projektów...',
     ready: '> Wszystkie systemy gotowe.',
     pressEnter: 'Naciśnij Enter, aby zacząć',
     orClick: 'lub kliknij gdziekolwiek',
@@ -37,6 +37,7 @@ export const pl = {
       { id: 'travel-rules-hub',  label: 'Otwórz Travel Rules HUB',     description: 'Platforma webowa',                action: 'project-travel-rules-hub',   emoji: '🌐' },
       { id: 'solos',             label: 'Otwórz SOLOS',                description: 'Kurator filmowy AI · web',        action: 'project-solos',              emoji: '🎬' },
       { id: 'panda',             label: 'Otwórz Panda',                description: 'Aplikacja randkowa · iOS + Android', action: 'project-panda',           emoji: '🐼' },
+      { id: 'calmie',            label: 'Otwórz Calmie',               description: 'Medytacja i oddychanie · iOS',        action: 'project-calmie',          emoji: '🧘' },
     ],
   },
   about: {
@@ -149,7 +150,7 @@ export const pl = {
 export const en = {
   boot: {
     init: '> Initializing Portfolio OS v1.0...',
-    loading: '> Loading 5 projects...',
+    loading: '> Loading 6 projects...',
     ready: '> All systems ready.',
     pressEnter: 'Press Enter to start',
     orClick: 'or click anywhere',
@@ -185,6 +186,7 @@ export const en = {
       { id: 'travel-rules-hub',  label: 'Open Travel Rules HUB',       description: 'Web platform',                   action: 'project-travel-rules-hub',   emoji: '🌐' },
       { id: 'solos',             label: 'Open SOLOS',                  description: 'AI movie curator · web app',      action: 'project-solos',              emoji: '🎬' },
       { id: 'panda',             label: 'Open Panda',                  description: 'Dating app · iOS + Android',      action: 'project-panda',              emoji: '🐼' },
+      { id: 'calmie',            label: 'Open Calmie',                 description: 'Meditation & breathing · iOS',    action: 'project-calmie',             emoji: '🧘' },
     ],
   },
   about: {
