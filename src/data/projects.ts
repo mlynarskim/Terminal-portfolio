@@ -70,9 +70,11 @@ export const projects: Project[] = [
     color: '#3B82F6',
     emoji: '🏖️',
     platform: 'ios+android',
-    status: 'coming-soon',
+    status: 'live',
     version: '1.0',
-    links: [],
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/pl/app/rate-that-beach/id6764400811?l=pl', icon: '🍎', primary: true },
+    ],
     screenshots: [
       '/screens/rate-that-beach/screen-1.png',
       '/screens/rate-that-beach/screen-2.png',
@@ -139,6 +141,6 @@ export const projects: Project[] = [
 
 export const currentlyBuilding = [
   { project: 'Travel Rules', detail: 'v3.2.4 live on App Store', color: '#00FFB3', status: 'live' as const },
-  { project: 'Rate That Beach', detail: 'v1.0 — coming to App Store & Play Store', color: '#3B82F6', status: 'coming-soon' as const },
+  { project: 'Rate That Beach', detail: 'v1.0 live on App Store', color: '#3B82F6', status: 'live' as const },
   { project: 'SOLOS', detail: 'in beta testing', color: '#A78BFA', status: 'beta' as const },
 ]
