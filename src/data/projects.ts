@@ -82,6 +82,7 @@ export const projects: Project[] = [
     version: '1.0',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/pl/app/rate-that-beach/id6764400811?l=pl', icon: '🍎', primary: true },
+      { label: 'ProductHunt', url: 'https://www.producthunt.com/products/rate-that-beach?launch=rate-that-beach', icon: '🚀' },
     ],
     screenshots: [
       '/screens/rate-that-beach/screen-1.png',
@@ -97,9 +98,9 @@ export const projects: Project[] = [
     tagline: 'AI-powered movie curator — web app',
     taglinePL: 'Kurator filmowy AI — aplikacja web',
     description:
-      'Solves the "what to watch tonight?" problem using Google Gemini AI. Users set their mood, number of viewers, and streaming platforms — SOLOS curates the perfect film pick and explains why it fits. Includes a Watchlist, watch history, deep links to streaming platforms, and a Stripe-powered PRO tier (3 free picks, then lifetime access).',
+      'Solves the "what to watch tonight?" problem using Google Gemini AI. Users set their mood, film duration, and streaming platforms — SOLOS curates the perfect film pick. Includes a Watchlist, watch history, deep links to streaming platforms, and a Stripe-powered PRO tier (3 free picks, then lifetime access).',
     descriptionPL:
-      'Rozwiązuje problem "co dziś obejrzeć?" używając Google Gemini AI. Użytkownik ustawia nastrój, liczbę widzów i platformy streamingowe — SOLOS dobiera idealny film i wyjaśnia dlaczego pasuje. Watchlista, historia oglądania i płatny plan PRO przez Stripe.',
+      'Rozwiązuje problem "co dziś obejrzeć?" używając Google Gemini AI. Użytkownik ustawia nastrój, czas trwania filmu i platformy streamingowe — SOLOS dobiera idealny film. Watchlista, historia oglądania i płatny plan PRO przez Stripe.',
     tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Gemini AI', 'Firebase', 'Express', 'Stripe'],
     color: '#A78BFA',
     emoji: '🎬',
@@ -133,7 +134,12 @@ export const projects: Project[] = [
       { label: 'Planner', url: 'https://travelrules.eu/planer', icon: '📋' },
       { label: 'Ebook', url: 'https://travelrules.eu/ebook', icon: '📖' },
     ],
-    screenshotCount: 3,
+    screenshots: [
+      '/screens/travel-rules-hub/screen-1.png',
+      '/screens/travel-rules-hub/screen-2.png',
+      '/screens/travel-rules-hub/screen-3.png',
+      '/screens/travel-rules-hub/screen-4.png',
+    ],
   },
   {
     id: 'calmie',
@@ -143,7 +149,7 @@ export const projects: Project[] = [
     description:
       'Native iOS app for guided meditation and breathing exercises. Features multiple breathing patterns (Box Breathing 4-4-4-4 and more), session timer with a circular progress ring, progress tracking with streaks, sessions and total minutes. Clean, calming UI with a warm purple-to-rose gradient designed to help users slow down and focus.',
     descriptionPL:
-      'Natywna aplikacja iOS do prowadzonych medytacji i ćwiczeń oddechowych. Kilka technik oddychania (m.in. Box Breathing 4-4-4-4), timer sesji z kołowym paskiem postępu oraz śledzenie streaku, liczby sesji i minut. Minimalistyczny interfejs z ciepłym gradientem — zaprojektowany, by pomóc zwolnić i się skupić.',
+      'Natywna aplikacja iOS do prowadzenia medytacji i ćwiczeń oddechowych. Kilka technik oddychania (m.in. Box Breathing 4-4-4-4), timer sesji z kołowym paskiem postępu oraz śledzenie streaku, liczby sesji i minut. Minimalistyczny interfejs z ciepłym gradientem — zaprojektowany, by pomóc zwolnić i się skupić.',
     tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS'],
     color: '#A78BFA',
     emoji: '🧘',
