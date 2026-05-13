@@ -9,7 +9,9 @@ interface Props {
 }
 
 export default function ProjectDetailApp({ project }: Props) {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
+  const tagline = lang === 'pl' && project.taglinePL ? project.taglinePL : project.tagline
+  const description = lang === 'pl' && project.descriptionPL ? project.descriptionPL : project.description
   const [webScreen, setWebScreen] = useState(0)
   const isMobile = project.platform === 'ios' || project.platform === 'ios+android'
   const primaryLink = project.links.find((l) => l.primary) ?? project.links[0]
@@ -55,7 +57,7 @@ export default function ProjectDetailApp({ project }: Props) {
                 </span>
               )}
             </div>
-            <p className="text-xs font-mono text-muted">{project.tagline}</p>
+            <p className="text-xs font-mono text-muted">{tagline}</p>
           </div>
         </div>
 
@@ -99,7 +101,7 @@ export default function ProjectDetailApp({ project }: Props) {
           )}
         </div>
 
-        <p className="text-sm text-gray-300 leading-relaxed">{project.description}</p>
+        <p className="text-sm text-gray-300 leading-relaxed">{description}</p>
       </div>
 
       {/* Content */}

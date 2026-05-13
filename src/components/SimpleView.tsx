@@ -119,7 +119,7 @@ function MobileAssistant() {
 }
 
 export default function SimpleView() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const aiServices = t.businessAI.services.slice(0, 4)
 
   return (
@@ -196,8 +196,8 @@ export default function SimpleView() {
                 {p.platform === 'ios' ? 'iOS' : p.platform === 'ios+android' ? 'iOS + Android' : 'Web'}
               </span>
             </div>
-            <p className="text-xs text-muted font-mono">{p.tagline.split('—')[0].trim()}</p>
-            <p className="text-sm text-gray-300 leading-relaxed">{p.description.slice(0, 140)}…</p>
+            <p className="text-xs text-muted font-mono">{(lang === 'pl' && p.taglinePL ? p.taglinePL : p.tagline).split('—')[0].trim()}</p>
+            <p className="text-sm text-gray-300 leading-relaxed">{(lang === 'pl' && p.descriptionPL ? p.descriptionPL : p.description).slice(0, 140)}…</p>
             <div className="flex flex-wrap gap-1 pt-1">
               {p.tech.slice(0, 4).map((tech) => (
                 <span key={tech} className="text-[9px] px-1.5 py-0.5 rounded font-mono"

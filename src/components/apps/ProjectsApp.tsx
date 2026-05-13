@@ -41,7 +41,7 @@ interface Props {
 }
 
 export default function ProjectsApp({ onOpenProject }: Props) {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   return (
     <div className="h-full flex flex-col p-4 gap-3 overflow-auto">
@@ -83,7 +83,9 @@ export default function ProjectsApp({ onOpenProject }: Props) {
                   {platformLabelMap[project.platform]}
                 </span>
               </div>
-              <p className="text-xs text-muted font-mono mb-2 leading-snug">{project.tagline.split('—')[0].trim()}</p>
+              <p className="text-xs text-muted font-mono mb-2 leading-snug">
+                {(lang === 'pl' && project.taglinePL ? project.taglinePL : project.tagline).split('—')[0].trim()}
+              </p>
               <div className="flex flex-wrap gap-1">
                 {project.tech.slice(0, 3).map((tech) => (
                   <span key={tech} className="text-[9px] px-1.5 py-0.5 rounded font-mono"

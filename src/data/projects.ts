@@ -13,7 +13,9 @@ export interface Project {
   id: string
   name: string
   tagline: string
+  taglinePL?: string
   description: string
+  descriptionPL?: string
   tech: string[]
   color: string
   emoji: string
@@ -31,8 +33,11 @@ export const projects: Project[] = [
     id: 'travel-rules',
     name: 'Travel Rules',
     tagline: 'The traveler\'s rule book — iOS',
+    taglinePL: 'Przewodnik podróżnika — iOS',
     description:
       'Native iOS app that helps travelers navigate local laws, etiquette, and customs before they land. Covers 100+ countries with offline-first data. Features a built-in AI assistant that generates a personalized travel plan in minutes — just pick your destination and travel style. Beautiful SwiftUI interface designed for quick lookups on the go.',
+    descriptionPL:
+      'Natywna aplikacja iOS pomagająca podróżnikom poznać lokalne przepisy, etykietę i zwyczaje przed wylotem. Obejmuje ponad 100 krajów z danymi dostępnymi offline. Wbudowany asystent AI generuje spersonalizowany plan podróży w kilka minut — wystarczy wybrać cel i styl podróżowania.',
     tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS', 'CoreData'],
     color: '#00FFB3',
     emoji: '✈️',
@@ -64,8 +69,11 @@ export const projects: Project[] = [
     id: 'rate-that-beach',
     name: 'Rate That Beach',
     tagline: 'Community beach reviews — iOS & Android',
+    taglinePL: 'Społecznościowe recenzje plaż — iOS i Android',
     description:
       'Cross-platform app for finding and rating beaches worldwide. Real crowd levels, water conditions, and photos from travelers who actually showed up. Built with React Native and Expo for a native feel on both iOS and Android, with live Firestore data and Google Maps integration.',
+    descriptionPL:
+      'Wieloplatformowa aplikacja do znajdowania i oceniania plaż na całym świecie. Aktualne obłożenie, warunki wodne i zdjęcia od podróżników. Zbudowana w React Native i Expo z danymi Firestore i integracją Google Maps.',
     tech: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'Firestore', 'Google Maps'],
     color: '#3B82F6',
     emoji: '🏖️',
@@ -87,8 +95,11 @@ export const projects: Project[] = [
     id: 'solos',
     name: 'SOLOS',
     tagline: 'AI-powered movie curator — web app',
+    taglinePL: 'Kurator filmowy AI — aplikacja web',
     description:
       'Solves the "what to watch tonight?" problem using Google Gemini AI. Users set their mood, number of viewers, and streaming platforms — SOLOS curates the perfect film pick and explains why it fits. Includes a Watchlist, watch history, deep links to streaming platforms, and a Stripe-powered PRO tier (3 free picks, then lifetime access).',
+    descriptionPL:
+      'Rozwiązuje problem "co dziś obejrzeć?" używając Google Gemini AI. Użytkownik ustawia nastrój, liczbę widzów i platformy streamingowe — SOLOS dobiera idealny film i wyjaśnia dlaczego pasuje. Watchlista, historia oglądania i płatny plan PRO przez Stripe.',
     tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Gemini AI', 'Firebase', 'Express', 'Stripe'],
     color: '#A78BFA',
     emoji: '🎬',
@@ -106,8 +117,11 @@ export const projects: Project[] = [
     id: 'travel-rules-hub',
     name: 'Travel Rules HUB',
     tagline: 'The travel content platform — web',
+    taglinePL: 'Platforma treści podróżniczych — web',
     description:
       'A full web platform built around the Travel Rules brand. Includes the app landing page, an interactive travel planner, a downloadable ebook, and a checklist — all under one roof. Designed to convert visitors into app users and product buyers.',
+    descriptionPL:
+      'Pełna platforma webowa wokół marki Travel Rules. Strona aplikacji, interaktywny planer podróży, ebook do pobrania i checklista — wszystko w jednym miejscu. Zaprojektowana tak, by zamieniać odwiedzających w użytkowników aplikacji.',
     tech: ['Web', 'TypeScript', 'React', 'Tailwind CSS'],
     color: '#F59E0B',
     emoji: '🌐',
@@ -125,8 +139,11 @@ export const projects: Project[] = [
     id: 'calmie',
     name: 'Calmie',
     tagline: 'Meditation & breathing app — iOS',
+    taglinePL: 'Medytacja i oddychanie — iOS',
     description:
       'Native iOS app for guided meditation and breathing exercises. Features multiple breathing patterns (Box Breathing 4-4-4-4 and more), session timer with a circular progress ring, progress tracking with streaks, sessions and total minutes. Clean, calming UI with a warm purple-to-rose gradient designed to help users slow down and focus.',
+    descriptionPL:
+      'Natywna aplikacja iOS do prowadzonych medytacji i ćwiczeń oddechowych. Kilka technik oddychania (m.in. Box Breathing 4-4-4-4), timer sesji z kołowym paskiem postępu oraz śledzenie streaku, liczby sesji i minut. Minimalistyczny interfejs z ciepłym gradientem — zaprojektowany, by pomóc zwolnić i się skupić.',
     tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS'],
     color: '#A78BFA',
     emoji: '🧘',
@@ -136,18 +153,21 @@ export const projects: Project[] = [
       { label: 'App Store', url: 'https://apps.apple.com/pl/app/calmie/id6450792796?l=pl', icon: '🍎', primary: true },
     ],
     screenshots: [
-      '/screens/calmie/screen-1.png',
-      '/screens/calmie/screen-2.png',
-      '/screens/calmie/screen-3.png',
-      '/screens/calmie/screen-4.png',
+      '/screens/calmie/screen-1.PNG',
+      '/screens/calmie/screen-2.PNG',
+      '/screens/calmie/screen-3.PNG',
+      '/screens/calmie/screen-4.PNG',
     ],
   },
   {
     id: 'panda',
     name: 'Panda',
     tagline: 'Dating app — iOS & Android',
+    taglinePL: 'Aplikacja randkowa — iOS i Android',
     description:
       'A modern dating app built for genuine connections. Clean interface, smart matching, and a focus on meaningful interactions over endless swiping. Cross-platform, built with React Native and Expo.',
+    descriptionPL:
+      'Nowoczesna aplikacja randkowa stworzona dla prawdziwych połączeń. Przejrzysty interfejs, inteligentne dopasowywanie i nacisk na wartościowe interakcje zamiast niekończącego się swipowania. Wieloplatformowa, zbudowana w React Native i Expo.',
     tech: ['React Native', 'Expo', 'TypeScript', 'Firebase'],
     color: '#FB7185',
     emoji: '🐼',
