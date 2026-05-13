@@ -159,10 +159,10 @@ export const projects: Project[] = [
       { label: 'App Store', url: 'https://apps.apple.com/pl/app/calmie/id6450792796?l=pl', icon: '🍎', primary: true },
     ],
     screenshots: [
-      '/screens/calmie/screen-1.PNG',
-      '/screens/calmie/screen-2.PNG',
-      '/screens/calmie/screen-3.PNG',
-      '/screens/calmie/screen-4.PNG',
+      '/screens/calmie/screen-1.png',
+      '/screens/calmie/screen-2.png',
+      '/screens/calmie/screen-3.png',
+      '/screens/calmie/screen-4.png',
     ],
   },
   {
