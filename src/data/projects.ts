@@ -131,8 +131,10 @@ export const projects: Project[] = [
     color: '#A78BFA',
     emoji: '🧘',
     platform: 'ios',
-    status: 'coming-soon',
-    links: [],
+    status: 'live',
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/pl/app/calmie/id6450792796?l=pl', icon: '🍎', primary: true },
+    ],
     screenshots: [
       '/screens/calmie/screen-1.png',
       '/screens/calmie/screen-2.png',
