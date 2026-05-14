@@ -38,7 +38,7 @@ export const projects: Project[] = [
       'Native iOS app that helps travelers navigate local laws, etiquette, and customs before they land. Covers 100+ countries with offline-first data. Features a built-in AI assistant that generates a personalized travel plan in minutes — just pick your destination and travel style. Beautiful SwiftUI interface designed for quick lookups on the go.',
     descriptionPL:
       'Natywna aplikacja iOS pomagająca podróżnikom poznać lokalne przepisy, etykietę i zwyczaje przed wylotem. Obejmuje ponad 100 krajów z danymi dostępnymi offline. Wbudowany asystent AI generuje spersonalizowany plan podróży w kilka minut — wystarczy wybrać cel i styl podróżowania.',
-    tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS', 'CoreData'],
+    tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS', 'CoreData', 'Xcode Cloud', 'XCTest', 'CI/CD'],
     color: '#00FFB3',
     emoji: '✈️',
     platform: 'ios',
@@ -150,7 +150,7 @@ export const projects: Project[] = [
       'Native iOS app for guided meditation and breathing exercises. Features multiple breathing patterns (Box Breathing 4-4-4-4 and more), session timer with a circular progress ring, progress tracking with streaks, sessions and total minutes. Clean, calming UI with a warm purple-to-rose gradient designed to help users slow down and focus.',
     descriptionPL:
       'Natywna aplikacja iOS do prowadzenia medytacji i ćwiczeń oddechowych. Kilka technik oddychania (m.in. Box Breathing 4-4-4-4), timer sesji z kołowym paskiem postępu oraz śledzenie streaku, liczby sesji i minut. Minimalistyczny interfejs z ciepłym gradientem — zaprojektowany, by pomóc zwolnić i się skupić.',
-    tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS'],
+    tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS', 'Xcode Cloud', 'CI/CD'],
     color: '#A78BFA',
     emoji: '🧘',
     platform: 'ios',
