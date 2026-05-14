@@ -39,7 +39,7 @@ export const projects: Project[] = [
       'Native iOS app that helps travelers navigate local laws, etiquette, and customs before they land. Covers 100+ countries with offline-first data. Features a built-in AI assistant that generates a personalized travel plan in minutes — just pick your destination and travel style. Beautiful SwiftUI interface designed for quick lookups on the go.',
     descriptionPL:
       'Natywna aplikacja iOS pomagająca podróżnikom poznać lokalne przepisy, etykietę i zwyczaje przed wylotem. Obejmuje ponad 100 krajów z danymi dostępnymi offline. Wbudowany asystent AI generuje spersonalizowany plan podróży w kilka minut — wystarczy wybrać cel i styl podróżowania.',
-    tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS', 'CoreData', 'Xcode Cloud', 'XCTest', 'CI/CD'],
+    tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS', 'CoreData', 'Firebase', 'Gemini API', 'Xcode Cloud', 'XCTest'],
     color: '#00FFB3',
     emoji: '✈️',
     platform: 'ios',
