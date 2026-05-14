@@ -74,6 +74,7 @@ export const pl = {
     follow: 'Obserwuj',
     screenshotsComingSoon: 'screenshoty wkrótce',
     comingSoonLinks: '🚧 Wkrótce — linki pojawią się po premierze',
+    comingSoonBadge: 'wkrótce',
     status: {
       live: 'Na żywo',
       'coming-soon': 'Wkrótce',
@@ -223,6 +224,7 @@ export const en = {
     follow: 'Follow',
     screenshotsComingSoon: 'screenshots coming soon',
     comingSoonLinks: '🚧 Coming soon — links will be added on launch',
+    comingSoonBadge: 'coming soon',
     status: {
       live: 'Live',
       'coming-soon': 'Coming soon',

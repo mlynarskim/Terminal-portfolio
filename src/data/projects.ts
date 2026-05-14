@@ -5,6 +5,7 @@ export interface ProjectLink {
   url: string
   icon?: string
   primary?: boolean
+  comingSoon?: boolean
 }
 
 export type BuildStatus = 'live' | 'coming-soon' | 'beta' | 'wip'
@@ -82,6 +83,7 @@ export const projects: Project[] = [
     version: '1.0',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/pl/app/rate-that-beach/id6764400811?l=pl', icon: '🍎', primary: true },
+      { label: 'Google Play', url: '', icon: '🤖', comingSoon: true },
       { label: 'ProductHunt', url: 'https://www.producthunt.com/products/rate-that-beach?launch=rate-that-beach', icon: '🚀' },
     ],
     screenshots: [
