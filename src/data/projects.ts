@@ -152,7 +152,7 @@ export const projects: Project[] = [
       'Native iOS app for guided meditation and breathing exercises. Features multiple breathing patterns (Box Breathing 4-4-4-4 and more), session timer with a circular progress ring, progress tracking with streaks, sessions and total minutes. Clean, calming UI with a warm purple-to-rose gradient designed to help users slow down and focus.',
     descriptionPL:
       'Natywna aplikacja iOS do prowadzenia medytacji i ćwiczeń oddechowych. Kilka technik oddychania (m.in. Box Breathing 4-4-4-4), timer sesji z kołowym paskiem postępu oraz śledzenie streaku, liczby sesji i minut. Minimalistyczny interfejs z ciepłym gradientem — zaprojektowany, by pomóc zwolnić i się skupić.',
-    tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS', 'Xcode Cloud', 'CI/CD'],
+    tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS', 'Xcode Cloud'],
     color: '#A78BFA',
     emoji: '🧘',
     platform: 'ios',
