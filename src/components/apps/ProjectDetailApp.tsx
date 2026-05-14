@@ -15,7 +15,8 @@ export default function ProjectDetailApp({ project }: Props) {
   const [webScreen, setWebScreen] = useState(0)
   const isMobile = project.platform === 'ios' || project.platform === 'ios+android'
   const primaryLink = project.links.find((l) => l.primary) ?? project.links[0]
-  const secondaryLinks = project.links.filter((l) => !l.primary)
+  const secondaryLinks = project.links.filter((l) => !l.primary && !l.comingSoon)
+  const comingSoonLinks = project.links.filter((l) => l.comingSoon)
 
   const statusColors: Record<BuildStatus, { color: string; bg: string; dot: string }> = {
     live:          { color: '#00FFB3', bg: '#00FFB312', dot: '#00FFB3' },
@@ -241,6 +242,23 @@ export default function ProjectDetailApp({ project }: Props) {
                 <span>{primaryLink.label}</span>
                 <span>→</span>
               </motion.a>
+            )}
+            {comingSoonLinks.length > 0 && (
+              <div className="flex flex-wrap gap-2 pt-1">
+                {comingSoonLinks.map((link) => (
+                  <div
+                    key={link.label}
+                    className="flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 rounded-lg border border-border cursor-not-allowed select-none"
+                    style={{ background: 'rgba(255,255,255,0.02)', opacity: 0.5 }}
+                  >
+                    <span>{link.icon}</span>
+                    <span className="text-gray-400">{link.label}</span>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded border border-border text-muted font-mono">
+                      {t.projectDetail.comingSoonBadge}
+                    </span>
+                  </div>
+                ))}
+              </div>
             )}
             {secondaryLinks.length > 0 && (
               <div className="flex flex-wrap gap-2 pt-1">
