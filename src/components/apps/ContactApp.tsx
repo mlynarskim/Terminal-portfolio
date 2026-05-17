@@ -9,7 +9,6 @@ const socials = [
   { label: 'LinkedIn', url: 'https://www.linkedin.com/in/mateuszmlynarski/', icon: '💼' },
   { label: 'X / Twitter', url: 'https://x.com/mlynarskimat', icon: '🐦' },
   { label: 'Instagram', url: 'https://www.instagram.com/mlynarskimat', icon: '📸' },
-  { label: 'Threads', url: 'https://www.threads.com/@mlynarskimat', icon: '🧵' },
   { label: 'ProductHunt', url: 'https://www.producthunt.com/@mateusz_mlynarski', icon: '🚀' },
 ]
 
