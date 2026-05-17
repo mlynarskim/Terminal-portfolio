@@ -63,6 +63,12 @@ export const pl = {
     clientDemos: 'Demo dla klientów',
     aiPowered: 'AI Powered',
     demo: 'Demo ↗',
+    statusLabel: {
+      live: 'Live',
+      beta: 'W fazie testowania',
+      wip: 'W budowie',
+      'coming-soon': 'Wkrótce',
+    } as Record<string, string>,
     demoTaglines: {
       'beauty-ai': 'Asystent AI dla salonu urody',
       'workshop-ai': 'Asystent AI dla warsztatu samochodowego',
@@ -214,6 +220,12 @@ export const en = {
     clientDemos: 'Client Demos',
     aiPowered: 'AI Powered',
     demo: 'Demo ↗',
+    statusLabel: {
+      live: 'Live',
+      beta: 'In testing',
+      wip: 'In progress',
+      'coming-soon': 'Coming soon',
+    } as Record<string, string>,
     demoTaglines: {
       'beauty-ai': 'AI assistant for beauty salon',
       'workshop-ai': 'AI assistant for car workshop',
