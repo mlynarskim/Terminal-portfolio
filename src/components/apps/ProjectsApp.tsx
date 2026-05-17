@@ -100,15 +100,29 @@ export default function ProjectsApp({ onOpenProject }: Props) {
                 )}
               </div>
             </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => onOpenProject(`project-${project.id}` as WindowId)}
-              className="px-2.5 py-1.5 rounded-lg text-xs font-semibold font-mono flex-shrink-0"
-              style={{ background: `${project.color}15`, color: project.color, border: `1px solid ${project.color}30` }}
-            >
-              {t.projects.open}
-            </motion.button>
+            <div className="flex flex-col items-center gap-1 flex-shrink-0">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => onOpenProject(`project-${project.id}` as WindowId)}
+                className="px-2.5 py-1.5 rounded-lg text-xs font-semibold font-mono w-full"
+                style={{ background: `${project.color}15`, color: project.color, border: `1px solid ${project.color}30` }}
+              >
+                {t.projects.open}
+              </motion.button>
+              {project.status && t.projects.statusLabel[project.status] && (
+                <span
+                  className="text-[9px] font-mono"
+                  style={{
+                    color: project.status === 'live' ? '#EF4444'
+                      : project.status === 'beta' ? '#A78BFA'
+                      : '#F59E0B',
+                  }}
+                >
+                  {t.projects.statusLabel[project.status]}
+                </span>
+              )}
+            </div>
           </div>
         </motion.div>
       ))}
