@@ -186,6 +186,22 @@ export const projects: Project[] = [
     ],
     screenshotCount: 3,
   },
+  {
+    id: 'atlas',
+    name: 'Atlas',
+    tagline: 'Smart photo organizer by country & date — iOS & Android',
+    taglinePL: 'Inteligentny organizer zdjęć po kraju i dacie — iOS i Android',
+    description:
+      'Cross-platform app that automatically sorts your photos by country and date using GPS geocoding. Travel memories organized the way they happened — browse by destination, timeline, or trip. Built with Flutter for a native feel on both iOS and Android.',
+    descriptionPL:
+      'Wieloplatformowa aplikacja, która automatycznie segreguje zdjęcia po kraju i dacie na podstawie danych GPS i geocodingu. Wspomnienia z podróży uporządkowane tak, jak się wydarzyły — przeglądaj po destynacji, osi czasu lub wycieczce. Zbudowana we Flutterze.',
+    tech: ['Flutter', 'Dart', 'Geocoding', 'iOS', 'Android'],
+    color: '#38BDF8',
+    emoji: '🗺️',
+    platform: 'ios+android',
+    status: 'wip',
+    links: [],
+  },
 ]
 
 export const currentlyBuilding = [
