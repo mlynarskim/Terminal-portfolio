@@ -35,7 +35,11 @@ export default function Desktop({ onOpenPalette, onOpenWallpaperPicker, external
 
   useEffect(() => {
     if (externalOpen) {
-      wm.openWindow(externalOpen)
+      if (externalOpen === 'business-ai') {
+        window.open('https://mlynarskimateusz.pl/uslugi', '_blank')
+      } else {
+        wm.openWindow(externalOpen)
+      }
       onExternalHandled()
     }
   }, [externalOpen])
@@ -65,11 +69,11 @@ export default function Desktop({ onOpenPalette, onOpenWallpaperPicker, external
   }
 
   const appIcons = [
-    { id: 'projects' as WindowId,    label: t.apps.projects,   emoji: '📁', color: '#00FFB3' },
-    { id: 'business-ai' as WindowId, label: t.apps.businessAI, emoji: '🤖', color: '#A78BFA' },
-    { id: 'assistant' as WindowId,   label: t.apps.assistant,  emoji: '💬', color: '#3B82F6' },
-    { id: 'about' as WindowId,       label: t.apps.about,      emoji: '👤', color: '#F59E0B' },
-    { id: 'contact' as WindowId,     label: t.apps.contact,    emoji: '✉️', color: '#FB7185' },
+    { id: 'projects' as WindowId,    label: t.apps.projects,   emoji: '📁', color: '#00FFB3', href: undefined },
+    { id: 'business-ai' as WindowId, label: t.apps.businessAI, emoji: '🛠️', color: '#A78BFA', href: 'https://mlynarskimateusz.pl/uslugi' },
+    { id: 'assistant' as WindowId,   label: t.apps.assistant,  emoji: '💬', color: '#3B82F6', href: undefined },
+    { id: 'about' as WindowId,       label: t.apps.about,      emoji: '👤', color: '#F59E0B', href: undefined },
+    { id: 'contact' as WindowId,     label: t.apps.contact,    emoji: '✉️', color: '#FB7185', href: undefined },
   ]
 
   const projectPositions = [
@@ -98,7 +102,7 @@ export default function Desktop({ onOpenPalette, onOpenWallpaperPicker, external
               emoji={app.emoji}
               accentColor={app.color}
               isOpen={wm.isOpen(app.id)}
-              onClick={() => wm.openWindow(app.id)}
+              onClick={() => app.href ? window.open(app.href, '_blank') : wm.openWindow(app.id)}
             />
           </div>
         ))}

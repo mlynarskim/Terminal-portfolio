@@ -18,7 +18,7 @@ export const pl = {
   },
   apps: {
     projects: 'Projekty',
-    businessAI: 'Business AI',
+    businessAI: 'Usługi',
     assistant: 'Asystent',
     about: 'O mnie',
     contact: 'Kontakt',
@@ -28,7 +28,7 @@ export const pl = {
     noResults: 'Brak wyników',
     commands: [
       { id: 'projects',          label: 'Projekty',                    description: 'Wszystkie projekty',              action: 'projects',                   emoji: '📁' },
-      { id: 'business-ai',       label: 'Business AI',                 description: 'Narzędzia AI dla firm',           action: 'business-ai',                emoji: '🤖' },
+      { id: 'business-ai',       label: 'Usługi',                      description: 'Oferta usług i kontakt',          action: 'business-ai',                emoji: '🛠️' },
       { id: 'assistant',         label: 'Asystent',                    description: 'Zapytaj o cokolwiek',             action: 'assistant',                  emoji: '💬' },
       { id: 'about',             label: 'O mnie',                      description: 'O Mateuszu',                      action: 'about',                      emoji: '👤' },
       { id: 'contact',           label: 'Kontakt',                     description: 'Napisz do mnie',                  action: 'contact',                    emoji: '✉️' },
@@ -135,7 +135,7 @@ export const pl = {
       header: 'O mnie',
       text: 'Buduję aplikacje i narzędzia AI dla firm, które chcą oszczędzać czas, automatyzować procesy i wyróżniać się online.',
     },
-    businessAI: { header: 'Business AI' },
+    businessAI: { header: 'Usługi / Services' },
     askMe: 'Zapytaj mnie',
     projects: 'Projekty',
     contact: {
@@ -175,7 +175,7 @@ export const en = {
   },
   apps: {
     projects: 'Projects',
-    businessAI: 'Business AI',
+    businessAI: 'Services',
     assistant: 'Assistant',
     about: 'About',
     contact: 'Contact',
@@ -185,7 +185,7 @@ export const en = {
     noResults: 'No results',
     commands: [
       { id: 'projects',          label: 'Projects',                    description: 'View all projects',               action: 'projects',                   emoji: '📁' },
-      { id: 'business-ai',       label: 'Business AI',                 description: 'AI tools for businesses',         action: 'business-ai',                emoji: '🤖' },
+      { id: 'business-ai',       label: 'Services',                    description: 'Services & contact',              action: 'business-ai',                emoji: '🛠️' },
       { id: 'assistant',         label: 'Assistant',                   description: 'Ask me anything',                 action: 'assistant',                  emoji: '💬' },
       { id: 'about',             label: 'About',                       description: 'About Mateusz',                   action: 'about',                      emoji: '👤' },
       { id: 'contact',           label: 'Contact',                     description: 'Get in touch',                    action: 'contact',                    emoji: '✉️' },
@@ -292,7 +292,7 @@ export const en = {
       header: 'About',
       text: 'I build AI-powered apps and tools for businesses that want to save time, automate tasks and stand out online.',
     },
-    businessAI: { header: 'Business AI' },
+    businessAI: { header: 'Usługi / Services' },
     askMe: 'Ask me anything',
     projects: 'Projects',
     contact: {
