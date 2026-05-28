@@ -183,24 +183,43 @@ export const projects: Project[] = [
     status: 'wip',
     links: [],
   },
+  // Panda — tymczasowo ukryta
+  // {
+  //   id: 'panda',
+  //   name: 'Panda',
+  //   tagline: 'Dating app — iOS & Android',
+  //   taglinePL: 'Aplikacja randkowa — iOS i Android',
+  //   description:
+  //     'A modern dating app built for genuine connections. Clean interface, smart matching, and a focus on meaningful interactions over endless swiping. Cross-platform, built with React Native and Expo.',
+  //   descriptionPL:
+  //     'Nowoczesna aplikacja randkowa stworzona dla prawdziwych połączeń. Przejrzysty interfejs, inteligentne dopasowywanie i nacisk na wartościowe interakcje zamiast niekończącego się swipowania. Wieloplatformowa, zbudowana w React Native i Expo.',
+  //   tech: ['React Native', 'Expo', 'TypeScript', 'Firebase'],
+  //   color: '#FB7185',
+  //   emoji: '🐼',
+  //   platform: 'ios+android',
+  //   status: 'wip',
+  //   links: [
+  //     { label: 'GitHub', url: 'https://github.com/mlynarskim/Panda-app', icon: '⌨️', primary: true },
+  //   ],
+  //   screenshotCount: 3,
+  // },
   {
-    id: 'panda',
-    name: 'Panda',
-    tagline: 'Dating app — iOS & Android',
-    taglinePL: 'Aplikacja randkowa — iOS i Android',
+    id: 'locals-skateboards',
+    name: 'Locals Skateboards',
+    tagline: 'Skateboard brand — WordPress & WooCommerce',
+    taglinePL: 'Marka skateboardowa — WordPress i WooCommerce',
     description:
-      'A modern dating app built for genuine connections. Clean interface, smart matching, and a focus on meaningful interactions over endless swiping. Cross-platform, built with React Native and Expo.',
+      'Full e-commerce website and online store for Locals Skateboards. Built on WordPress with WooCommerce, custom graphics and brand identity design included. Fast, mobile-first, and ready to sell.',
     descriptionPL:
-      'Nowoczesna aplikacja randkowa stworzona dla prawdziwych połączeń. Przejrzysty interfejs, inteligentne dopasowywanie i nacisk na wartościowe interakcje zamiast niekończącego się swipowania. Wieloplatformowa, zbudowana w React Native i Expo.',
-    tech: ['React Native', 'Expo', 'TypeScript', 'Firebase'],
-    color: '#FB7185',
-    emoji: '🐼',
-    platform: 'ios+android',
-    status: 'wip',
+      'Pełna strona internetowa i sklep online dla marki Locals Skateboards. Zbudowany na WordPressie z WooCommerce, z autorską grafiką i identyfikacją wizualną. Szybki, mobile-first, gotowy do sprzedaży.',
+    tech: ['WordPress', 'WooCommerce', 'Graphic Design', 'Branding', 'SEO'],
+    color: '#F59E0B',
+    emoji: '🛹',
+    platform: 'web',
+    status: 'live',
     links: [
-      { label: 'GitHub', url: 'https://github.com/mlynarskim/Panda-app', icon: '⌨️', primary: true },
+      { label: 'localsskateboards.com', url: 'https://localsskateboards.com', icon: '🌐', primary: true },
     ],
-    screenshotCount: 3,
   },
 ]
 

@@ -60,6 +60,8 @@ export const pl = {
   projects: {
     nProjects: (n: number) => `${n} projektów`,
     open: 'Otwórz',
+    sectionMobile: 'Mobile',
+    sectionWeb: 'Web',
     clientDemos: 'Demo dla klientów',
     aiPowered: 'AI Powered',
     demo: 'Demo ↗',
@@ -217,6 +219,8 @@ export const en = {
   projects: {
     nProjects: (n: number) => `${n} projects`,
     open: 'Open',
+    sectionMobile: 'Mobile',
+    sectionWeb: 'Web',
     clientDemos: 'Client Demos',
     aiPowered: 'AI Powered',
     demo: 'Demo ↗',

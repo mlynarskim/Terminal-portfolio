@@ -36,8 +36,101 @@ const clientDemos = [
   },
 ]
 
+const mobileProjects = projects.filter((p) => p.platform === 'ios' || p.platform === 'ios+android')
+const webProjects = projects.filter((p) => p.platform === 'web')
+
 interface Props {
   onOpenProject: (id: WindowId) => void
+}
+
+function ProjectCard({
+  project,
+  index,
+  onOpenProject,
+  lang,
+  t,
+}: {
+  project: (typeof projects)[0]
+  index: number
+  onOpenProject: (id: WindowId) => void
+  lang: string
+  t: { open: string; statusLabel: Record<string, string> }
+}) {
+  return (
+    <motion.div
+      key={project.id}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.05, duration: 0.2 }}
+      className="rounded-xl border border-border p-3.5 transition-all group cursor-default"
+      style={{ background: 'rgba(26,26,31,0.6)' }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = `${project.color}40`
+        e.currentTarget.style.boxShadow = `0 0 20px ${project.color}10`
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = ''
+        e.currentTarget.style.boxShadow = ''
+      }}
+    >
+      <div className="flex items-start gap-3">
+        <div
+          className="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
+          style={{ background: `${project.color}15`, border: `1px solid ${project.color}30` }}
+        >
+          {project.emoji}
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 mb-0.5 flex-wrap">
+            <h3 className="font-semibold text-gray-100 text-sm">{project.name}</h3>
+            <span className="text-[9px] px-1.5 py-0.5 rounded font-mono"
+              style={{ background: `${project.color}15`, color: project.color }}>
+              {platformLabelMap[project.platform]}
+            </span>
+          </div>
+          <p className="text-xs text-muted font-mono mb-2 leading-snug">
+            {(lang === 'pl' && project.taglinePL ? project.taglinePL : project.tagline).split('—')[0].trim()}
+          </p>
+          <div className="flex flex-wrap gap-1">
+            {project.tech.slice(0, 3).map((tech) => (
+              <span key={tech} className="text-[9px] px-1.5 py-0.5 rounded font-mono"
+                style={{ background: `${project.color}10`, color: project.color, border: `1px solid ${project.color}20` }}>
+                {tech}
+              </span>
+            ))}
+            {project.tech.length > 3 && (
+              <span className="text-[9px] px-1.5 py-0.5 rounded font-mono text-muted">
+                +{project.tech.length - 3}
+              </span>
+            )}
+          </div>
+        </div>
+        <div className="flex flex-col items-center gap-1 flex-shrink-0">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => onOpenProject(`project-${project.id}` as WindowId)}
+            className="px-2.5 py-1.5 rounded-lg text-xs font-semibold font-mono w-full"
+            style={{ background: `${project.color}15`, color: project.color, border: `1px solid ${project.color}30` }}
+          >
+            {t.open}
+          </motion.button>
+          {project.status && t.statusLabel[project.status] && (
+            <span
+              className="text-[9px] font-mono"
+              style={{
+                color: project.status === 'live' ? '#EF4444'
+                  : project.status === 'beta' ? '#A78BFA'
+                  : '#F59E0B',
+              }}
+            >
+              {t.statusLabel[project.status]}
+            </span>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  )
 }
 
 export default function ProjectsApp({ onOpenProject }: Props) {
@@ -45,86 +138,45 @@ export default function ProjectsApp({ onOpenProject }: Props) {
 
   return (
     <div className="h-full flex flex-col p-4 gap-3 overflow-auto">
-      {/* Apps */}
+
+      {/* Mobile */}
       <div className="flex items-center gap-2 mb-1">
-        <span className="text-xs font-mono text-muted">{t.projects.nProjects(projects.length)}</span>
+        <span className="text-[10px] font-mono uppercase tracking-wider text-muted">
+          {t.projects.sectionMobile}
+        </span>
         <div className="flex-1 h-px bg-border" />
+        <span className="text-[9px] font-mono text-muted">{mobileProjects.length}</span>
       </div>
 
-      {projects.map((project, i) => (
-        <motion.div
+      {mobileProjects.map((project, i) => (
+        <ProjectCard
           key={project.id}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 0.05, duration: 0.2 }}
-          className="rounded-xl border border-border p-3.5 transition-all group cursor-default"
-          style={{ background: 'rgba(26,26,31,0.6)' }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = `${project.color}40`
-            e.currentTarget.style.boxShadow = `0 0 20px ${project.color}10`
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = ''
-            e.currentTarget.style.boxShadow = ''
-          }}
-        >
-          <div className="flex items-start gap-3">
-            <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
-              style={{ background: `${project.color}15`, border: `1px solid ${project.color}30` }}
-            >
-              {project.emoji}
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-0.5 flex-wrap">
-                <h3 className="font-semibold text-gray-100 text-sm">{project.name}</h3>
-                <span className="text-[9px] px-1.5 py-0.5 rounded font-mono"
-                  style={{ background: `${project.color}15`, color: project.color }}>
-                  {platformLabelMap[project.platform]}
-                </span>
-              </div>
-              <p className="text-xs text-muted font-mono mb-2 leading-snug">
-                {(lang === 'pl' && project.taglinePL ? project.taglinePL : project.tagline).split('—')[0].trim()}
-              </p>
-              <div className="flex flex-wrap gap-1">
-                {project.tech.slice(0, 3).map((tech) => (
-                  <span key={tech} className="text-[9px] px-1.5 py-0.5 rounded font-mono"
-                    style={{ background: `${project.color}10`, color: project.color, border: `1px solid ${project.color}20` }}>
-                    {tech}
-                  </span>
-                ))}
-                {project.tech.length > 3 && (
-                  <span className="text-[9px] px-1.5 py-0.5 rounded font-mono text-muted">
-                    +{project.tech.length - 3}
-                  </span>
-                )}
-              </div>
-            </div>
-            <div className="flex flex-col items-center gap-1 flex-shrink-0">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => onOpenProject(`project-${project.id}` as WindowId)}
-                className="px-2.5 py-1.5 rounded-lg text-xs font-semibold font-mono w-full"
-                style={{ background: `${project.color}15`, color: project.color, border: `1px solid ${project.color}30` }}
-              >
-                {t.projects.open}
-              </motion.button>
-              {project.status && t.projects.statusLabel[project.status] && (
-                <span
-                  className="text-[9px] font-mono"
-                  style={{
-                    color: project.status === 'live' ? '#EF4444'
-                      : project.status === 'beta' ? '#A78BFA'
-                      : '#F59E0B',
-                  }}
-                >
-                  {t.projects.statusLabel[project.status]}
-                </span>
-              )}
-            </div>
-          </div>
-        </motion.div>
+          project={project}
+          index={i}
+          onOpenProject={onOpenProject}
+          lang={lang}
+          t={{ open: t.projects.open, statusLabel: t.projects.statusLabel }}
+        />
+      ))}
+
+      {/* Web */}
+      <div className="flex items-center gap-2 mt-3 mb-1">
+        <span className="text-[10px] font-mono uppercase tracking-wider text-muted">
+          {t.projects.sectionWeb}
+        </span>
+        <div className="flex-1 h-px bg-border" />
+        <span className="text-[9px] font-mono text-muted">{webProjects.length}</span>
+      </div>
+
+      {webProjects.map((project, i) => (
+        <ProjectCard
+          key={project.id}
+          project={project}
+          index={mobileProjects.length + i}
+          onOpenProject={onOpenProject}
+          lang={lang}
+          t={{ open: t.projects.open, statusLabel: t.projects.statusLabel }}
+        />
       ))}
 
       {/* Client Demos */}
