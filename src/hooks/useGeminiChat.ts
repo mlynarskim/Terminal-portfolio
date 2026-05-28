@@ -72,9 +72,9 @@ export function useGeminiChat({ apiKey, systemPrompt }: UseGeminiChatOptions) {
             generationConfig: {
               maxOutputTokens: 500,
               temperature: 0.75,
-            },
-            thinkingConfig: {
-              thinkingBudget: 0,
+              thinkingConfig: {
+                thinkingBudget: 0,
+              },
             },
           }),
         })

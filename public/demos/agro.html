@@ -573,8 +573,7 @@
                 body: JSON.stringify({
                     systemInstruction:{parts:[{text:SYSTEM}]},
                     contents,
-                    generationConfig:{maxOutputTokens:500,temperature:0.65},
-                    thinkingConfig:{thinkingBudget:0}
+                    generationConfig:{maxOutputTokens:500,temperature:0.65,thinkingConfig:{thinkingBudget:0}}
                 })
             })
             .then(r=>r.json())
