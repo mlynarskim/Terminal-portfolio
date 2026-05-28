@@ -73,7 +73,7 @@ export const pl = {
     demo: 'Demo ↗',
     statusLabel: {
       live: 'Live',
-      beta: 'W fazie testowania',
+      beta: 'Beta',
       wip: 'W budowie',
       'coming-soon': 'Wkrótce',
     } as Record<string, string>,

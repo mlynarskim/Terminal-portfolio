@@ -117,7 +117,7 @@ function ProjectCard({
           </motion.button>
           {project.status && t.statusLabel[project.status] && (
             <span
-              className="text-[9px] font-mono"
+              className="text-[9px] font-mono whitespace-nowrap"
               style={{
                 color: project.status === 'live' ? '#EF4444'
                   : project.status === 'beta' ? '#A78BFA'

@@ -70,7 +70,7 @@ export const wallpapers: Wallpaper[] = [
   },
 ]
 
-export const DEFAULT_WALLPAPER: WallpaperId = 'terminal'
+export const DEFAULT_WALLPAPER: WallpaperId = 'aurora'
 
 export function getWallpaper(id: WallpaperId): Wallpaper {
   return wallpapers.find((w) => w.id === id) ?? wallpapers[0]
