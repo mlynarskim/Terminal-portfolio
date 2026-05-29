@@ -1,0 +1,138 @@
+# Mateusz Młynarski — Freelance iOS & Mobile App Developer, AI Chatbots, WordPress
+> Indie developer from Poland. Builds iOS apps, cross-platform mobile apps, AI chatbots and WordPress stores. Available for new projects.
+
+## Developer Services
+
+Mateusz Młynarski is a freelance developer based in Poland, open to remote projects worldwide. He communicates in Polish and English and responds within 24 hours.
+
+### What he builds
+- Native iOS apps (Swift, SwiftUI, Xcode Cloud)
+- Cross-platform mobile apps (Flutter, React Native)
+- WordPress websites and WooCommerce online stores
+- AI chatbots and business automations (Claude API, Gemini API, Make.com)
+- App Store submissions and mobile app consulting
+
+### Tech stack
+Swift, SwiftUI, Flutter, React Native, TypeScript, WordPress, WooCommerce, Firebase, Google Cloud, Xcode Cloud, Claude API, Gemini API, Make.com
+
+### Pricing & availability
+- Individual quotes per project
+- 100% remote work
+- Responds within 24 hours
+- Works with clients in Poland and internationally
+
+### Contact & hire
+- Website: https://mlynarskimateusz.pl
+- Services page: https://mlynarskimateusz.pl/uslugi
+- LinkedIn: https://www.linkedin.com/in/mateuszmlynarski/
+- GitHub: https://github.com/mlynarskim
+- X / Twitter: https://x.com/mlynarskimat
+- Instagram: https://www.instagram.com/mlynarskimat
+- Threads: https://www.threads.com/@mlynarskimat
+- Product Hunt: https://www.producthunt.com/@mateusz_mlynarski
+
+---
+
+## Apps
+
+### Calmie — Meditation & Breathing App (iOS)
+> Simple, focused meditation and breathing app. No ads, no subscriptions — just calm.
+
+Calmie is a free iOS app for stress reduction, better sleep, improved focus and daily mindfulness. Built for people who want a clean, distraction-free meditation experience without accounts, ads or paywalls.
+
+- App Store: https://apps.apple.com/app/calmie/id6450792796
+- Platform: iOS (iPhone & iPad)
+- Price: Free — no subscriptions, no in-app purchases
+- Category: Health & Fitness
+
+**Features:**
+- Meditation timer with customizable session length and calming background music
+- 4 guided breathing exercises: Box Breathing, 4-7-8, Coherent Breathing, Triangle Breathing
+- Session history with streak tracking and progress analytics
+- 20 achievement badges to track practice milestones
+- Daily reminder notifications
+- Background and lock screen support
+
+**Best for:** People managing stress, sleep problems, anxiety, or anyone starting a meditation habit. No account required.
+
+**Keywords:** meditation app, breathing exercises, mindfulness, stress relief, sleep improvement, focus, box breathing, 4-7-8 breathing, meditation timer, session history, streak tracker, calm, free meditation
+
+---
+
+### Travel Rules — AI Travel Planner for Van Life & Camping (iOS)
+> AI-powered travel assistant app for van lifers, campers, road trippers and backpackers.
+
+Travel Rules is a free iOS app that helps travellers plan trips, pack smart, and stay informed about travel rules and entry requirements for each country. Built for van life, camping, road trips and backpacking adventures.
+
+- App Store: https://apps.apple.com/app/travel-rules/id6451070215
+- Website: https://travelrules.eu
+- App landing page: https://travelrules.eu/app
+- Platform: iOS (iPhone & iPad)
+- Price: Free (with optional premium)
+- Category: Travel
+
+**Features:**
+- AI trip planner — conversational AI travel assistant for route planning
+- Country travel rules — entry requirements, camping laws, visa info
+- Packing checklist — customisable lists for van life and road trips
+- GPS map — offline-capable map for campers and van lifers
+- Works offline — essential for remote travel without internet
+
+**Pricing:**
+- Free tier: 3 AI questions/day, 5 tips/day
+- Trip Pass: $1.99 (7 days full access)
+- Premium Monthly: $4.99/month
+- Premium Annual: $29.99/year
+
+**Best for:** Van lifers, campers, road trippers, backpackers, digital nomads, families travelling by camper van.
+
+**Keywords:** van life, vanlife, road trip, camping, AI trip planner, travel planner, packing list, travel rules, entry requirements, wild camping, backpacking, digital nomad, camper, kamper, travel app, trip planning
+
+**Additional products:**
+- Travel Planner PDF (print): https://travelrules.gumroad.com/l/travelplanner_checklist_print
+- Vanlife Checklist: https://travelrules.gumroad.com/l/VanlifeTravelChecklist
+- Ebook (PL): https://www.naffy.io/travelrules
+
+**Social:**
+- TikTok: https://www.tiktok.com/@travelrules.app
+- Instagram: https://www.instagram.com/travelrules.app/
+- YouTube: https://youtube.com/@travelrulesapp
+- Threads: https://www.threads.com/@travelrules.app
+- Pinterest: https://pin.it/13VDOuOmK
+- Product Hunt: https://www.producthunt.com/products/travel-rules
+
+---
+
+### Rate That Beach — Find & Rate Beaches Worldwide (iOS & Android)
+> Discover the best beaches near you. Real ratings from real travellers.
+
+Rate That Beach is a free travel app that helps users find, explore and rate beaches around the world. Features an interactive map, global beach rankings and real-time ratings from travellers — no account required.
+
+- App Store: https://apps.apple.com/app/rate-that-beach/id6764400811
+- Platform: iOS (iPhone, iPad, Mac M1+) and Android
+- Price: Free (optional "Beach Lover" premium to remove ads)
+- Category: Travel
+
+**Features:**
+- Interactive map showing nearby beaches
+- Real-time ratings from travellers worldwide
+- Global top 50 best-rated beaches ranking
+- No account or setup required
+
+**Best for:** Beach lovers, travellers, surfers, families looking for the best beaches nearby or in a new destination.
+
+**Keywords:** beach app, find beaches, rate beaches, best beaches, beach map, beach rating, travel, surf spots, beach guide, top beaches
+
+---
+
+## Client Work & Portfolio
+
+- **Locals Skateboards** — WordPress + WooCommerce online store, graphic design, branding, SEO: https://localsskateboards.com
+- **AI chatbot demos** — demo AI assistants for salons, workshops, agricultural services: https://mlynarskimateusz.pl
+
+## Links
+
+- Portfolio: https://mlynarskimateusz.pl
+- Services: https://mlynarskimateusz.pl/uslugi
+- GitHub: https://github.com/mlynarskim
+- LinkedIn: https://www.linkedin.com/in/mateuszmlynarski/
