@@ -238,6 +238,9 @@ export const projects: Project[] = [
     links: [
       { label: 'ksiazkimarty.pl', url: 'https://www.ksiazkimarty.pl', icon: '🌐', primary: true },
     ],
+    screenshots: [
+      '/screens/ksiazki-marty/screen-1.png',
+    ],
   },
 ]
 
