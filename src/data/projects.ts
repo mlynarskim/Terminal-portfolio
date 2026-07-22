@@ -221,6 +221,24 @@ export const projects: Project[] = [
       { label: 'localsskateboards.com', url: 'https://localsskateboards.com', icon: '🌐', primary: true },
     ],
   },
+  {
+    id: 'ksiazki-marty',
+    name: 'Książki Marty',
+    tagline: 'Children\'s book store — WordPress & WooCommerce',
+    taglinePL: 'Sklep z książkami dla dzieci — WordPress i WooCommerce',
+    description:
+      'A complete website and online store for a children\'s book author. Built with WordPress, WooCommerce, and Kadence Blocks, with Autopay payments and InPost delivery integrated into a smooth purchasing journey. The responsive, approachable design helps parents and caregivers discover each title, learn about the author, and order books with confidence while strengthening a distinctive author brand.',
+    descriptionPL:
+      'Kompleksowa strona internetowa i sklep online dla autorki książek dla dzieci. Projekt powstał na WordPressie z wykorzystaniem WooCommerce i Kadence Blocks, z płatnościami Autopay oraz dostawą InPost zintegrowanymi w wygodnym procesie zakupowym. Przejrzysty, responsywny projekt pomaga rodzicom i opiekunom poznawać książki, odkrywać twórczość autorki i sprawnie składać zamówienia, jednocześnie wzmacniając rozpoznawalną markę autorską.',
+    tech: ['WordPress', 'WooCommerce', 'Kadence Blocks', 'InPost', 'Autopay', 'Responsive Design'],
+    color: '#FB7185',
+    emoji: '📚',
+    platform: 'web',
+    status: 'live',
+    links: [
+      { label: 'ksiazkimarty.pl', url: 'https://www.ksiazkimarty.pl', icon: '🌐', primary: true },
+    ],
+  },
 ]
 
 export const currentlyBuilding = [
