@@ -220,6 +220,9 @@ export const projects: Project[] = [
     links: [
       { label: 'localsskateboards.com', url: 'https://localsskateboards.com', icon: '🌐', primary: true },
     ],
+    screenshots: [
+      '/screens/locals-skateboards/screen-1.png',
+    ],
   },
   {
     id: 'ksiazki-marty',
