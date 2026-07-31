@@ -83,6 +83,12 @@ export default function ProjectDetailApp({ project }: Props) {
               {t.projectDetail.platform.web}
             </span>
           )}
+          {project.platform === 'python' && (
+            <span className="text-[10px] px-2 py-0.5 rounded-full font-mono border"
+              style={{ color: project.color, borderColor: `${project.color}30`, background: `${project.color}12` }}>
+              {t.projectDetail.platform.python}
+            </span>
+          )}
 
           {/* Status badge */}
           {statusCfg && statusLabel && (
@@ -144,7 +150,9 @@ export default function ProjectDetailApp({ project }: Props) {
               </div>
               <div className="flex-1 h-4 rounded bg-border/50 mx-2 flex items-center px-2">
                 <span className="text-[9px] text-muted font-mono truncate">
-                  {primaryLink?.url ?? project.name.toLowerCase().replace(/ /g, '') + '.app'}
+                  {project.platform === 'python'
+                    ? project.name
+                    : primaryLink?.url ?? project.name.toLowerCase().replace(/ /g, '') + '.app'}
                 </span>
               </div>
               {webImages.length > 1 && (

@@ -193,7 +193,13 @@ export default function SimpleView() {
               </div>
               <span className="text-[9px] px-1.5 py-0.5 rounded font-mono flex-shrink-0"
                 style={{ background: `${p.color}15`, color: p.color }}>
-                {p.platform === 'ios' ? 'iOS' : p.platform === 'ios+android' ? 'iOS + Android' : 'Web'}
+                {p.platform === 'ios'
+                  ? 'iOS'
+                  : p.platform === 'ios+android'
+                    ? 'iOS + Android'
+                    : p.platform === 'web'
+                      ? 'Web'
+                      : 'Python'}
               </span>
             </div>
             <p className="text-xs text-muted font-mono">{(lang === 'pl' && p.taglinePL ? p.taglinePL : p.tagline).split('—')[0].trim()}</p>

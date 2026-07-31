@@ -1,4 +1,4 @@
-export type Platform = 'ios' | 'ios+android' | 'web'
+export type Platform = 'ios' | 'ios+android' | 'web' | 'python'
 
 export interface ProjectLink {
   label: string
@@ -243,6 +243,51 @@ export const projects: Project[] = [
     ],
     screenshots: [
       '/screens/ksiazki-marty/screen-1.png',
+    ],
+  },
+  {
+    id: 'photo-tools',
+    name: 'Photo Tools',
+    tagline: 'Photo & video organizer — Python desktop app',
+    taglinePL: 'Organizer zdjęć i filmów — aplikacja Python',
+    description:
+      'A cross-platform desktop utility for bringing large photo and video libraries under control. It scans folders recursively, reads capture dates from EXIF and video metadata, and organizes files into a clear year and month structure. Its duplicate finder combines file-size grouping with MD5 hashing for exact matches, while preview mode and safe move operations protect the original collection.',
+    descriptionPL:
+      'Wieloplatformowe narzędzie desktopowe do porządkowania dużych bibliotek zdjęć i filmów. Rekurencyjnie skanuje katalogi, odczytuje daty wykonania z EXIF i metadanych wideo, a następnie układa pliki w przejrzystej strukturze roku i miesiąca. Moduł duplikatów łączy grupowanie według rozmiaru z hashami MD5, a tryb podglądu i bezpieczne przenoszenie chronią oryginalną kolekcję.',
+    tech: ['Python', 'Tkinter', 'Pillow', 'EXIF', 'FFmpeg', 'MD5', 'PyInstaller'],
+    color: '#FFD43B',
+    emoji: '🖼️',
+    platform: 'python',
+    status: 'live',
+    links: [
+      { label: 'GitHub', url: 'https://github.com/mlynarskim/photo-tools', icon: '⌨️', primary: true },
+    ],
+    screenshots: [
+      '/screens/photo-tools/screen-1.png',
+    ],
+  },
+  {
+    id: 'csv-cleaner',
+    name: 'CSV Cleaner',
+    tagline: 'Local CSV & XLSX cleaning workflow — Python desktop app',
+    taglinePL: 'Lokalne czyszczenie CSV i XLSX — aplikacja Python',
+    description:
+      'A local desktop application for analyzing, cleaning, and standardizing CSV and XLSX files without sending data to a server. A guided five-step workflow detects encoding, separators, empty rows, duplicates, missing values, whitespace, date fields, and invalid email addresses before showing a preview of every change. Safe export preserves the source file and generates TXT and JSON reports for a transparent, auditable process.',
+    descriptionPL:
+      'Lokalna aplikacja desktopowa do analizy, czyszczenia i standaryzowania plików CSV oraz XLSX bez wysyłania danych na serwer. Pięcioetapowy proces wykrywa kodowanie, separatory, puste wiersze, duplikaty, braki danych, zbędne odstępy, pola dat i błędne adresy poczty, a następnie pokazuje podgląd zmian. Bezpieczny eksport chroni plik źródłowy i tworzy raporty TXT oraz JSON, zapewniając przejrzysty przebieg operacji.',
+    tech: ['Python', 'Tkinter', 'pandas', 'openpyxl', 'chardet', 'tkinterdnd2', 'pytest', 'PyInstaller'],
+    color: '#4B8BBE',
+    emoji: '🧹',
+    platform: 'python',
+    status: 'live',
+    version: '1.1.1',
+    links: [
+      { label: 'GitHub', url: 'https://github.com/mlynarskim/CSV-Cleaner', icon: '⌨️', primary: true },
+    ],
+    screenshots: [
+      '/screens/csv-cleaner/screen-1.png',
+      '/screens/csv-cleaner/screen-2.png',
+      '/screens/csv-cleaner/screen-3.png',
     ],
   },
 ]

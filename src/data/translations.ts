@@ -1,7 +1,7 @@
 export const pl = {
   boot: {
     init: '> Inicjalizacja Portfolio OS v1.0...',
-    loading: '> Ładowanie 7 projektów...',
+    loading: '> Ładowanie 10 projektów...',
     ready: '> Wszystkie systemy gotowe.',
     pressEnter: 'Naciśnij Enter, aby zacząć',
     orClick: 'lub kliknij gdziekolwiek',
@@ -39,6 +39,8 @@ export const pl = {
       { id: 'panda',             label: 'Otwórz Panda',                description: 'Aplikacja randkowa · iOS + Android', action: 'project-panda',           emoji: '🐼' },
       { id: 'calmie',            label: 'Otwórz Calmie',               description: 'Medytacja i oddychanie · iOS',        action: 'project-calmie',          emoji: '🧘' },
       { id: 'atlas',             label: 'Otwórz Atlas',                 description: 'Organizer zdjęć · iOS + Android',     action: 'project-atlas',           emoji: '🗺️' },
+      { id: 'photo-tools',       label: 'Otwórz Photo Tools',           description: 'Organizer multimediów · Python',       action: 'project-photo-tools',     emoji: '🖼️' },
+      { id: 'csv-cleaner',       label: 'Otwórz CSV Cleaner',           description: 'Czyszczenie danych · Python',          action: 'project-csv-cleaner',     emoji: '🧹' },
     ],
   },
   about: {
@@ -68,6 +70,7 @@ export const pl = {
     open: 'Otwórz',
     sectionMobile: 'Mobile',
     sectionWeb: 'Web',
+    sectionPython: 'Python',
     clientDemos: 'Demo dla klientów',
     aiPowered: 'AI Powered',
     demo: 'Demo ↗',
@@ -100,6 +103,7 @@ export const pl = {
       ios: 'iOS · Swift · Xcode',
       'ios+android': 'iOS + Android · React Native',
       web: 'Aplikacja web',
+      python: 'Aplikacja desktopowa · Python',
     } as Record<string, string>,
   },
   businessAI: {
@@ -166,7 +170,7 @@ export const pl = {
 export const en = {
   boot: {
     init: '> Initializing Portfolio OS v1.0...',
-    loading: '> Loading 7 projects...',
+    loading: '> Loading 10 projects...',
     ready: '> All systems ready.',
     pressEnter: 'Press Enter to start',
     orClick: 'or click anywhere',
@@ -204,6 +208,8 @@ export const en = {
       { id: 'panda',             label: 'Open Panda',                  description: 'Dating app · iOS + Android',      action: 'project-panda',              emoji: '🐼' },
       { id: 'calmie',            label: 'Open Calmie',                 description: 'Meditation & breathing · iOS',    action: 'project-calmie',             emoji: '🧘' },
       { id: 'atlas',             label: 'Open Atlas',                  description: 'Photo organizer · iOS + Android', action: 'project-atlas',              emoji: '🗺️' },
+      { id: 'photo-tools',       label: 'Open Photo Tools',            description: 'Media organizer · Python',        action: 'project-photo-tools',        emoji: '🖼️' },
+      { id: 'csv-cleaner',       label: 'Open CSV Cleaner',            description: 'Data cleaning · Python',           action: 'project-csv-cleaner',        emoji: '🧹' },
     ],
   },
   about: {
@@ -233,6 +239,7 @@ export const en = {
     open: 'Open',
     sectionMobile: 'Mobile',
     sectionWeb: 'Web',
+    sectionPython: 'Python',
     clientDemos: 'Client Demos',
     aiPowered: 'AI Powered',
     demo: 'Demo ↗',
@@ -265,6 +272,7 @@ export const en = {
       ios: 'iOS · Swift · Xcode',
       'ios+android': 'iOS + Android · React Native',
       web: 'Web app',
+      python: 'Desktop app · Python',
     } as Record<string, string>,
   },
   businessAI: {

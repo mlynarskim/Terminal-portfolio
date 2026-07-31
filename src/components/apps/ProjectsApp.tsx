@@ -7,6 +7,7 @@ const platformLabelMap: Record<string, string> = {
   ios: 'iOS',
   'ios+android': 'iOS + Android',
   web: 'Web',
+  python: 'Python',
 }
 
 const clientDemos = [
@@ -38,6 +39,7 @@ const clientDemos = [
 
 const mobileProjects = projects.filter((p) => p.platform === 'ios' || p.platform === 'ios+android')
 const webProjects = projects.filter((p) => p.platform === 'web')
+const pythonProjects = projects.filter((p) => p.platform === 'python')
 
 interface Props {
   onOpenProject: (id: WindowId) => void
@@ -173,6 +175,26 @@ export default function ProjectsApp({ onOpenProject }: Props) {
           key={project.id}
           project={project}
           index={mobileProjects.length + i}
+          onOpenProject={onOpenProject}
+          lang={lang}
+          t={{ open: t.projects.open, statusLabel: t.projects.statusLabel }}
+        />
+      ))}
+
+      {/* Python */}
+      <div className="flex items-center gap-2 mt-3 mb-1">
+        <span className="text-[10px] font-mono uppercase tracking-wider" style={{ color: '#FFD43B' }}>
+          {t.projects.sectionPython}
+        </span>
+        <div className="flex-1 h-px bg-border" />
+        <span className="text-[9px] font-mono text-muted">{pythonProjects.length}</span>
+      </div>
+
+      {pythonProjects.map((project, i) => (
+        <ProjectCard
+          key={project.id}
+          project={project}
+          index={mobileProjects.length + webProjects.length + i}
           onOpenProject={onOpenProject}
           lang={lang}
           t={{ open: t.projects.open, statusLabel: t.projects.statusLabel }}
