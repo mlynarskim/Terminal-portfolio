@@ -8,6 +8,8 @@ interface Props {
   color: string
   platform: Platform
   projectId: string
+  openImageLabel?: string
+  onScreenshotClick?: (index: number) => void
 }
 
 const placeholderScreens = [
@@ -18,7 +20,15 @@ const placeholderScreens = [
   { label: 'Settings', icon: '⚙️' },
 ]
 
-export default function PhoneMockup({ screenshotCount = 3, screenshots, color, platform, projectId }: Props) {
+export default function PhoneMockup({
+  screenshotCount = 3,
+  screenshots,
+  color,
+  platform,
+  projectId,
+  openImageLabel = 'Open image',
+  onScreenshotClick,
+}: Props) {
   const [current, setCurrent] = useState(0)
   const hasReal = screenshots && screenshots.length > 0
   const count = hasReal ? screenshots.length : Math.min(screenshotCount, placeholderScreens.length)
@@ -76,12 +86,19 @@ export default function PhoneMockup({ screenshotCount = 3, screenshots, color, p
                   style={{ background: '#0B0B0F' }}
                 >
                   {hasReal ? (
-                    <img
-                      src={screenshots[current]}
-                      alt={`${projectId} screenshot ${current + 1}`}
-                      className="w-full h-full object-cover object-top"
-                      draggable={false}
-                    />
+                    <button
+                      type="button"
+                      onClick={() => onScreenshotClick?.(current)}
+                      aria-label={`${openImageLabel} ${current + 1}`}
+                      className="h-full w-full cursor-zoom-in"
+                    >
+                      <img
+                        src={screenshots[current]}
+                        alt={`${projectId} screenshot ${current + 1}`}
+                        className="w-full h-full object-cover object-top"
+                        draggable={false}
+                      />
+                    </button>
                   ) : (
                     <div className="w-full h-full flex flex-col">
                       {/* Status bar */}

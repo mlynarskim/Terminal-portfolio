@@ -91,6 +91,10 @@ export const pl = {
     links: 'Linki',
     follow: 'Obserwuj',
     screenshotsComingSoon: 'screenshoty wkrótce',
+    openImage: 'Powiększ zdjęcie',
+    closeImage: 'Zamknij podgląd',
+    previousImage: 'Poprzednie zdjęcie',
+    nextImage: 'Następne zdjęcie',
     comingSoonLinks: '🚧 Wkrótce — linki pojawią się po premierze',
     comingSoonBadge: 'wkrótce',
     status: {
@@ -261,6 +265,10 @@ export const en = {
     links: 'Links',
     follow: 'Follow',
     screenshotsComingSoon: 'screenshots coming soon',
+    openImage: 'Enlarge image',
+    closeImage: 'Close preview',
+    previousImage: 'Previous image',
+    nextImage: 'Next image',
     comingSoonLinks: '🚧 Coming soon — links will be added on launch',
     comingSoonBadge: 'coming soon',
     status: {

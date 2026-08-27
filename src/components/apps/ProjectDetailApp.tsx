@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Project, BuildStatus } from '../../data/projects'
 import PhoneMockup from '../PhoneMockup'
+import ImageLightbox from '../ImageLightbox'
 import { useLanguage } from '../../contexts/LanguageContext'
 
 interface Props {
@@ -13,6 +14,7 @@ export default function ProjectDetailApp({ project }: Props) {
   const tagline = lang === 'pl' && project.taglinePL ? project.taglinePL : project.tagline
   const description = lang === 'pl' && project.descriptionPL ? project.descriptionPL : project.description
   const [webScreen, setWebScreen] = useState(0)
+  const [lightboxScreen, setLightboxScreen] = useState<number | null>(null)
   const isMobile = project.platform === 'ios' || project.platform === 'ios+android' || project.platform === 'apple'
   const usesDeviceMockup = isMobile && project.screenshotLayout !== 'gallery'
   const primaryLink = project.links.find((l) => l.primary) ?? project.links[0]
@@ -35,6 +37,7 @@ export default function ProjectDetailApp({ project }: Props) {
     : []
   const hasWebScreens = webScreenshots.some(s => s.length > 0)
   const webImages = webScreenshots.filter(s => s.length > 0)
+  const projectImages = (project.screenshots ?? []).filter(s => s.length > 0)
 
   return (
     <div className="h-full flex flex-col overflow-auto">
@@ -135,6 +138,8 @@ export default function ProjectDetailApp({ project }: Props) {
               color={project.color}
               platform={project.platform}
               projectId={project.id}
+              openImageLabel={t.projectDetail.openImage}
+              onScreenshotClick={setLightboxScreen}
             />
           </motion.div>
         )}
@@ -190,6 +195,16 @@ export default function ProjectDetailApp({ project }: Props) {
                   className={`w-full ${project.screenshotLayout === 'gallery' ? 'object-contain object-center' : 'object-cover object-top'}`}
                   style={project.screenshotLayout === 'gallery' ? { height: 220 } : { maxHeight: 220 }}
                   draggable={false}
+                  onClick={() => setLightboxScreen(webScreen)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`${t.projectDetail.openImage} ${webScreen + 1}`}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault()
+                      setLightboxScreen(webScreen)
+                    }
+                  }}
                 />
               </AnimatePresence>
             ) : (
@@ -220,6 +235,19 @@ export default function ProjectDetailApp({ project }: Props) {
               </div>
             )}
           </motion.div>
+        )}
+
+        {lightboxScreen !== null && projectImages.length > 0 && (
+          <ImageLightbox
+            images={projectImages}
+            current={lightboxScreen}
+            alt={`${project.name} screenshot`}
+            closeLabel={t.projectDetail.closeImage}
+            previousLabel={t.projectDetail.previousImage}
+            nextLabel={t.projectDetail.nextImage}
+            onChange={setLightboxScreen}
+            onClose={() => setLightboxScreen(null)}
+          />
         )}
 
         {/* Tech stack */}
