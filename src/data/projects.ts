@@ -1,4 +1,4 @@
-export type Platform = 'ios' | 'ios+android' | 'web' | 'python'
+export type Platform = 'ios' | 'ios+android' | 'apple' | 'web' | 'python'
 
 export interface ProjectLink {
   label: string
@@ -23,6 +23,7 @@ export interface Project {
   platform: Platform
   links: ProjectLink[]
   screenshots?: string[]
+  screenshotLayout?: 'device' | 'gallery'
   screenshotCount?: number
   status?: BuildStatus
   version?: string
@@ -97,26 +98,27 @@ export const projects: Project[] = [
   {
     id: 'calmie',
     name: 'Calmie',
-    tagline: 'Meditation & breathing app — iOS',
-    taglinePL: 'Medytacja i oddychanie — iOS',
+    tagline: 'Meditation, breathing and sleep · iPhone, iPad, Apple Watch and Vision Pro',
+    taglinePL: 'Medytacja, oddech i sen · iPhone, iPad, Apple Watch i Vision Pro',
     description:
-      'Native iOS app for guided meditation and breathing exercises. Features multiple breathing patterns (Box Breathing 4-4-4-4 and more), session timer with a circular progress ring, progress tracking with streaks, sessions and total minutes. Clean, calming UI with a warm purple-to-rose gradient designed to help users slow down and focus.',
+      'A native mindfulness app built for the Apple ecosystem, combining guided breathing, a flexible Just Sit timer, and calming sleep soundscapes. It includes five breathing techniques, private progress sync through iCloud, and a complete Apple Watch companion. Widgets, Live Activities, Dynamic Island, Siri, and Shortcuts make sessions easier to begin, while optional Apple Health integration records mindful minutes. ADHD Mode reduces decisions and provides shorter sessions, while Chronic Pain Mode offers gentler pacing and guidance. No ads, account, subscription, or third party analytics.',
     descriptionPL:
-      'Natywna aplikacja iOS do prowadzenia medytacji i ćwiczeń oddechowych. Kilka technik oddychania (m.in. Box Breathing 4-4-4-4), timer sesji z kołowym paskiem postępu oraz śledzenie streaku, liczby sesji i minut. Minimalistyczny interfejs z ciepłym gradientem — zaprojektowany, by pomóc zwolnić i się skupić.',
-    tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS', 'Xcode Cloud'],
+      'Natywna aplikacja mindfulness dla ekosystemu Apple, łącząca prowadzone ćwiczenia oddechowe, timer Just Sit i wyciszające dźwięki snu. Oferuje pięć technik oddechowych, prywatną synchronizację postępów przez iCloud oraz pełną aplikację na Apple Watch. Widżety, Live Activities, Dynamic Island, Siri i Skróty ułatwiają rozpoczęcie sesji, a opcjonalna integracja z Apple Health zapisuje uważne minuty. Tryb ADHD ogranicza liczbę decyzji i oferuje krótsze sesje, natomiast tryb dla osób z przewlekłym bólem zapewnia łagodniejsze tempo i wskazówki. Bez reklam, konta, subskrypcji i zewnętrznej analityki.',
+    tech: ['Swift', 'SwiftUI', 'Core Data', 'CloudKit', 'WatchConnectivity', 'WidgetKit', 'ActivityKit', 'HealthKit', 'App Intents'],
     color: '#A78BFA',
     emoji: '🧘',
-    platform: 'ios',
+    platform: 'apple',
     status: 'live',
+    version: '1.4',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/pl/app/calmie/id6450792796?l=pl', icon: '🍎', primary: true },
     ],
     screenshots: [
-      '/screens/calmie/screen-1.png',
-      '/screens/calmie/screen-2.png',
-      '/screens/calmie/screen-3.png',
-      '/screens/calmie/screen-4.png',
+      '/screens/calmie/app-store-iphone.jpg',
+      '/screens/calmie/app-store-watch.jpg',
+      '/screens/calmie/app-store-ipad.jpg',
     ],
+    screenshotLayout: 'gallery',
   },
   {
     id: 'travel-rules-hub',

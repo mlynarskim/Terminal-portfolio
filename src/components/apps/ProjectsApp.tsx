@@ -6,6 +6,7 @@ import { useLanguage } from '../../contexts/LanguageContext'
 const platformLabelMap: Record<string, string> = {
   ios: 'iOS',
   'ios+android': 'iOS + Android',
+  apple: 'Apple ecosystem',
   web: 'Web',
   python: 'Python',
 }
@@ -37,7 +38,7 @@ const clientDemos = [
   },
 ]
 
-const mobileProjects = projects.filter((p) => p.platform === 'ios' || p.platform === 'ios+android')
+const mobileProjects = projects.filter((p) => p.platform === 'ios' || p.platform === 'ios+android' || p.platform === 'apple')
 const webProjects = projects.filter((p) => p.platform === 'web')
 const pythonProjects = projects.filter((p) => p.platform === 'python')
 

@@ -13,7 +13,8 @@ export default function ProjectDetailApp({ project }: Props) {
   const tagline = lang === 'pl' && project.taglinePL ? project.taglinePL : project.tagline
   const description = lang === 'pl' && project.descriptionPL ? project.descriptionPL : project.description
   const [webScreen, setWebScreen] = useState(0)
-  const isMobile = project.platform === 'ios' || project.platform === 'ios+android'
+  const isMobile = project.platform === 'ios' || project.platform === 'ios+android' || project.platform === 'apple'
+  const usesDeviceMockup = isMobile && project.screenshotLayout !== 'gallery'
   const primaryLink = project.links.find((l) => l.primary) ?? project.links[0]
   const secondaryLinks = project.links.filter((l) => !l.primary && !l.comingSoon)
   const comingSoonLinks = project.links.filter((l) => l.comingSoon)
@@ -28,8 +29,8 @@ export default function ProjectDetailApp({ project }: Props) {
   const statusCfg = project.status ? statusColors[project.status] : null
   const statusLabel = project.status ? t.projectDetail.status[project.status] : null
 
-  // Web screenshots
-  const webScreenshots = !isMobile
+  // Gallery screenshots
+  const webScreenshots = !usesDeviceMockup
     ? (project.screenshots ?? Array.from({ length: project.screenshotCount ?? 0 }, () => ''))
     : []
   const hasWebScreens = webScreenshots.some(s => s.length > 0)
@@ -77,6 +78,12 @@ export default function ProjectDetailApp({ project }: Props) {
               {t.projectDetail.platform['ios+android']}
             </span>
           )}
+          {project.platform === 'apple' && (
+            <span className="text-[10px] px-2 py-0.5 rounded-full font-mono border"
+              style={{ color: project.color, borderColor: `${project.color}30`, background: `${project.color}12` }}>
+              {t.projectDetail.platform.apple}
+            </span>
+          )}
           {project.platform === 'web' && (
             <span className="text-[10px] px-2 py-0.5 rounded-full font-mono border"
               style={{ color: project.color, borderColor: `${project.color}30`, background: `${project.color}12` }}>
@@ -115,7 +122,7 @@ export default function ProjectDetailApp({ project }: Props) {
       <div className="flex-1 px-5 pb-5 space-y-5 overflow-auto">
 
         {/* Phone mockup for mobile apps */}
-        {isMobile && (project.screenshots || project.screenshotCount) && (
+        {usesDeviceMockup && (project.screenshots || project.screenshotCount) && (
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -133,7 +140,7 @@ export default function ProjectDetailApp({ project }: Props) {
         )}
 
         {/* Web app screenshots */}
-        {!isMobile && (project.screenshots || project.screenshotCount) && (
+        {!usesDeviceMockup && (project.screenshots || project.screenshotCount) && (
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -150,7 +157,7 @@ export default function ProjectDetailApp({ project }: Props) {
               </div>
               <div className="flex-1 h-4 rounded bg-border/50 mx-2 flex items-center px-2">
                 <span className="text-[9px] text-muted font-mono truncate">
-                  {project.platform === 'python'
+                  {project.platform === 'python' || project.platform === 'apple'
                     ? project.name
                     : primaryLink?.url ?? project.name.toLowerCase().replace(/ /g, '') + '.app'}
                 </span>
@@ -180,8 +187,8 @@ export default function ProjectDetailApp({ project }: Props) {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="w-full object-cover object-top"
-                  style={{ maxHeight: 220 }}
+                  className={`w-full ${project.screenshotLayout === 'gallery' ? 'object-contain object-center' : 'object-cover object-top'}`}
+                  style={project.screenshotLayout === 'gallery' ? { height: 220 } : { maxHeight: 220 }}
                   draggable={false}
                 />
               </AnimatePresence>

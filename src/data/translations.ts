@@ -37,7 +37,7 @@ export const pl = {
       { id: 'travel-rules-hub',  label: 'Otwórz Travel Rules HUB',     description: 'Platforma webowa',                action: 'project-travel-rules-hub',   emoji: '🌐' },
       { id: 'solos',             label: 'Otwórz SOLOS',                description: 'Kurator filmowy AI · web',        action: 'project-solos',              emoji: '🎬' },
       { id: 'panda',             label: 'Otwórz Panda',                description: 'Aplikacja randkowa · iOS + Android', action: 'project-panda',           emoji: '🐼' },
-      { id: 'calmie',            label: 'Otwórz Calmie',               description: 'Medytacja i oddychanie · iOS',        action: 'project-calmie',          emoji: '🧘' },
+      { id: 'calmie',            label: 'Otwórz Calmie',               description: 'Medytacja, oddech i sen · Apple',      action: 'project-calmie',          emoji: '🧘' },
       { id: 'atlas',             label: 'Otwórz Atlas',                 description: 'Organizer zdjęć · iOS + Android',     action: 'project-atlas',           emoji: '🗺️' },
       { id: 'photo-tools',       label: 'Otwórz Photo Tools',           description: 'Organizer multimediów · Python',       action: 'project-photo-tools',     emoji: '🖼️' },
       { id: 'csv-cleaner',       label: 'Otwórz CSV Cleaner',           description: 'Czyszczenie danych · Python',          action: 'project-csv-cleaner',     emoji: '🧹' },
@@ -102,6 +102,7 @@ export const pl = {
     platform: {
       ios: 'iOS · Swift · Xcode',
       'ios+android': 'iOS + Android · React Native',
+      apple: 'Apple ecosystem',
       web: 'Aplikacja web',
       python: 'Aplikacja desktopowa · Python',
     } as Record<string, string>,
@@ -206,7 +207,7 @@ export const en = {
       { id: 'travel-rules-hub',  label: 'Open Travel Rules HUB',       description: 'Web platform',                   action: 'project-travel-rules-hub',   emoji: '🌐' },
       { id: 'solos',             label: 'Open SOLOS',                  description: 'AI movie curator · web app',      action: 'project-solos',              emoji: '🎬' },
       { id: 'panda',             label: 'Open Panda',                  description: 'Dating app · iOS + Android',      action: 'project-panda',              emoji: '🐼' },
-      { id: 'calmie',            label: 'Open Calmie',                 description: 'Meditation & breathing · iOS',    action: 'project-calmie',             emoji: '🧘' },
+      { id: 'calmie',            label: 'Open Calmie',                 description: 'Meditation, breathing and sleep · Apple', action: 'project-calmie',          emoji: '🧘' },
       { id: 'atlas',             label: 'Open Atlas',                  description: 'Photo organizer · iOS + Android', action: 'project-atlas',              emoji: '🗺️' },
       { id: 'photo-tools',       label: 'Open Photo Tools',            description: 'Media organizer · Python',        action: 'project-photo-tools',        emoji: '🖼️' },
       { id: 'csv-cleaner',       label: 'Open CSV Cleaner',            description: 'Data cleaning · Python',           action: 'project-csv-cleaner',        emoji: '🧹' },
@@ -271,6 +272,7 @@ export const en = {
     platform: {
       ios: 'iOS · Swift · Xcode',
       'ios+android': 'iOS + Android · React Native',
+      apple: 'Apple ecosystem',
       web: 'Web app',
       python: 'Desktop app · Python',
     } as Record<string, string>,
