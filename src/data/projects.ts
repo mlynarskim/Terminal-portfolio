@@ -84,7 +84,7 @@ export const projects: Project[] = [
     version: '1.0',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/pl/app/rate-that-beach/id6764400811?l=pl', icon: '🍎', primary: true },
-      { label: 'Google Play', url: '', icon: '🤖', comingSoon: true },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.ratethatbeach.app', icon: '🤖' },
       { label: 'ProductHunt', url: 'https://www.producthunt.com/products/rate-that-beach?launch=rate-that-beach', icon: '🚀' },
     ],
     screenshots: [
