@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="copper">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calmie | Pięć spokojnych minut dziennie | Oddech, medytacja i sen</title>
+<meta name="description" content="Calmie wita Cię po imieniu i prowadzi: oddech, chwila ciszy albo dźwięki snu. 5 technik, auto-off, łagodne postępy. Bez reklam, bez konta, bez subskrypcji. Pobierz za darmo na iPhone.">
+<meta property="og:title" content="Calmie | Pięć spokojnych minut dziennie">
+<meta property="og:description" content="Oddech, medytacja i sen. Bez reklam, bez konta, bez subskrypcji. Pobierz za darmo na iPhone.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/icon.jpg">
+<link rel="icon" href="assets/icon.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Jak zacząć korzystać z Calmie?","acceptedAnswer":{"@type":"Answer","text":"Naciśnij play na głównym ekranie: domyślne 5 minut Box 4·4·4·4. Albo rozwiń Choose a path i wybierz własną technikę i czas."}},
+{"@type":"Question","name":"Czy Calmie jest za darmo?","acceptedAnswer":{"@type":"Answer","text":"Tak. Pobranie jest darmowe, pełnia to jednorazowy zakup, bez subskrypcji, bez reklam i bez konta."}},
+{"@type":"Question","name":"Mam ADHD lub przewlekły ból. Czy Calmie jest dla mnie?","acceptedAnswer":{"@type":"Answer","text":"Tak. Tryby ADHD i Chronic Pain oferują krótsze presety, widoczne odliczanie, łagodniejszy oddech Gentle i miększe prowadzenie."}}]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root,html[data-theme="copper"]{
+  --page-bg:linear-gradient(180deg,#120c08 0%,#221310 22%,#44271a 44%,#7a4a30 64%,#a57552 84%,#bd8c62 100%);
+  --screen-bg:linear-gradient(180deg,#1b110c 0%,#3d2318 48%,#7d4f34 78%,#96683f 100%);
+  --peach:#f2c49b;--btn:#f7ddb4;--btn-ink:#2a1a10;--kicker:#d8ab7e;
+  --ink:#fff7ee;--dim:rgba(255,243,227,.7);--faint:rgba(255,243,227,.45);
+}
+html[data-theme="sage"]{
+  --page-bg:linear-gradient(180deg,#0b120c 0%,#18251a 24%,#2f4a2b 46%,#5d7f4a 68%,#87a86b 86%,#9cbd7f 100%);
+  --screen-bg:linear-gradient(180deg,#0f150e 0%,#21331e 50%,#486636 80%,#5c7f45 100%);
+  --peach:#d7e6bd;--btn:#e6efc8;--btn-ink:#17230f;--kicker:#bcd69c;
+  --ink:#f6f9ec;--dim:rgba(246,249,236,.7);--faint:rgba(246,249,236,.45);
+}
+html[data-theme="midnight"]{
+  --page-bg:linear-gradient(180deg,#090c1a 0%,#121a36 26%,#27335f 48%,#4d5c9c 70%,#7c8cc6 86%,#93a3d8 100%);
+  --screen-bg:linear-gradient(180deg,#0c0f22 0%,#1c2450 50%,#3a4788 80%,#4c5b9f 100%);
+  --peach:#c9d2f7;--btn:#e2e8ff;--btn-ink:#141b36;--kicker:#a9b6e8;
+  --ink:#f2f4ff;--dim:rgba(242,244,255,.7);--faint:rgba(242,244,255,.45);
+}
+html{scroll-behavior:smooth}
+body{font-family:ui-rounded,"SF Pro Rounded","Hiragino Maru Gothic ProN",Nunito,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#140d09;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:var(--page-bg);transition:background .5s ease}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(700px 480px at 82% 6%,rgba(255,240,210,.12),transparent 60%)}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+button{font-family:inherit}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(15,9,6,.6);border-bottom:1px solid rgba(255,235,210,.1)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:36px;height:36px;border-radius:9px;box-shadow:0 4px 18px rgba(0,0,0,.4)}
+.brand b{letter-spacing:.35em;font-size:13px;font-weight:700}
+.nav-links{display:flex;gap:22px;font-size:14px;color:var(--dim)}
+.nav-links a{text-decoration:none}.nav-links a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:10px}
+.langsw{display:flex;background:rgba(255,244,230,.1);border:1px solid rgba(255,235,210,.16);border-radius:999px;padding:3px}
+.langsw button{border:0;background:transparent;color:var(--dim);font-weight:800;font-size:12px;padding:6px 12px;border-radius:999px;cursor:pointer}
+.langsw button.on{background:var(--ink);color:#241408}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 26px;font-weight:700;font-size:15px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease}
+.btn:active{transform:scale(.97)}
+.btn-light{background:var(--ink);color:#2b1a10;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.btn-light:hover{transform:translateY(-1px)}
+.btn-glass{background:rgba(255,244,230,.12);color:var(--ink);border:1px solid rgba(255,235,210,.2)}
+.btn-glass:hover{background:rgba(255,244,230,.2)}
+.btn-small{padding:10px 18px;font-size:14px}
+.apple-ic{width:18px;height:18px;flex:none}
+/* HERO */
+.hero{padding:126px 0 30px}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}
+.eyebrow{letter-spacing:.4em;font-size:12px;color:var(--dim);font-weight:700;margin-bottom:18px}
+h1{font-size:clamp(42px,5.6vw,68px);line-height:1;letter-spacing:-.02em;font-weight:800}
+h1 em{font-style:italic;color:var(--peach)}
+.lead{margin-top:20px;font-size:clamp(16px,2vw,19px);line-height:1.6;color:var(--dim);max-width:520px}
+.cta-row{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;font-size:13px;color:var(--dim)}
+.trust span{display:inline-flex;align-items:center;gap:7px;background:rgba(255,244,230,.09);border:1px solid rgba(255,235,210,.14);padding:8px 13px;border-radius:999px}
+.pills{margin-top:16px;font-size:12px;letter-spacing:.1em;color:var(--faint)}
+/* PHONE MOCKUPS */
+.phone{width:min(320px,82vw);margin:0 auto;border-radius:54px;padding:11px;background:#0c0806;box-shadow:0 40px 90px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,235,210,.15)}
+.screen{border-radius:44px;background:var(--screen-bg);overflow:hidden;position:relative;padding:20px 15px 15px;min-height:600px;transition:background .5s ease}
+.screen.tall{min-height:680px}
+.island{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:104px;height:27px;background:#000;border-radius:20px;z-index:3}
+.status{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:700;padding:2px 8px 0}
+.status .batt{background:#3ed598;color:#06281c;font-size:11px;border-radius:7px;padding:2px 7px;font-weight:800}
+.toprow{display:flex;justify-content:space-between;align-items:center;margin:16px 4px 0}
+.streakpill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,244,230,.1);border:1px solid rgba(255,235,210,.12);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700}
+.streakpill i{width:8px;height:8px;border-radius:50%;background:var(--peach);box-shadow:0 0 8px var(--peach);font-style:normal}
+.gear{width:38px;height:38px;border-radius:50%;background:rgba(255,244,230,.09);border:1px solid rgba(255,235,210,.12);display:grid;place-items:center;font-size:17px;color:var(--ink);cursor:pointer}
+.greet{letter-spacing:.24em;font-size:10.5px;color:#cfa37e;font-weight:700;margin:20px 4px 6px}
+html[data-theme="sage"] .greet{color:#b9cf96}
+html[data-theme="midnight"] .greet{color:#a9b6e8}
+.ptitle{font-size:32px;font-weight:800;letter-spacing:-.02em;margin:0 4px;line-height:1.08;min-height:70px}
+.orbwrap{position:relative;height:258px;display:grid;place-items:center;margin-top:4px}
+.ring2{position:absolute;border:1px solid rgba(255,232,200,.22);border-radius:50%}
+.orb2{width:192px;height:192px;border-radius:50%;position:relative;z-index:2;display:grid;place-items:center;cursor:pointer;background:radial-gradient(circle at 34% 28%,#fff9ee 0%,#f5d3a1 28%,#cf9668 58%,#6b4128 100%);box-shadow:0 0 90px rgba(255,220,170,.28),inset -22px -32px 60px rgba(60,30,14,.5);transition:transform 1s ease-in-out}
+.playbtn{width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.45);display:grid;place-items:center;color:#fff;font-size:21px}
+.cap{text-align:center;font-size:12.5px;color:#e3c39c;margin:2px 6px 8px;min-height:32px}
+.demorow{display:flex;gap:5px;justify-content:center;align-items:center;margin:0 0 6px;opacity:0;transition:opacity .4s}
+.demorow.show{opacity:1}
+.demorow i{font-style:normal;font-size:10px;letter-spacing:.1em;color:#e3c39c;background:rgba(255,244,230,.1);border:1px solid rgba(255,235,210,.14);padding:4px 9px;border-radius:99px}
+.demorow i.lit{background:rgba(247,221,180,.3);border-color:#eabd85;color:#fff;font-weight:800}
+.dmlink{display:block;text-align:center;font-size:11.5px;color:#e3c39c;opacity:0;transition:opacity .4s;margin-bottom:6px}
+.dmlink.show{opacity:.85}
+.dur{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:0 2px}
+.dpill{background:rgba(255,244,230,.08);border:1px solid rgba(255,235,210,.08);border-radius:13px;text-align:center;padding:10px 0;font-size:12.5px;color:#d9b795;cursor:pointer}
+.dpill.on{background:rgba(247,221,180,.24);border-color:#eabd85;color:#fff3e0;font-weight:800}
+.sheet{margin:10px 2px 0;background:rgba(255,244,230,.1);border:1px solid rgba(255,235,210,.14);border-radius:22px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none}
+.sheet b{font-size:15px;display:block}.sheet small{color:#d9b795;font-size:12.5px}
+.sheet span{color:#e3c39c;font-size:13.5px;font-weight:700}
+/* path cards */
+.pathtitle{font-size:27px;font-weight:800;margin:26px 4px 12px}
+.pcard{background:rgba(255,244,230,.09);border:1px solid rgba(255,235,210,.14);border-radius:24px;padding:15px 16px;margin:0 2px 10px}
+.pcard.open{border-color:rgba(242,196,155,.45);box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.prow{display:flex;align-items:center;gap:13px;cursor:pointer;user-select:none}
+.pico{width:48px;height:48px;flex:none;border-radius:50%;background:rgba(247,221,180,.16);display:grid;place-items:center;font-size:21px}
+.prow b{font-size:16.5px;display:block}.prow small{color:#c8a181;font-size:12px}
+.chev{margin-left:auto;color:#d9b795;font-size:15px;transition:transform .25s}
+.pcard.open .chev{transform:rotate(180deg)}
+.pbody{display:none}
+.pcard.open .pbody{display:block}
+.chips2{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.chip2{background:rgba(255,244,230,.07);border:1px solid rgba(255,235,210,.1);border-radius:15px;padding:10px 6px;text-align:center;color:var(--ink);cursor:pointer}
+.chip2 b{font-size:12.5px;display:block}.chip2 small{color:#c8a181;font-size:10.5px;letter-spacing:.06em}
+.chip2.sel{border-color:#eabd85;background:rgba(247,221,180,.16);box-shadow:0 0 0 1px #eabd85}
+.bestpill{display:inline-block;background:var(--btn);color:var(--btn-ink);font-size:9px;font-weight:800;border-radius:999px;padding:2px 8px;margin-left:5px;vertical-align:2px}
+.recnote{display:flex;gap:9px;align-items:flex-start;background:rgba(255,244,230,.07);border-radius:14px;padding:10px 12px;font-size:11.5px;color:#e3c39c;margin-top:12px;line-height:1.45}
+.sl-row{display:flex;justify-content:space-between;font-size:12.5px;color:#e3c39c;margin:14px 2px 4px}
+.sl-row b{color:var(--peach)}
+input[type=range].rng{width:calc(100% - 4px);margin:6px 2px 0;appearance:none;-webkit-appearance:none;height:8px;border-radius:99px;background:rgba(255,244,230,.16);outline:none;cursor:pointer}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 3px 10px rgba(0,0,0,.4);cursor:grab}
+input[type=range].rng::-moz-range-thumb{width:26px;height:26px;border:0;border-radius:50%;background:#fff;cursor:grab}
+.bigbtn{margin:14px 2px 2px;background:var(--btn);color:var(--btn-ink);border-radius:999px;text-align:center;font-weight:800;font-size:14.5px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.3);cursor:pointer;border:0;width:calc(100% - 4px)}
+.sounds{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
+.tile{background:rgba(255,244,230,.07);border:1px solid rgba(255,235,210,.1);border-radius:16px;padding:12px 10px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:var(--ink);cursor:pointer;text-align:left}
+.tile.sel{border-color:#eabd85;background:rgba(247,221,180,.16);box-shadow:0 0 0 1px #eabd85}
+.tile i{width:34px;height:34px;flex:none;border-radius:50%;background:rgba(247,221,180,.15);display:grid;place-items:center;font-style:normal;font-size:16px}
+/* progress */
+.badgecircle{width:140px;aspect-ratio:1/1;height:auto;flex:0 1 auto;min-width:0;border-radius:50%;margin:22px 0 10px;position:relative;display:grid;place-items:center;background:rgba(255,244,230,.08);border:1px solid rgba(255,235,210,.14)}
+.badgecircle::before{content:"";position:absolute;inset:-1px;border-radius:50%;background:conic-gradient(var(--peach) 0 72%,rgba(255,244,230,.12) 72% 100%);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 9px),#000 calc(100% - 8px));mask:radial-gradient(farthest-side,transparent calc(100% - 9px),#000 calc(100% - 8px))}
+.badgecircle span{font-size:52px}
+.badgename{text-align:center;font-size:21px;font-weight:800}
+.nextbadge{text-align:center;font-size:10.5px;letter-spacing:.22em;color:#cfa37e;margin-top:8px;font-weight:700}
+.badge-nav{display:flex;align-items:center;justify-content:center;gap:14px}
+.barrow{flex:none;width:38px;height:38px;border-radius:50%;background:rgba(255,244,230,.09);border:1px solid rgba(255,235,210,.14);color:var(--ink);font-size:17px;cursor:pointer}
+.dots{display:flex;gap:5px;justify-content:center;margin:12px 0 4px}
+.dots i{width:6px;height:6px;border-radius:99px;background:rgba(255,244,230,.2)}
+.dots i.on{width:22px;background:#fff}
+.statcard{background:rgba(255,244,230,.09);border:1px solid rgba(255,235,210,.13);border-radius:22px;padding:16px;margin:10px 2px 0}
+.statcard h5{font-size:10.5px;letter-spacing:.24em;color:#cfa37e;font-weight:800}
+.statgrid{display:grid;grid-template-columns:1fr 1px 1fr;text-align:center;margin-top:8px;align-items:center}
+.statgrid b{font-size:34px;font-weight:800}.statgrid small{color:#d9b795;font-size:12.5px}
+.statgrid em{width:1px;height:44px;background:rgba(255,235,210,.18)}
+.streakbar{margin-top:12px;background:rgba(255,244,230,.08);border-radius:13px;text-align:center;font-size:13px;font-weight:700;padding:11px;color:#f3ddba}
+/* settings */
+.setlabel{font-size:10.5px;letter-spacing:.24em;color:#cfa37e;font-weight:800;margin:16px 6px 9px}
+.setrow{background:rgba(255,244,230,.09);border:1px solid rgba(255,235,210,.13);border-radius:20px;padding:13px 14px;display:flex;gap:12px;align-items:center;margin:0 2px 9px}
+.setrow.dim{opacity:.5}
+.sico{width:44px;height:44px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:19px}
+.setrow b{font-size:14px;display:block}.setrow small{font-size:11px;color:#c8a181;line-height:1.4;display:block;margin-top:2px}
+.tgl{margin-left:auto;flex:none;width:52px;height:31px;border-radius:99px;background:rgba(255,244,230,.16);position:relative;cursor:pointer;border:0}
+.tgl::after{content:"";position:absolute;top:3px;left:4px;width:25px;height:25px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.3);transition:left .2s}
+.tgl.on{background:#e2606f}.tgl.on::after{left:23px}
+.nameset{cursor:pointer}
+/* SECTIONS */
+section.block{padding:62px 0}
+.kicker{letter-spacing:.36em;font-size:12px;font-weight:800;color:var(--kicker)}
+.h2{font-size:clamp(32px,4.4vw,52px);line-height:1.03;letter-spacing:-.02em;margin:14px 0}
+.h2 em{color:var(--peach);font-style:italic}
+.sub{color:var(--dim);font-size:16.5px;line-height:1.65;max-width:560px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-top:32px}
+.split.rev>.phone-col{order:-1}
+.feat-list{display:grid;gap:11px;margin-top:22px}
+.feat{display:flex;gap:13px;align-items:flex-start;background:rgba(15,8,5,.32);border:1px solid rgba(255,235,210,.11);border-radius:17px;padding:14px 15px}
+.feat i{width:35px;height:35px;flex:none;border-radius:12px;display:grid;place-items:center;background:rgba(242,196,155,.15);border:1px solid rgba(242,196,155,.28);font-style:normal;font-size:17px}
+.feat b{display:block;font-size:14.5px}.feat p{font-size:13.5px;color:var(--dim);line-height:1.55;margin-top:3px}
+.techchips{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.tchip{padding:9px 15px;border-radius:999px;background:rgba(255,244,230,.09);border:1px solid rgba(255,235,210,.14);font-size:13px;font-weight:700}
+.tchip.hot{background:rgba(247,221,180,.2);border-color:#eabd85}
+/* THEMES */
+.themecards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:28px}
+.themecard{background:rgba(15,8,5,.35);border:1px solid rgba(255,235,210,.13);border-radius:24px;padding:24px;text-align:center;cursor:pointer;transition:transform .15s ease,border-color .2s}
+.themecard:hover{transform:translateY(-3px)}
+.themecard.on{border-color:var(--peach);box-shadow:0 0 0 1px var(--peach),0 20px 50px rgba(0,0,0,.3)}
+.swatch{height:86px;border-radius:18px;margin-bottom:16px;border:1px solid rgba(255,255,255,.2)}
+.sw-copper{background:linear-gradient(180deg,#221310,#7a4a30 60%,#bd8c62)}
+.sw-sage{background:linear-gradient(180deg,#18251a,#2f4a2b 60%,#9cbd7f)}
+.sw-midnight{background:linear-gradient(180deg,#121a36,#27335f 60%,#93a3d8)}
+.themecard b{font-size:17px}.themecard p{font-size:13px;color:var(--dim);margin-top:6px;line-height:1.55}
+.theme-note{margin-top:16px;font-size:13px;color:var(--faint);line-height:1.6}
+/* FILMS */
+.railhead{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.railnav{display:flex;gap:10px}
+.railnav button{width:44px;height:44px;border-radius:50%;background:rgba(255,244,230,.1);border:1px solid rgba(255,235,210,.16);color:var(--ink);font-size:19px;cursor:pointer}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:min(290px,76vw);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:22px 4px 12px;scrollbar-width:thin}
+.filmcap{scroll-snap-align:center}
+.vbox{position:relative;border-radius:26px;overflow:hidden;border:1px solid rgba(255,235,210,.18);background:#0c0806;aspect-ratio:1170/2532;box-shadow:0 30px 70px rgba(0,0,0,.45);cursor:pointer}
+.vbox video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vbadge{position:absolute;bottom:12px;right:12px;width:42px;height:42px;border-radius:50%;background:rgba(10,6,4,.6);border:1px solid rgba(255,235,210,.3);color:#fff;display:grid;place-items:center;font-size:15px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.filmcap figcaption{margin-top:12px}
+.filmcap figcaption b{font-size:15px}
+.filmcap figcaption span{display:block;font-size:13px;color:var(--dim);margin-top:3px}
+/* privacy */
+.privacy{background:rgba(15,8,5,.55);border:1px solid rgba(255,235,210,.13);border-radius:32px;padding:38px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.checks{display:grid;gap:11px;margin-top:20px}
+.checks div{display:flex;gap:12px;align-items:center;background:rgba(255,244,230,.06);border:1px solid rgba(255,235,210,.11);padding:12px 15px;border-radius:14px;font-size:14px}
+.dot{width:28px;height:28px;border-radius:50%;background:rgba(62,213,152,.16);border:1px solid rgba(62,213,152,.4);display:grid;place-items:center;flex:none;color:#a9f0d1;font-weight:900}
+.eco{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.card{background:rgba(255,244,230,.07);border:1px solid rgba(255,235,210,.13);border-radius:26px;padding:26px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:26px}
+.mini{background:rgba(15,8,5,.4);border:1px solid rgba(255,235,210,.11);border-radius:22px;padding:22px}
+.mini h3{font-size:17px;margin:12px 0 8px}.mini p{font-size:14px;color:var(--dim);line-height:1.65}
+.badge-ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:rgba(242,196,155,.14);border:1px solid rgba(242,196,155,.28)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:38px 0 6px}
+.stat{background:rgba(255,244,230,.08);border:1px solid rgba(255,235,210,.13);border-radius:20px;padding:17px;text-align:center}
+.stat b{font-size:24px;display:block}.stat span{font-size:12.5px;color:var(--dim)}
+.final{text-align:center;padding:80px 24px 26px}
+.final-card{max-width:760px;margin:0 auto;background:#fdf3e6;color:#2c1a10;border-radius:36px;padding:50px 30px;box-shadow:0 40px 100px rgba(0,0,0,.45)}
+.final-card h2{font-size:clamp(30px,5vw,50px);line-height:1.02;letter-spacing:-.02em}
+.final-card h2 em{color:#b06a35;font-style:italic}
+.final-card p{color:#6b5040;margin:16px auto;max-width:540px;line-height:1.65}
+.store-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.btn-dark{background:#111;color:#fff;padding:14px 24px}
+.btn-review{background:transparent;color:#6b5040;border:1.5px solid #c9a87f}
+.small-note{margin-top:16px;font-size:13px;color:#8a7160}
+footer{padding:32px 0 52px;color:var(--faint);font-size:13px}
+.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+.foot a{color:var(--dim);text-decoration:none}.foot a:hover{color:#fff}
+/* sticky bar + toast */
+#sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;align-items:center;gap:12px;background:rgba(20,11,7,.88);border:1px solid rgba(255,235,210,.2);border-radius:20px;padding:10px 10px 10px 14px;backdrop-filter:blur(16px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+#sticky.show{display:flex}
+#sticky img{width:40px;height:40px;border-radius:11px}
+#sticky div{flex:1}#sticky b{font-size:14px;display:block}#sticky small{font-size:12px;color:var(--dim)}
+#toast{position:fixed;left:50%;transform:translate(-50%,80px);bottom:24px;z-index:70;display:flex;align-items:center;gap:14px;background:rgba(20,11,7,.92);border:1px solid rgba(255,235,210,.25);border-radius:999px;padding:12px 12px 12px 20px;font-size:14px;box-shadow:0 20px 50px rgba(0,0,0,.5);transition:transform .3s ease;max-width:92vw}
+#toast.show{transform:translate(-50%,0)}
+#toast a{background:var(--btn);color:var(--btn-ink);border-radius:999px;padding:9px 18px;font-weight:800;text-decoration:none;font-size:13.5px;white-space:nowrap}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(min-width:941px){
+  .rail{gap:30px;grid-auto-columns:300px;padding:26px 8px 16px}
+}
+@media(max-width:940px){
+  .hero-grid,.split,.privacy{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .grid3,.themecards{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero{padding-top:110px}
+  footer{padding-bottom:120px}
+  .split.rev>.phone-col{order:2}
+  .final-card{padding:42px 22px}
+  .privacy{padding:26px 20px}
+  .barrow{width:34px;height:34px}
+  .badge-nav{gap:10px}
+  #toast{font-size:12.5px;padding:10px 10px 10px 16px;gap:10px}
+}
+@media(min-width:941px){
+  #sticky{display:none!important}
+}
+@media(max-width:560px){
+  .brand b{display:none}
+  .btn-small{padding:9px 13px;font-size:13px}
+  .langsw button{padding:6px 9px;font-size:11.5px}
+  .nav-inner{padding:10px 14px}
+  .chips2{gap:6px}
+  .chip2{padding:8px 4px}
+  .chip2 b{font-size:11.5px}
+  .orbwrap{zoom:.88}
+  .ptitle{font-size:29px}
+  .stats{gap:10px}
+  .stat{padding:13px 10px}
+  .stat b{font-size:20px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top"><img src="assets/icon.jpg" alt="Calmie ikona"><b>CALMIE</b></a>
+    <div class="nav-links">
+      <a href="#start" data-i18n="nav1">Start</a><a href="#sciezki" data-i18n="nav2">Ścieżki</a><a href="#sen" data-i18n="nav3">Sen</a><a href="#postepy" data-i18n="nav4">Postępy</a><a href="#filmy" data-i18n="nav5">Filmy</a>
+    </div>
+    <div class="nav-right">
+      <div class="langsw"><button class="on" data-setlang="pl">PL</button><button data-setlang="en">EN</button></div>
+      <a class="btn btn-light btn-small" href="https://apps.apple.com/pl/app/calmie/id6450792796" target="_blank" rel="noopener">
+        <svg class="apple-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M16.36 12.76c0-2.3 1.88-3.4 1.97-3.45-1.07-1.57-2.74-1.78-3.34-1.81-1.42-.14-2.77.84-3.49.84-.72 0-1.83-.82-3.01-.8-1.55.02-2.98.9-3.78 2.29-1.61 2.8-.41 6.94 1.16 9.21.76 1.1 1.67 2.34 2.87 2.3 1.15-.05 1.59-.74 2.98-.74s1.78.74 3 .72c1.26-.02 2.05-1.14 2.82-2.25.89-1.3 1.25-2.56 1.27-2.62-.03-.01-2.45-.94-2.45-3.69zM14.16 5.2c.64-.77 1.07-1.85.95-2.92-.92.04-2.03.61-2.69 1.38-.59.68-1.11 1.77-.97 2.82 1.02.08 2.07-.52 2.71-1.28z"/></svg>
+        <span data-i18n="nav_cta">Pobierz</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap" id="top">
+  <div class="hero-grid">
+    <div id="start">
+      <div class="eyebrow" data-i18n="hero_eye">CALMIE • ODDECH • MEDYTACJA • SEN</div>
+      <h1 data-i18n="hero_h1">Pięć spokojnych minut. <em>Codziennie.</em></h1>
+      <p class="lead" data-i18n="hero_lead">Calmie wita Cię po imieniu i prowadzi za rękę: oddech, chwila ciszy albo dźwięki snu. Wybierasz czas, naciskasz play, a resztą zajmuje się aplikacja. Jeden oddech może zmienić kształt chwili.</p>
+      <div class="cta-row">
+        <a class="btn btn-light" href="https://apps.apple.com/pl/app/calmie/id6450792796" target="_blank" rel="noopener">
+          <svg class="apple-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M16.36 12.76c0-2.3 1.88-3.4 1.97-3.45-1.07-1.57-2.74-1.78-3.34-1.81-1.42-.14-2.77.84-3.49.84-.72 0-1.83-.82-3.01-.8-1.55.02-2.98.9-3.78 2.29-1.61 2.8-.41 6.94 1.16 9.21.76 1.1 1.67 2.34 2.87 2.3 1.15-.05 1.59-.74 2.98-.74s1.78.74 3 .72c1.26-.02 2.05-1.14 2.82-2.25.89-1.3 1.25-2.56 1.27-2.62-.03-.01-2.45-.94-2.45-3.69zM14.16 5.2c.64-.77 1.07-1.85.95-2.92-.92.04-2.03.61-2.69 1.38-.59.68-1.11 1.77-.97 2.82 1.02.08 2.07-.52 2.71-1.28z"/></svg>
+          <span data-i18n="hero_cta1">Pobierz z App Store</span>
+        </a>
+        <a class="btn btn-glass" href="#sciezki" data-i18n="hero_cta2">Zobacz, jak działa ↓</a>
+      </div>
+      <div class="trust">
+        <span data-i18n="trust1">✓ Bez reklam</span><span data-i18n="trust2">✓ Bez konta</span><span data-i18n="trust3">✓ Bez subskrypcji</span><span data-i18n="trust4">✓ Za darmo</span>
+      </div>
+      <div class="pills">IPHONE • APPLE WATCH • VISION PRO • WIDGETY • SIRI • APPLE HEALTH</div>
+    </div>
+
+    <div class="phone-col">
+      <div class="phone"><div class="screen">
+        <div class="island"></div>
+        <div class="status"><span>08:56</span><span class="batt">100</span></div>
+        <div class="toprow"><span class="streakpill"><i>●</i> 1 ▂▄▆</span><button class="gear" data-goto="#ustawienia" title="Settings">⚙</button></div>
+        <div class="greet">GOOD AFTERNOON, ANNA</div>
+        <div class="ptitle" id="heroTitle">Five calm<br>minutes.</div>
+        <div class="orbwrap">
+          <div class="ring2" style="width:250px;height:250px"></div>
+          <div class="ring2" style="width:222px;height:222px"></div>
+          <div class="ring2" style="width:196px;height:196px"></div>
+          <div class="orb2" id="orb" title="Play"><div class="playbtn" id="playIco">▶</div></div>
+        </div>
+        <div class="cap" id="orbCap">Breathe · Box · 4 · 4 · 4 · 4 · Steady &amp; balanced</div>
+        <div class="demorow" id="heroDots"><i data-ph="0">In</i><i data-ph="1">Hold</i><i data-ph="2">Out</i><i data-ph="3">Hold</i></div>
+        <a class="dmlink" id="dmLink" href="#ustawienia" data-i18n="dm_link">Trudny moment? →</a>
+        <div class="dur" id="durPills">
+          <button class="dpill" data-min="1">1 min</button><button class="dpill" data-min="3">3 min</button><button class="dpill on" data-min="5">5 min</button><button class="dpill" data-min="10">10 min</button>
+        </div>
+        <a class="sheet" href="#sciezki"><div><b>Breathe</b><small id="sheetSub">5 min</small></div><span>Change &nbsp;⌃</span></a>
+      </div></div>
+      <p style="text-align:center;font-size:12px;color:var(--faint);margin-top:12px;letter-spacing:.12em" data-i18n="hero_hint">↑ TO ŻYWE DEMO: KLIKNIJ KULĘ, MINUTY I TRYBIK</p>
+    </div>
+  </div>
+
+  <div class="stats reveal">
+    <div class="stat"><b data-i18n="stat1b">5 technik</b><span data-i18n="stat1s">Box, 4-7-8, Coherent, Gentle, Energize</span></div>
+    <div class="stat"><b data-i18n="stat2b">4 dźwięki</b><span data-i18n="stat2s">deszcz, ocean, burza, biały szum</span></div>
+    <div class="stat"><b data-i18n="stat3b">Po imieniu</b><span data-i18n="stat3s">aplikacja wita właśnie Ciebie</span></div>
+    <div class="stat"><b data-i18n="stat4b">0 reklam</b><span data-i18n="stat4s">1 zakup, zero subskrypcji</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="block reveal" id="sciezki">
+    <div class="kicker">01 · CHOOSE A PATH</div>
+    <h2 class="h2" data-i18n="p_h2">Wybierz swoją <em>ścieżkę.</em></h2>
+    <p class="sub" data-i18n="p_sub">Trzy drogi, zero zgadywania. Kliknij karty w telefonie. Wszystko rozwija się jak w prawdziwej aplikacji.</p>
+    <div class="split">
+      <div>
+        <div class="techchips"><span class="tchip">Box 4·4·4·4</span><span class="tchip">4-7-8</span><span class="tchip">Coherent 5·5</span><span class="tchip hot">Gentle 6·6·6·6 ★ Best</span><span class="tchip">Energize 4·2·6·2</span></div>
+        <div class="feat-list">
+          <div class="feat"><i>◐</i><div><b data-i18n="p_f1b">Własny czas trwania</b><p data-i18n="p_f1p">Suwakiem ustawiasz minuty. Przy bólu aplikacja sama poleci łagodniejszy Gentle Breath.</p></div></div>
+          <div class="feat"><i>✦</i><div><b data-i18n="p_f2b">Jeden przycisk Select</b><p data-i18n="p_f2p">Bez labiryntu ustawień: wybierasz technikę, potwierdzasz, oddychasz.</p></div></div>
+        </div>
+        <div class="cta-row"><a class="btn btn-light" href="https://apps.apple.com/pl/app/calmie/id6450792796" target="_blank" rel="noopener"><span data-i18n="p_cta">Wypróbuj za darmo</span></a></div>
+      </div>
+      <div class="phone-col"><div class="phone"><div class="screen tall">
+        <div class="island"></div>
+        <div class="status"><span>08:56</span><span class="batt">100</span></div>
+        <div class="pathtitle">Choose a path</div>
+        <div class="pcard open" data-card>
+          <div class="prow" data-acc><span class="pico">≋</span><div><b>Breathe</b><small>5 techniques · custom duration</small></div><span class="chev">⌄</span></div>
+          <div class="pbody">
+            <div class="recnote">🧡 Gentle Breath is recommended for softer pacing.</div>
+            <div class="chips2">
+              <button class="chip2" data-tech="Box"><b>Box</b><small>4·4·4·4</small></button>
+              <button class="chip2" data-tech="4-7-8"><b>4-7-8</b><small>4·7·8</small></button>
+              <button class="chip2" data-tech="Coherent"><b>Coherent</b><small>5·5</small></button>
+              <button class="chip2 sel" data-tech="Gentle"><b>Gentle <span class="bestpill">Best</span></b><small>6·6·6·6</small></button>
+              <button class="chip2" data-tech="Energize"><b>Energize</b><small>4·2·6·2</small></button>
+            </div>
+            <div class="sl-row"><span>Duration</span><b class="durVal">5 min</b></div>
+            <input type="range" class="rng rng-dur" min="1" max="20" value="5">
+            <button class="bigbtn selbtn">Select Gentle Breath &nbsp;→</button>
+          </div>
+        </div>
+        <div class="pcard" data-card>
+          <div class="prow" data-acc><span class="pico">✦</span><div><b>Just Sit</b><small>Open awareness · custom duration</small></div><span class="chev">⌄</span></div>
+          <div class="pbody">
+            <div class="recnote">○ <span data-i18n="js_note">Cisza z opcjonalnym dzwonkiem w połowie sesji.</span></div>
+            <div class="sl-row"><span>Duration</span><b class="durVal">3 min</b></div>
+            <input type="range" class="rng rng-dur" min="1" max="30" value="3">
+            <button class="bigbtn selbtn">Select Just Sit &nbsp;→</button>
+          </div>
+        </div>
+        <div class="pcard" data-card>
+          <div class="prow" data-acc><span class="pico">☾</span><div><b>Sleep</b><small>Ambient sounds · auto-off timer</small></div><span class="chev">⌄</span></div>
+          <div class="pbody">
+            <div class="sounds">
+              <button class="tile"><i>≣</i> White Noise</button>
+              <button class="tile sel"><i>🌧</i> Rain</button>
+              <button class="tile"><i>≋</i> Ocean</button>
+              <button class="tile sel"><i>⛈</i> Storm</button>
+            </div>
+            <div class="sl-row"><span>Auto-off</span><b class="offVal">55 min</b></div>
+            <input type="range" class="rng rng-off" min="5" max="120" step="5" value="55">
+            <button class="bigbtn selbtn">Select Sleep sounds &nbsp;→</button>
+          </div>
+        </div>
+      </div></div></div>
+    </div>
+  </section>
+
+  <section class="block reveal" id="sen">
+    <div class="kicker">02 · SLEEP</div>
+    <h2 class="h2" data-i18n="s_h2">Zaśnij <em>w spokoju.</em></h2>
+    <p class="sub" data-i18n="s_sub">Łącz biały szum, deszcz, ocean i burzę naraz. Ustaw auto-off, a dźwięk sam cicho zgaśnie, kiedy już będziesz spać.</p>
+    <div class="split rev">
+      <div class="phone-col"><div class="phone"><div class="screen">
+        <div class="island"></div>
+        <div class="status"><span>08:57</span><span class="batt">100</span></div>
+        <div class="pathtitle">Choose a path</div>
+        <div class="pcard open">
+          <div class="prow"><span class="pico">☾</span><div><b>Sleep</b><small>Ambient sounds · auto-off timer</small></div><span class="chev" style="transform:rotate(180deg)">⌄</span></div>
+          <div class="pbody" style="display:block">
+            <div class="sounds">
+              <button class="tile"><i>≣</i> White Noise</button>
+              <button class="tile sel"><i>🌧</i> Rain</button>
+              <button class="tile"><i>≋</i> Ocean</button>
+              <button class="tile sel"><i>⛈</i> Storm</button>
+            </div>
+            <div class="sl-row"><span>Auto-off</span><b class="offVal">55 min</b></div>
+            <input type="range" class="rng rng-off" min="5" max="120" step="5" value="55">
+            <button class="bigbtn selbtn">Select Sleep sounds &nbsp;→</button>
+          </div>
+        </div>
+      </div></div></div>
+      <div>
+        <div class="feat-list">
+          <div class="feat"><i>🌧</i><div><b data-i18n="s_f1b">Miksuj, nie wybieraj jednego</b><p data-i18n="s_f1p">Rain + Storm naraz? Proszę bardzo. Warstwy dźwięku łączą się w Twój własny pejzaż.</p></div></div>
+          <div class="feat"><i>◍</i><div><b data-i18n="s_f2b">Auto-off z fade-out</b><p data-i18n="s_f2p">Timer wygasza dźwięk delikatnie. Bez nagłego urwania w środku nocy.</p></div></div>
+          <div class="feat"><i>○</i><div><b data-i18n="s_f3b">Just Sit na dzień</b><p data-i18n="s_f3p">Cicha, otwarta uważność z opcjonalnym dzwonkiem w połowie sesji.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal" id="postepy">
+    <div class="kicker">03 · YOUR PROGRESS</div>
+    <h2 class="h2" data-i18n="g_h2">Patrz, <em>jak rośniesz.</em></h2>
+    <p class="sub" data-i18n="g_sub">Odznaki od Seed po Leaf, Sunrise i dalej. Kliknij strzałki w telefonie i sprawdź, jak zmienia się pasek.</p>
+    <div class="split">
+      <div>
+        <div class="feat-list">
+          <div class="feat"><i>🌿</i><div><b data-i18n="g_f1b">Odznaki-motywatory</b><p data-i18n="g_f1p">Kolejny cel zawsze widoczny: „Next badge: 20 sessions". Mały krok, duża satysfakcja.</p></div></div>
+          <div class="feat"><i>◍</i><div><b data-i18n="g_f2b">Wszystko w jednym miejscu</b><p data-i18n="g_f2p">Overall, Breathing, Meditation: sesje i minuty plus pasek passy, bez poczucia winy.</p></div></div>
+        </div>
+        <div class="cta-row"><a class="btn btn-glass" href="#filmy" data-i18n="g_cta">Zobacz filmy z aplikacji ↓</a></div>
+      </div>
+      <div class="phone-col"><div class="phone"><div class="screen tall">
+        <div class="island"></div>
+        <div class="status"><span>08:56</span><span class="batt">100</span></div>
+        <div class="statcard" style="margin-top:26px">
+          <div class="badge-nav">
+            <button class="barrow" id="bPrev">‹</button>
+            <div class="badgecircle"><span id="badgeIcon">🍃</span></div>
+            <button class="barrow" id="bNext">›</button>
+          </div>
+          <div class="badgename" id="badgeName">Leaf</div>
+          <div class="nextbadge" id="badgeNext">NEXT BADGE: 20 SESSIONS</div>
+          <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="statcard"><h5>OVERALL</h5><div class="statgrid"><div><b>19</b><br><small>Sessions</small></div><em></em><div><b>651</b><br><small>Minutes</small></div></div><div class="streakbar">1 day streak</div></div>
+        <div class="statcard"><h5>≋ BREATHING</h5><div class="statgrid"><div><b>12</b><br><small>Sessions</small></div><em></em><div><b>52</b><br><small>Minutes</small></div></div></div>
+      </div></div></div>
+    </div>
+  </section>
+
+  <section class="block reveal" id="ustawienia">
+    <div class="kicker">04 · MADE FOR YOU</div>
+    <h2 class="h2" data-i18n="u_h2">Dopasuj <em>do siebie.</em></h2>
+    <p class="sub" data-i18n="u_sub">Poprzełączaj ustawienia w telefonie. Działają. Tryb ADHD odblokowuje dzwonki, a imię zmienia powitanie.</p>
+    <div class="split rev">
+      <div class="phone-col"><div class="phone"><div class="screen tall">
+        <div class="island"></div>
+        <div class="status"><span>08:57</span><span class="batt">100</span></div>
+        <div class="pathtitle" style="text-align:center">Settings</div>
+        <div class="setlabel">SESSION SUPPORT</div>
+        <div class="setrow"><span class="sico" style="background:rgba(247,200,90,.18)">⚡</span><div><b>ADHD Mode</b><small>Short presets, calmer choices, visible countdown</small></div><button class="tgl" id="tglADHD" aria-label="ADHD Mode"></button></div>
+        <div class="setrow dim" id="rowInterval"><span class="sico" style="background:rgba(180,150,255,.16)">🔔</span><div><b>Interval Bells</b><small>Turn on ADHD Mode to use minute bells</small></div><button class="tgl" aria-label="Interval Bells"></button></div>
+        <div class="setrow"><span class="sico" style="background:rgba(226,96,111,.2)">♥</span><div><b>Chronic Pain Mode</b><small>Prefers Gentle Breath and softer prompts</small></div><button class="tgl on" aria-label="Chronic Pain Mode"></button></div>
+        <div class="setlabel">PERSONALIZATION</div>
+        <div class="setrow nameset" id="nameRow" title="Kliknij, by zmienić imię"><span class="sico" style="background:rgba(150,170,255,.16)">👤</span><div><b id="setName">Anna</b><small>Used only on this device to feel personal.</small></div></div>
+        <div class="setrow"><span class="sico" style="background:rgba(226,96,111,.2)">♥</span><div><b>Apple Health</b><small>Sessions are being recorded</small></div><button class="tgl on" aria-label="Apple Health"></button></div>
+        <div class="setlabel">NOTIFICATIONS</div>
+        <div class="setrow"><span class="sico" style="background:rgba(150,190,255,.16)">🔔</span><div><b>Daily Reminder</b></div><span class="chev" style="margin-left:auto;color:#d9b795">›</span></div>
+      </div></div></div>
+      <div>
+        <div class="feat-list">
+          <div class="feat"><i>⚡</i><div><b data-i18n="u_f1b">Tryb ADHD</b><p data-i18n="u_f1p">Krótsze presety, spokojniejsze wybory, widoczne odliczanie i dzwonki co minutę.</p></div></div>
+          <div class="feat"><i>♥</i><div><b data-i18n="u_f2b">Tryb bólu przewlekłego</b><p data-i18n="u_f2p">Delikatniejszy oddech i miększe komunikaty. Praktyka bez wymagań ponad siły.</p></div></div>
+          <div class="feat"><i>🔔</i><div><b data-i18n="u_f3b">Codzienne przypomnienie + Health</b><p data-i18n="u_f3p">Łagodny ping o Twojej porze i opcjonalny zapis minut uważności w Zdrowiu.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal" id="motywy">
+    <div class="kicker" data-i18n="t_kick">MOTYWY</div>
+    <h2 class="h2" data-i18n="t_h2">Trzy motywy. <em>Jeden Twój.</em></h2>
+    <p class="sub" data-i18n="t_sub">Calmie ma 3 wbudowane motywy kolorystyczne. Kliknij poniżej, a cała strona (i telefony) przełączy klimat tak samo płynnie jak aplikacja.</p>
+    <div class="themecards">
+      <div class="themecard on" data-theme-pick="copper"><div class="swatch sw-copper"></div><b data-i18n="t1b">Miedź</b><p data-i18n="t1p">Aktualny, ciepły klimat aplikacji. Domyślny.</p></div>
+      <div class="themecard" data-theme-pick="sage"><div class="swatch sw-sage"></div><b data-i18n="t2b">Szałwia</b><p data-i18n="t2p">Propozycja: spokojna, leśna zieleń.</p></div>
+      <div class="themecard" data-theme-pick="midnight"><div class="swatch sw-midnight"></div><b data-i18n="t3b">Północ</b><p data-i18n="t3p">Propozycja: głęboki granat na wieczór.</p></div>
+    </div>
+    <p class="theme-note" data-i18n="t_note">★ Miedź to dokładny klimat aplikacji. Szałwię i Północ dobrałem jako propozycje, więc podeślij screeny dwóch pozostałych motywów z apki, a podepnę kolory 1:1.</p>
+  </section>
+
+  <section class="block reveal" id="filmy">
+    <div class="kicker" data-i18n="v_kick">FILMY</div>
+    <h2 class="h2" data-i18n="v_h2">Zobacz, <em>jak to płynie.</em></h2>
+    <p class="sub" data-i18n="v_sub">Prawdziwe nagrania z aplikacji. Filmy startują same po przewinięciu. Stuknij, by zatrzymać.</p>
+    <div class="railhead">
+      <div></div>
+      <div class="railnav"><button id="railPrev" aria-label="Poprzedni">‹</button><button id="railNext" aria-label="Następny">›</button></div>
+    </div>
+    <div class="rail" id="rail">
+      <figure class="filmcap"><div class="vbox"><video muted loop playsinline preload="metadata" poster="assets/film-1.jpg" src="assets/film-1.mp4"></video><span class="vbadge">▶</span></div><figcaption><b data-i18n="v1t">01 · Ekran główny</b><span data-i18n="v1s">„Three minutes for yourself" + Choose a path</span></figcaption></figure>
+      <figure class="filmcap"><div class="vbox"><video muted loop playsinline preload="metadata" poster="assets/film-2.jpg" src="assets/film-2.mp4"></video><span class="vbadge">▶</span></div><figcaption><b data-i18n="v2t">02 · Sesja oddechu</b><span data-i18n="v2s">Breathe in · fazy In / Hold / Out / Hold</span></figcaption></figure>
+      <figure class="filmcap"><div class="vbox"><video muted loop playsinline preload="metadata" poster="assets/film-4.jpg" src="assets/film-4.mp4"></video><span class="vbadge">▶</span></div><figcaption><b data-i18n="v4t">03 · Postępy</b><span data-i18n="v4s">Odznaka Sunrise · passa i minuty</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="block reveal" id="prywatnosc">
+    <div class="privacy">
+      <div>
+        <div class="kicker" data-i18n="pr_kick">PRYWATNOŚĆ I SPOKÓJ</div>
+        <h2 class="h2" data-i18n="pr_h2">Cicho. Prywatnie. <em>Twoje.</em></h2>
+        <p class="sub" data-i18n="pr_sub">Bez reklam. Bez konta. Bez analityki firm trzecich. Historia sesji i nastroje zostają na Twoim urządzeniu.</p>
+        <div class="checks">
+          <div><span class="dot">✓</span><span data-i18n="pr_c1">Brak reklam i brak konta</span></div>
+          <div><span class="dot">✓</span><span data-i18n="pr_c2">Dane tylko na urządzeniu + opcjonalne Apple Health</span></div>
+          <div><span class="dot">✓</span><span data-i18n="pr_c3">Jeden zakup, zero subskrypcji</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <b style="font-size:19px" data-i18n="pr_card">Stworzone dla ekosystemu Apple</b>
+        <p style="color:var(--dim);margin-top:8px;line-height:1.65;font-size:15px" data-i18n="pr_cardp">iPhone, Apple Watch i Vision Pro. Live Activities i Dynamic Island, widgety passy, Siri i Skróty oraz zapis mindful minutes do Zdrowia, jeśli chcesz.</p>
+        <div class="eco"><span class="tchip">⌚ Watch</span><span class="tchip">Vision Pro</span><span class="tchip">Widgety</span><span class="tchip">Siri</span><span class="tchip">Health</span></div>
+        <div class="cta-row"><a class="btn btn-light" href="https://apps.apple.com/pl/app/calmie/id6450792796" target="_blank" rel="noopener"><span data-i18n="pr_cta">Pobierz za darmo</span></a></div>
+        <div style="margin-top:12px;font-size:13px;color:var(--faint)">iOS 16.4+ • Zdrowie i fitness • 4+</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal">
+    <div class="kicker" style="text-align:center">FAQ</div>
+    <h2 class="h2" style="text-align:center" data-i18n="faq_h2">Pytania? <em>Spokojnie.</em></h2>
+    <div class="grid3">
+      <div class="mini"><h3 data-i18n="faq1b">Jak zacząć?</h3><p data-i18n="faq1p">Naciśnij play na głównym ekranie: domyślne 5 minut Box 4·4·4·4. Albo rozwiń „Choose a path" i wybierz własną technikę i czas.</p></div>
+      <div class="mini"><h3 data-i18n="faq2b">Czy to naprawdę za darmo?</h3><p data-i18n="faq2p">Tak. Pobranie jest darmowe, pełnia to jednorazowy zakup, bez subskrypcji, bez reklam, bez konta.</p></div>
+      <div class="mini"><h3 data-i18n="faq3b">Mam ADHD / przewlekły ból. To dla mnie?</h3><p data-i18n="faq3p">Właśnie dlatego powstały tryby ADHD i Chronic Pain: krótsze presety, widoczne odliczanie, łagodniejszy Gentle Breath i miększe prowadzenie.</p></div>
+    </div>
+  </section>
+</main>
+
+<div class="final wrap reveal">
+  <div class="final-card">
+    <img src="assets/icon.jpg" alt="Calmie" style="width:84px;height:84px;border-radius:22px;box-shadow:0 16px 40px rgba(0,0,0,.25);margin-bottom:18px">
+    <h2 data-i18n="fin_h2">Weź jeden oddech.<br><em>Zmień kształt chwili.</em></h2>
+    <p data-i18n="fin_p">Pięć spokojnych minut dziennie: oddech, cisza albo sen. Calmie jest świeże w App Store: pobierz za darmo i dołącz do pierwszych.</p>
+    <div class="store-row">
+      <a class="btn btn-dark" href="https://apps.apple.com/pl/app/calmie/id6450792796" target="_blank" rel="noopener">
+        <svg class="apple-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M16.36 12.76c0-2.3 1.88-3.4 1.97-3.45-1.07-1.57-2.74-1.78-3.34-1.81-1.42-.14-2.77.84-3.49.84-.72 0-1.83-.82-3.01-.8-1.55.02-2.98.9-3.78 2.29-1.61 2.8-.41 6.94 1.16 9.21.76 1.1 1.67 2.34 2.87 2.3 1.15-.05 1.59-.74 2.98-.74s1.78.74 3 .72c1.26-.02 2.05-1.14 2.82-2.25.89-1.3 1.25-2.56 1.27-2.62-.03-.01-2.45-.94-2.45-3.69zM14.16 5.2c.64-.77 1.07-1.85.95-2.92-.92.04-2.03.61-2.69 1.38-.59.68-1.11 1.77-.97 2.82 1.02.08 2.07-.52 2.71-1.28z"/></svg>
+        <span style="text-align:left;line-height:1.2"><small style="font-weight:400;font-size:11px;opacity:.7" data-i18n="fin_badge">Pobierz z</small><br><b>App Store</b></span>
+      </a>
+      <a class="btn btn-review" href="https://apps.apple.com/pl/app/calmie/id6450792796?action=write-review" target="_blank" rel="noopener"><span data-i18n="fin_rev">★ Oceń Calmie</span></a>
+    </div>
+    <div class="small-note" data-i18n="fin_note">Gratis • iPhone • Watch • Vision Pro • Wymaga iOS 16.4+</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 Mateusz Młynarski • Calmie: Breathe &amp; Meditate • v1.4</div>
+    <div style="display:flex;gap:18px"><a href="https://apps.apple.com/pl/app/calmie/id6450792796" target="_blank" rel="noopener">App Store</a><a href="https://mlynarskimateusz.pl/" target="_blank" rel="noopener" data-i18n="foot_a">Autor</a><a href="#top" data-i18n="foot_t">↑ Wróć na górę</a></div>
+  </div>
+</footer>
+
+<div id="sticky">
+  <img src="assets/icon.jpg" alt="Calmie">
+  <div><b>Calmie</b><small data-i18n="sticky_s">Pięć spokojnych minut • za darmo</small></div>
+  <a class="btn btn-light btn-small" href="https://apps.apple.com/pl/app/calmie/id6450792796" target="_blank" rel="noopener" data-i18n="sticky_b">Pobierz</a>
+</div>
+
+<div id="toast"><span data-i18n="toast">📲 To tylko podgląd. Pełnia czeka w aplikacji.</span><a href="https://apps.apple.com/pl/app/calmie/id6450792796" target="_blank" rel="noopener" data-i18n="toast_cta">Pobierz</a></div>
+
+<script>
+// ---------- I18N ----------
+const I18N={
+pl:{meta_title:"Calmie | Pięć spokojnych minut dziennie | Oddech, medytacja i sen",meta_desc:"Calmie wita Cię po imieniu i prowadzi: oddech, chwila ciszy albo dźwięki snu. 5 technik, auto-off, łagodne postępy. Bez reklam, bez konta, bez subskrypcji. Pobierz za darmo na iPhone.",
+nav1:"Start",nav2:"Ścieżki",nav3:"Sen",nav4:"Postępy",nav5:"Filmy",nav_cta:"Pobierz",
+hero_eye:"CALMIE • ODDECH • MEDYTACJA • SEN",hero_h1:"Pięć spokojnych minut. <em>Codziennie.</em>",hero_lead:"Calmie wita Cię po imieniu i prowadzi za rękę: oddech, chwila ciszy albo dźwięki snu. Wybierasz czas, naciskasz play, a resztą zajmuje się aplikacja. Jeden oddech może zmienić kształt chwili.",
+hero_cta1:"Pobierz z App Store",hero_cta2:"Zobacz, jak działa ↓",trust1:"✓ Bez reklam",trust2:"✓ Bez konta",trust3:"✓ Bez subskrypcji",trust4:"✓ Za darmo",
+dm_link:"Trudny moment? →",hero_hint:"↑ TO ŻYWE DEMO: KLIKNIJ KULĘ, MINUTY I TRYBIK",
+stat1b:"5 technik",stat1s:"Box, 4-7-8, Coherent, Gentle, Energize",stat2b:"4 dźwięki",stat2s:"deszcz, ocean, burza, biały szum",stat3b:"Po imieniu",stat3s:"aplikacja wita właśnie Ciebie",stat4b:"0 reklam",stat4s:"1 zakup, zero subskrypcji",
+p_h2:"Wybierz swoją <em>ścieżkę.</em>",p_sub:"Trzy drogi, zero zgadywania. Kliknij karty w telefonie. Wszystko rozwija się jak w prawdziwej aplikacji.",
+p_f1b:"Własny czas trwania",p_f1p:"Suwakiem ustawiasz minuty. Przy bólu aplikacja sama poleci łagodniejszy Gentle Breath.",p_f2b:"Jeden przycisk Select",p_f2p:"Bez labiryntu ustawień: wybierasz technikę, potwierdzasz, oddychasz.",p_cta:"Wypróbuj za darmo",
+js_note:"Cisza z opcjonalnym dzwonkiem w połowie sesji.",
+s_h2:"Zaśnij <em>w spokoju.</em>",s_sub:"Łącz biały szum, deszcz, ocean i burzę naraz. Ustaw auto-off, a dźwięk sam cicho zgaśnie, kiedy już będziesz spać.",
+s_f1b:"Miksuj, nie wybieraj jednego",s_f1p:"Rain + Storm naraz? Proszę bardzo. Warstwy dźwięku łączą się w Twój własny pejzaż.",s_f2b:"Auto-off z fade-out",s_f2p:"Timer wygasza dźwięk delikatnie. Bez nagłego urwania w środku nocy.",s_f3b:"Just Sit na dzień",s_f3p:"Cicha, otwarta uważność z opcjonalnym dzwonkiem w połowie sesji.",
+g_h2:"Patrz, <em>jak rośniesz.</em>",g_sub:"Odznaki od Seed po Leaf, Sunrise i dalej. Kliknij strzałki w telefonie i sprawdź, jak zmienia się pasek.",
+g_f1b:"Odznaki-motywatory",g_f1p:"Kolejny cel zawsze widoczny: „Next badge: 20 sessions”. Mały krok, duża satysfakcja.",g_f2b:"Wszystko w jednym miejscu",g_f2p:"Overall, Breathing, Meditation: sesje i minuty plus pasek passy, bez poczucia winy.",g_cta:"Zobacz filmy z aplikacji ↓",
+u_h2:"Dopasuj <em>do siebie.</em>",u_sub:"Poprzełączaj ustawienia w telefonie. Działają. Tryb ADHD odblokowuje dzwonki, a imię zmienia powitanie.",
+u_f1b:"Tryb ADHD",u_f1p:"Krótsze presety, spokojniejsze wybory, widoczne odliczanie i dzwonki co minutę.",u_f2b:"Tryb bólu przewlekłego",u_f2p:"Delikatniejszy oddech i miększe komunikaty. Praktyka bez wymagań ponad siły.",u_f3b:"Codzienne przypomnienie + Health",u_f3p:"Łagodny ping o Twojej porze i opcjonalny zapis minut uważności w Zdrowiu.",
+t_kick:"MOTYWY",t_h2:"Trzy motywy. <em>Jeden Twój.</em>",t_sub:"Calmie ma 3 wbudowane motywy kolorystyczne. Kliknij poniżej, a cała strona (i telefony) przełączy klimat tak samo płynnie jak aplikacja.",
+t1b:"Miedź",t1p:"Aktualny, ciepły klimat aplikacji. Domyślny.",t2b:"Szałwia",t2p:"Propozycja: spokojna, leśna zieleń.",t3b:"Północ",t3p:"Propozycja: głęboki granat na wieczór.",
+t_note:"★ Miedź to dokładny klimat aplikacji. Szałwię i Północ dobrałem jako propozycje, więc podeślij screeny dwóch pozostałych motywów z apki, a podepnę kolory 1:1.",
+v_kick:"FILMY",v_h2:"Zobacz, <em>jak to płynie.</em>",v_sub:"Prawdziwe nagrania z aplikacji. Filmy startują same po przewinięciu. Stuknij, by zatrzymać.",
+v1t:"01 · Ekran główny",v1s:"„Three minutes for yourself” + Choose a path",v2t:"02 · Sesja oddechu",v2s:"Breathe in · fazy In / Hold / Out / Hold",v3t:"03 · Just Sit",v3s:"„Nothing to achieve” · 3 minuty ciszy",v4t:"03 · Postępy",v4s:"Odznaka Sunrise · passa i minuty",v5t:"05 · Dźwięki snu",v5s:"Rain + Storm · auto-off timer",
+pr_kick:"PRYWATNOŚĆ I SPOKÓJ",pr_h2:"Cicho. Prywatnie. <em>Twoje.</em>",pr_sub:"Bez reklam. Bez konta. Bez analityki firm trzecich. Historia sesji i nastroje zostają na Twoim urządzeniu.",
+pr_c1:"Brak reklam i brak konta",pr_c2:"Dane tylko na urządzeniu + opcjonalne Apple Health",pr_c3:"Jeden zakup, zero subskrypcji",
+pr_card:"Stworzone dla ekosystemu Apple",pr_cardp:"iPhone, Apple Watch i Vision Pro. Live Activities i Dynamic Island, widgety passy, Siri i Skróty oraz zapis mindful minutes do Zdrowia, jeśli chcesz.",pr_cta:"Pobierz za darmo",
+faq_h2:"Pytania? <em>Spokojnie.</em>",faq1b:"Jak zacząć?",faq1p:"Naciśnij play na głównym ekranie: domyślne 5 minut Box 4·4·4·4. Albo rozwiń „Choose a path” i wybierz własną technikę i czas.",
+faq2b:"Czy to naprawdę za darmo?",faq2p:"Tak. Pobranie jest darmowe, pełnia to jednorazowy zakup, bez subskrypcji, bez reklam, bez konta.",
+faq3b:"Mam ADHD / przewlekły ból. To dla mnie?",faq3p:"Właśnie dlatego powstały tryby ADHD i Chronic Pain: krótsze presety, widoczne odliczanie, łagodniejszy Gentle Breath i miększe prowadzenie.",
+fin_h2:"Weź jeden oddech.<br><em>Zmień kształt chwili.</em>",fin_p:"Pięć spokojnych minut dziennie: oddech, cisza albo sen. Calmie jest świeże w App Store: pobierz za darmo i dołącz do pierwszych.",
+fin_badge:"Pobierz z",fin_rev:"★ Oceń Calmie",fin_note:"Gratis • iPhone • Watch • Vision Pro • Wymaga iOS 16.4+",
+foot_a:"Autor",foot_t:"↑ Wróć na górę",sticky_s:"Pięć spokojnych minut • za darmo",sticky_b:"Pobierz",
+toast:"📲 To tylko podgląd. Pełnia czeka w aplikacji.",toast_cta:"Pobierz"},
+en:{meta_title:"Calmie | Five calm minutes a day | Breath, meditation & sleep",meta_desc:"Calmie greets you by name and guides you: breath, a quiet moment, or sleep sounds. 5 techniques, auto-off, gentle progress. No ads, no account, no subscription. Free on iPhone.",
+nav1:"Start",nav2:"Paths",nav3:"Sleep",nav4:"Progress",nav5:"Films",nav_cta:"Get",
+hero_eye:"CALMIE • BREATH • MEDITATION • SLEEP",hero_h1:"Five calm minutes. <em>Every day.</em>",hero_lead:"Calmie greets you by name and takes your hand: breath, a quiet moment, or sleep sounds. Pick a duration, press play, and the app handles the rest. One breath can change the shape of a moment.",
+hero_cta1:"Download on the App Store",hero_cta2:"See how it works ↓",trust1:"✓ No ads",trust2:"✓ No account",trust3:"✓ No subscription",trust4:"✓ Free",
+dm_link:"Difficult moment? →",hero_hint:"↑ LIVE DEMO: TAP THE ORB, MINUTES & GEAR",
+stat1b:"5 techniques",stat1s:"Box, 4-7-8, Coherent, Gentle, Energize",stat2b:"4 sounds",stat2s:"rain, ocean, storm, white noise",stat3b:"By name",stat3s:"the app greets you personally",stat4b:"0 ads",stat4s:"1 purchase, zero subscriptions",
+p_h2:"Choose your <em>path.</em>",p_sub:"Three ways in, zero guessing. Tap the cards in the phone. Everything expands just like in the real app.",
+p_f1b:"Custom duration",p_f1p:"Slide to set your minutes. In pain, the app will suggest the gentler Gentle Breath itself.",p_f2b:"One Select button",p_f2p:"No settings maze: pick a technique, confirm, breathe.",p_cta:"Try it free",
+js_note:"Silence with an optional midpoint bell.",
+s_h2:"Fall asleep <em>in peace.</em>",s_sub:"Layer white noise, rain, ocean and storm, all at once. Set auto-off and the sound fades away on its own as you drift off.",
+s_f1b:"Mix, don't pick one",s_f1p:"Rain + Storm together? Absolutely. Layers blend into your own soundscape.",s_f2b:"Auto-off with fade-out",s_f2p:"The timer fades sound gently. No abrupt cut in the middle of the night.",s_f3b:"Just Sit for daytime",s_f3p:"Quiet, open awareness with an optional midpoint bell.",
+g_h2:"Watch yourself <em>grow.</em>",g_sub:"Badges from Seed to Leaf, Sunrise and beyond. Tap the arrows in the phone and see the bar change.",
+g_f1b:"Motivating badges",g_f1p:"Next goal always visible: “Next badge: 20 sessions”. Small step, big satisfaction.",g_f2b:"Everything in one place",g_f2p:"Overall, Breathing, Meditation: sessions and minutes plus a guilt-free streak bar.",g_cta:"Watch the app films ↓",
+u_h2:"Make it <em>yours.</em>",u_sub:"Flip the switches in the phone. They work. ADHD Mode unlocks the bells, and the name changes the greeting.",
+u_f1b:"ADHD Mode",u_f1p:"Shorter presets, calmer choices, visible countdown and minute bells.",u_f2b:"Chronic Pain Mode",u_f2p:"Gentler breath and softer prompts. Practice without demands beyond your strength.",u_f3b:"Daily reminder + Health",u_f3p:"A gentle ping at your hour plus optional mindful minutes in Apple Health.",
+t_kick:"THEMES",t_h2:"Three themes. <em>One yours.</em>",t_sub:"Calmie ships with 3 built-in color themes. Tap below and the whole page (and phones) will switch vibe just as smoothly as the app.",
+t1b:"Copper",t1p:"The app's current warm feel. Default.",t2b:"Sage",t2p:"Proposal: calm forest green.",t3b:"Midnight",t3p:"Proposal: deep evening navy.",
+t_note:"★ Copper matches the app exactly. Sage and Midnight are my proposals, so send screenshots of the other two in-app themes and I'll match them 1:1.",
+v_kick:"FILMS",v_h2:"See it <em>flow.</em>",v_sub:"Real recordings from the app. Films autoplay on scroll. Tap to pause.",
+v1t:"01 · Home screen",v1s:"“Three minutes for yourself” + Choose a path",v2t:"02 · Breathing session",v2s:"Breathe in · In / Hold / Out / Hold phases",v3t:"03 · Just Sit",v3s:"“Nothing to achieve” · 3 quiet minutes",v4t:"03 · Progress",v4s:"Sunrise badge · streak & minutes",v5t:"05 · Sleep sounds",v5s:"Rain + Storm · auto-off timer",
+pr_kick:"PRIVACY & PEACE",pr_h2:"Quiet. Private. <em>Yours.</em>",pr_sub:"No ads. No account. No third-party analytics. Session history and moods stay on your device.",
+pr_c1:"No ads and no account",pr_c2:"On-device data + optional Apple Health",pr_c3:"One purchase, zero subscriptions",
+pr_card:"Made for the Apple ecosystem",pr_cardp:"iPhone, Apple Watch and Vision Pro. Live Activities and Dynamic Island, streak widgets, Siri and Shortcuts, plus mindful minutes in Health, if you want.",pr_cta:"Get it free",
+faq_h2:"Questions? <em>Breathe easy.</em>",faq1b:"How do I start?",faq1p:"Press play on the home screen: 5 minutes of Box 4·4·4·4 by default. Or expand “Choose a path” and pick your own technique and time.",
+faq2b:"Is it really free?",faq2p:"Yes. Download is free, full access is a one-time purchase, no subscription, no ads, no account.",
+faq3b:"I have ADHD / chronic pain. Is it for me?",faq3p:"That's exactly why ADHD and Chronic Pain modes exist: shorter presets, visible countdown, gentler Gentle Breath and softer guidance.",
+fin_h2:"Take one breath.<br><em>Change the shape of a moment.</em>",fin_p:"Five calm minutes a day: breath, silence or sleep. Calmie is fresh on the App Store: download free and join the first.",
+fin_badge:"Download on the",fin_rev:"★ Rate Calmie",fin_note:"Free • iPhone • Watch • Vision Pro • Requires iOS 16.4+",
+foot_a:"Author",foot_t:"↑ Back to top",sticky_s:"Five calm minutes • free",sticky_b:"Get",
+toast:"📲 This is just a preview. The full thing is in the app.",toast_cta:"Get"}};
+let LANG="pl";
+function setLang(l){LANG=I18N[l]?l:"pl";const T=I18N[LANG];
+document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n");if(T[k]!=null)el.innerHTML=T[k];});
+document.documentElement.lang=LANG;document.title=T.meta_title;
+document.querySelector('meta[name="description"]').setAttribute("content",T.meta_desc);
+document.querySelectorAll("[data-setlang]").forEach(b=>b.classList.toggle("on",b.dataset.setlang===LANG));
+try{localStorage.setItem("calmie-lang",LANG);}catch(e){}
+const u=new URL(location.href);u.searchParams.set("lang",LANG);history.replaceState(null,"",u);}
+document.querySelectorAll("[data-setlang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.setlang)));
+(function(){const q=new URLSearchParams(location.search).get("lang");let s="pl";try{s=q||localStorage.getItem("calmie-lang")||"pl";}catch(e){s=q||"pl";}if(s!== "pl")setLang(s);})();
+// ---------- HERO DEMO ----------
+const orb=document.getElementById("orb"),ico=document.getElementById("playIco"),cap=document.getElementById("orbCap"),
+dots=document.getElementById("heroDots"),dm=document.getElementById("dmLink"),dotEls=[...dots.querySelectorAll("i")];
+const seq=[["Wdech",4,1.26,0],["Wstrzymaj",4,1.26,1],["Wydech",4,1,2],["Pusto",4,1,3]];
+const titles={1:"One minute<br>for yourself.",3:"Three minutes<br>for yourself.",5:"Five calm<br>minutes.",10:"Ten quiet<br>minutes."};
+const baseCap="Breathe · Box · 4 · 4 · 4 · 4 · Steady & balanced";
+let timer=null,running=false;
+function stopDemo(){running=false;clearInterval(timer);timer=null;orb.style.transform="scale(1)";ico.textContent="▶";cap.textContent=baseCap;dots.classList.remove("show");dm.classList.remove("show");dotEls.forEach(d=>d.classList.remove("lit"));}
+orb.addEventListener("click",()=>{
+if(running){stopDemo();return;}
+running=true;ico.textContent="❚❚";dots.classList.add("show");dm.classList.add("show");
+let pi=0,left=seq[0][1];
+const show=()=>{orb.style.transform="scale("+seq[pi][2]+")";cap.textContent=seq[pi][0]+" · "+left;dotEls.forEach(d=>d.classList.toggle("lit",+d.dataset.ph===seq[pi][3]));};
+show();timer=setInterval(()=>{left--;if(left<=0){pi=(pi+1)%seq.length;left=seq[pi][1];}show();},1000);});
+document.querySelectorAll("#durPills .dpill").forEach(b=>b.addEventListener("click",()=>{
+document.querySelectorAll("#durPills .dpill").forEach(x=>x.classList.remove("on"));b.classList.add("on");
+const m=b.dataset.min;document.getElementById("sheetSub").textContent=m+" min";
+document.getElementById("heroTitle").innerHTML=titles[m]||titles[5];stopDemo();}));
+document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>{document.querySelector(b.dataset.goto).scrollIntoView({behavior:"smooth"});}));
+// ---------- ACCORDION + CONTROLS ----------
+document.querySelectorAll(".screen").forEach(scr=>{
+scr.querySelectorAll("[data-acc]").forEach(head=>head.addEventListener("click",()=>{
+const card=head.closest("[data-card]"),was=card.classList.contains("open");
+scr.querySelectorAll("[data-card]").forEach(c=>c.classList.remove("open"));
+if(!was)card.classList.add("open");}));});
+document.querySelectorAll(".chips2").forEach(box=>{
+box.querySelectorAll(".chip2").forEach(ch=>ch.addEventListener("click",()=>{
+box.querySelectorAll(".chip2").forEach(x=>x.classList.remove("sel"));ch.classList.add("sel");
+const btn=box.closest(".pbody").querySelector(".selbtn");
+if(btn&&ch.dataset.tech)btn.innerHTML="Select "+ch.dataset.tech+" Breath &nbsp;→";}));});
+document.querySelectorAll(".rng-dur").forEach(r=>r.addEventListener("input",()=>{
+r.closest(".pbody").querySelector(".durVal").textContent=r.value+" min";}));
+document.querySelectorAll(".rng-off").forEach(r=>r.addEventListener("input",()=>{
+r.closest(".pbody").querySelector(".offVal").textContent=r.value+" min";}));
+document.querySelectorAll(".tile").forEach(t=>t.addEventListener("click",()=>t.classList.toggle("sel")));
+document.querySelectorAll(".tgl").forEach(t=>t.addEventListener("click",e=>{e.stopPropagation();t.classList.toggle("on");syncADHD();}));
+function syncADHD(){const on=document.getElementById("tglADHD").classList.contains("on");
+document.getElementById("rowInterval").classList.toggle("dim",!on);}
+const names=["Anna","Tadek"];let ni=0;
+document.getElementById("nameRow").addEventListener("click",()=>{ni=(ni+1)%names.length;document.getElementById("setName").textContent=names[ni];});
+const badges=[{i:"🌱",n:"Seed",x:"NEXT BADGE: 3 SESSIONS"},{i:"🍃",n:"Leaf",x:"NEXT BADGE: 20 SESSIONS"},{i:"☀️",n:"Sunrise",x:"NEXT BADGE: 25 SESSIONS"}];
+let bi=1;
+function showBadge(){document.getElementById("badgeIcon").textContent=badges[bi].i;document.getElementById("badgeName").textContent=badges[bi].n;document.getElementById("badgeNext").textContent=badges[bi].x;}
+document.getElementById("bPrev").addEventListener("click",()=>{bi=(bi+badges.length-1)%badges.length;showBadge();});
+document.getElementById("bNext").addEventListener("click",()=>{bi=(bi+1)%badges.length;showBadge();});
+// toast
+let toastT=null;
+document.querySelectorAll(".selbtn").forEach(b=>b.addEventListener("click",()=>{
+const t=document.getElementById("toast");t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),3200);}));
+// ---------- THEMES ----------
+document.querySelectorAll("[data-theme-pick]").forEach(c=>c.addEventListener("click",()=>{
+document.querySelectorAll("[data-theme-pick]").forEach(x=>x.classList.remove("on"));c.classList.add("on");
+document.documentElement.dataset.theme=c.dataset.themePick;
+try{localStorage.setItem("calmie-theme",c.dataset.themePick);}catch(e){}}));
+(function(){try{const t=localStorage.getItem("calmie-theme");if(t&&document.querySelector('[data-theme-pick="'+t+'"]')){document.documentElement.dataset.theme=t;document.querySelectorAll("[data-theme-pick]").forEach(x=>x.classList.toggle("on",x.dataset.themePick===t));}}catch(e){}})();
+// ---------- FILMS ----------
+const vids=[...document.querySelectorAll(".vbox video")];
+vids.forEach(v=>{const box=v.closest(".vbox"),badge=box.querySelector(".vbadge");
+const sync=()=>{badge.textContent=v.paused?"▶":"❚❚";};
+v.addEventListener("play",sync);v.addEventListener("pause",sync);
+box.addEventListener("click",()=>{if(v.paused)v.play().catch(()=>{});else v.pause();});});
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;
+if(e.intersectionRatio>=0.6){v.play().catch(()=>{});}else{v.pause();}}),{threshold:[0,0.6,1]});
+vids.forEach(v=>vio.observe(v));
+const rail=document.getElementById("rail");
+document.getElementById("railPrev").addEventListener("click",()=>rail.scrollBy({left:-320,behavior:"smooth"}));
+document.getElementById("railNext").addEventListener("click",()=>rail.scrollBy({left:320,behavior:"smooth"}));
+// ---------- REVEAL + STICKY ----------
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+const sticky=document.getElementById("sticky");
+addEventListener("scroll",()=>{sticky.classList.toggle("show",scrollY>650);},{passive:true});
+</script>
+</body>
+</html>
