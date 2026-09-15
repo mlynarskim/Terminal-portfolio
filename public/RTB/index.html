@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rate That Beach — Znajdź najlepsze plaże w pobliżu | Find the best beaches nearby</title>
+  <meta name="description" content="Rate That Beach – odkryj, oceń i znajdź najlepsze plaże na świecie w kilka sekund. Bez konta. Bez konfiguracji. Tylko plaże. / Discover, explore and rate beaches in seconds." />
+  <meta property="og:title" content="Rate That Beach — Never waste a beach day again" />
+  <meta property="og:description" content="Otwórz mapę, kliknij plażę i zobacz prawdziwe oceny podróżników. / Open the map, tap a beach and see real ratings from travelers." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="nav" id="top">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <img src="assets/icon.png" alt="Rate That Beach icon" class="brand-icon" />
+        <span class="brand-text">Rate That Beach</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#features" data-i18n="nav.features">Funkcje</a>
+        <a href="#how" data-i18n="nav.how">Jak to działa</a>
+        <a href="#screens" data-i18n="nav.screens">Aplikacja</a>
+        <a href="#film" data-i18n="nav.film">Film</a>
+        <a href="#premium" data-i18n="nav.premium">Beach Lover</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button id="btnPL" class="lang-btn active" type="button">PL</button>
+          <button id="btnEN" class="lang-btn" type="button">EN</button>
+        </div>
+        <a class="btn btn-primary btn-sm" href="#download" data-i18n="nav.download">Pobierz</a>
+        <button class="burger" id="burger" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="pill">
+          <span class="dot"></span>
+          <span data-i18n="hero.badge">Nowa aplikacja podróżnicza • Za darmo</span>
+        </div>
+        <h1 data-i18n="hero.title">Znajdź najlepszą plażę w kilka sekund</h1>
+        <p class="lead" data-i18n="hero.subtitle">Otwórz mapę, kliknij dowolną plażę na świecie i natychmiast zobacz prawdziwe oceny podróżników. Bez konta. Bez konfiguracji. Tylko plaże.</p>
+
+        <div class="store-row">
+          <a class="store-badge" href="https://apps.apple.com/pl/app/rate-that-beach/id6764400811" target="_blank" rel="noopener" aria-label="Pobierz z App Store" data-badge-pl="assets/apple pl.svg" data-badge-en="assets/apple en.svg">
+            <img src="assets/apple pl.svg" alt="Pobierz z App Store" class="badge-img" />
+          </a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.ratethatbeach.app" target="_blank" rel="noopener" aria-label="Pobierz z Google Play" data-badge-pl="assets/google pl.svg" data-badge-en="assets/google en.svg">
+            <img src="assets/google pl.svg" alt="Pobierz z Google Play" class="badge-img" />
+          </a>
+        </div>
+        <div class="trust">
+          <span>✓ <span data-i18n="hero.t1">Za darmo</span></span>
+          <span>✓ <span data-i18n="hero.t2">Bez konta</span></span>
+          <span>✓ <span data-i18n="hero.t3">Bez konfiguracji</span></span>
+          <span class="stars">★★★★★ <span data-i18n="hero.t4">oceny podróżników</span></span>
+        </div>
+        <p class="micro" data-i18n="hero.micro">iOS 16+ • Android • 38 MB • 4+ / PEGI 3 • PL / EN</p>
+      </div>
+
+      <div class="hero-visual">
+        <div class="phone-wrap">
+          <div class="phone">
+            <img src="assets/screen-matira.png" alt="Rate That Beach app – map" />
+          </div>
+          <div class="float-card fc1">
+            <strong>Navagio Beach 🇬🇷</strong>
+            <span>4.9 ★ • 342 <span data-i18n="hero.ratings">ocen</span></span>
+          </div>
+          <div class="float-card fc2">
+            <strong>El Nido Beach 🇵🇭</strong>
+            <span>4.8 ★ • 224 <span data-i18n="hero.ratings2">ocen</span></span>
+          </div>
+          <div class="float-badge">🏖️ <span data-i18n="hero.never">Nigdy więcej zmarnowanego dnia na plaży</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-strip">
+      <div class="container strip-inner">
+        <span data-i18n="strip.1">🗺️ Interaktywna mapa</span>
+        <span data-i18n="strip.2">⭐ Prawdziwe oceny</span>
+        <span data-i18n="strip.3">🏆 Globalne rankingi</span>
+        <span data-i18n="strip.4">💎 Ukryte perełki</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF / DESCRIPTION FROM STORE -->
+  <section class="section">
+    <div class="container split">
+      <div>
+        <h2 data-i18n="about.title">Stworzona przez podróżników, dla podróżników</h2>
+        <p data-i18n="about.p1">Rate That Beach pomaga odkrywać, zwiedzać i oceniać plaże w kilka sekund. Otwórz mapę, kliknij plażę i natychmiast zobacz prawdziwe oceny innych podróżników.</p>
+        <p data-i18n="about.p2">Planujesz wakacje czy już jesteś na wybrzeżu? Dzięki uczciwym ocenom społeczności zawsze wiesz, czego się spodziewać przed przyjazdem. Każda ocena pochodzi od osoby, która naprawdę tam była.</p>
+        <ul class="check-list">
+          <li data-i18n="about.li1">Oceń każdą plażę na świecie</li>
+          <li data-i18n="about.li2">Zobacz oceny i recenzje prawdziwych podróżników</li>
+          <li data-i18n="about.li3">Odkrywaj plaże na interaktywnej mapie</li>
+          <li data-i18n="about.li4">Znajduj ukryte perełki w pobliżu</li>
+          <li data-i18n="about.li5">Unikaj rozczarowujących miejsc przed podróżą</li>
+        </ul>
+      </div>
+      <div class="phone-video-wrap">
+        <div class="phone-frame phone-frame-lg">
+          <video controls playsinline preload="metadata" poster="assets/screen-elnido.png" class="mockup-video">
+            <source src="assets/film.mp4" type="video/mp4" />
+            <span data-i18n="about.videoFallback">Twoja przeglądarka nie obsługuje wideo.</span>
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section alt" id="features">
+    <div class="container">
+      <p class="kicker center" data-i18n="feat.kicker">Dlaczego Rate That Beach?</p>
+      <h2 class="center" data-i18n="feat.title">Wszystko, czego potrzebujesz na idealny dzień na plaży</h2>
+      <p class="center sub" data-i18n="feat.sub">Koniec ze zgadywaniem. Sprawdzone oceny, mapa i rankingi w jednej szybkiej aplikacji.</p>
+      <div class="grid3">
+        <div class="card reveal">
+          <div class="icon">🗺️</div>
+          <h3 data-i18n="feat.1t">Mapa plaż świata</h3>
+          <p data-i18n="feat.1d">Przeglądaj tysiące plaż na interaktywnej mapie. Kolorowe pinezki Good / Average / Poor / New od razu pokazują, gdzie warto jechać.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">⭐</div>
+          <h3 data-i18n="feat.2t">Uczciwe oceny 1–5</h3>
+          <p data-i18n="feat.2d">Jedno kliknięcie i oceniasz plażę. Średnia, liczba ocen i zdjęcia pomagają podjąć decyzję w sekundę.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">🏆</div>
+          <h3 data-i18n="feat.3t">Rankingi Global Top i Nearby</h3>
+          <p data-i18n="feat.3d">Sprawdź 50 najlepiej ocenianych plaż na świecie albo odkryj perełki w promieniu kilku kilometrów od Ciebie.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">🧭</div>
+          <h3 data-i18n="feat.4t">Nawiguj i udostępniaj</h3>
+          <p data-i18n="feat.4d">Jednym przyciskiem wyznacz trasę do plaży lub wyślij ją znajomym. Idealne na spontaniczne wypady.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">🚫👤</div>
+          <h3 data-i18n="feat.5t">Bez konta i bez stresu</h3>
+          <p data-i18n="feat.5d">Zero rejestracji, zero konfiguracji. Pobierasz, otwierasz i od razu oceniasz. Twoje dane? Możesz usunąć jednym klikiem.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">💎</div>
+          <h3 data-i18n="feat.6t">Ukryte perełki, nie pułapki</h3>
+          <p data-i18n="feat.6d">Omijaj zatłoczone i rozczarowujące miejsca. Odkrywaj lokalne plaże, które kochają podróżnicy – jak Navagio, El Nido czy Matira.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section class="section" id="how">
+    <div class="container">
+      <p class="kicker center" data-i18n="how.kicker">Jak to działa</p>
+      <h2 class="center" data-i18n="how.title">3 kroki do idealnej plaży</h2>
+      <div class="steps">
+        <div class="step reveal"><span class="num">1</span><h3 data-i18n="how.1t">Otwórz mapę</h3><p data-i18n="how.1d">Aplikacja pokaże plaże wokół Ciebie lub w dowolnym miejscu na świecie.</p></div>
+        <div class="step reveal"><span class="num">2</span><h3 data-i18n="how.2t">Kliknij pinezkę</h3><p data-i18n="how.2d">Zobacz zdjęcia, średnią ocenę i liczbę recenzji od prawdziwych ludzi.</p></div>
+        <div class="step reveal"><span class="num">3</span><h3 data-i18n="how.3t">Oceń i jedź</h3><p data-i18n="how.3d">Wystaw 1–5 gwiazdek, kliknij Nawiguj i ciesz się najlepszą plażą.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section class="section alt" id="screens">
+    <div class="container">
+      <p class="kicker center" data-i18n="scr.kicker">Zobacz aplikację</p>
+      <h2 class="center" data-i18n="scr.title">Prosta, szybka i piękna</h2>
+      <p class="center sub" data-i18n="scr.sub">Prawdziwe screeny z aplikacji – mapa, szczegóły plaży i rankingi.</p>
+      <div class="slider" id="slider">
+        <button class="slide-btn prev" id="prevBtn" aria-label="Previous">‹</button>
+        <div class="slides">
+          <figure class="shot"><img src="assets/screen-map.png" alt="Map – Navagio Beach 4.9" loading="lazy"/><figcaption>Navagio Beach • 4.9 ★</figcaption></figure>
+          <figure class="shot"><img src="assets/screen-elnido.png" alt="El Nido Beach rating" loading="lazy"/><figcaption>El Nido Beach • 4.8 ★</figcaption></figure>
+          <figure class="shot"><img src="assets/screen-matira.png" alt="Matira Beach Bora Bora" loading="lazy"/><figcaption>Matira Beach • 4.9 ★</figcaption></figure>
+          <figure class="shot"><img src="assets/screen-oludeniz.png" alt="Ölüdeniz rating" loading="lazy"/><figcaption>Ölüdeniz • 4.8 ★</figcaption></figure>
+          <figure class="shot"><img src="assets/screen-rankings.png" alt="Global rankings" loading="lazy"/><figcaption data-i18n="scr.rank">Rankingi Global Top</figcaption></figure>
+          <figure class="shot"><img src="assets/screen-premium.png" alt="Beach Lover premium" loading="lazy"/><figcaption>Beach Lover Premium</figcaption></figure>
+        </div>
+        <button class="slide-btn next" id="nextBtn" aria-label="Next">›</button>
+      </div>
+      <div class="dots" id="dots"></div>
+    </div>
+  </section>
+
+  <!-- FILM -->
+  <section class="section" id="film">
+    <div class="container split">
+      <div>
+        <p class="kicker" data-i18n="film.kicker">Film promocyjny</p>
+        <h2 data-i18n="film.title">Poczuj klimat plaży przed pobraniem</h2>
+        <p data-i18n="film.desc">Zobacz, jak szybko znajdziesz wymarzoną plażę – od otwarcia mapy po nawigację. Nagranie z prawdziwej aplikacji.</p>
+<div class="store-row left">
+          <a class="store-badge" href="https://apps.apple.com/pl/app/rate-that-beach/id6764400811" target="_blank" rel="noopener" aria-label="Pobierz z App Store" data-badge-pl="assets/apple pl.svg" data-badge-en="assets/apple en.svg">
+            <img src="assets/apple pl.svg" alt="Pobierz z App Store" class="badge-img" />
+          </a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.ratethatbeach.app" target="_blank" rel="noopener" aria-label="Pobierz z Google Play" data-badge-pl="assets/google pl.svg" data-badge-en="assets/google en.svg">
+            <img src="assets/google pl.svg" alt="Pobierz z Google Play" class="badge-img" />
+          </a>
+        </div>
+      </div>
+<div class="phone-video-wrap">
+         <div class="phone-frame phone-frame-lg">
+           <video controls playsinline preload="metadata" poster="assets/screen-map.png" class="mockup-video">
+             <source src="assets/film.mp4" type="video/mp4" />
+             <span data-i18n="about.videoFallback">Twoja przeglądarka nie obsługuje wideo.</span>
+           </video>
+         </div>
+       </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section class="section alt">
+    <div class="container">
+      <p class="kicker center" data-i18n="who.kicker">Dla kogo?</p>
+      <h2 class="center" data-i18n="who.title">Idealna dla każdego, kto kocha morze</h2>
+      <div class="grid4">
+        <div class="mini reveal">🏄<h4 data-i18n="who.1t">Surferzy i beach loverzy</h4><p data-i18n="who.1d">Znajdź najlepsze fale i piasek bez tracenia czasu.</p></div>
+        <div class="mini reveal">🎒<h4 data-i18n="who.2t">Podróżnicy i backpackersi</h4><p data-i18n="who.2d">Odkrywaj plaże gdziekolwiek jesteś – od Tajlandii po Grecję.</p></div>
+        <div class="mini reveal">👨‍👩‍👧<h4 data-i18n="who.3t">Rodziny</h4><p data-i18n="who.3d">Wybieraj bezpieczne, sprawdzone plaże na wakacje z dziećmi.</p></div>
+        <div class="mini reveal">💻<h4 data-i18n="who.4t">Cyfrowi nomadzi</h4><p data-i18n="who.4d">Pracuj z widokiem na ocean – znajdź spokojne miejsce blisko Ciebie.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIUM -->
+  <section class="section" id="premium">
+    <div class="container premium-box">
+      <img src="assets/screen-premium.png" alt="Beach Lover" class="premium-img" />
+      <div>
+        <p class="kicker" data-i18n="prem.kicker">Beach Lover Premium – $2.99 / mies.</p>
+        <h2 data-i18n="prem.title">Bez limitów. Bez reklam. Tylko plaże.</h2>
+        <ul class="check-list">
+          <li data-i18n="prem.li1">Nielimitowane wyszukiwania na mapie</li>
+          <li data-i18n="prem.li2">Odkrywanie plaż na całym świecie</li>
+          <li data-i18n="prem.li3">Nielimitowane oceny</li>
+          <li data-i18n="prem.li4">Zero reklam</li>
+        </ul>
+        <p class="micro" data-i18n="prem.note">15 darmowych wyszukiwań miesięcznie w planie bezpłatnym. Subskrypcja odnawia się automatycznie – anulujesz kiedy chcesz w ustawieniach App Store / Play Store.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section alt" id="faq">
+    <div class="container narrow">
+      <h2 class="center" data-i18n="faq.title">Częste pytania</h2>
+      <details open><summary data-i18n="faq.1q">Czy aplikacja jest darmowa?</summary><p data-i18n="faq.1a">Tak. Podstawowe funkcje – mapa, oceny i rankingi – są darmowe (15 wyszukiwań mapy miesięcznie). Opcjonalny plan Beach Lover ($2.99/mies.) odblokowuje wszystko bez limitów i bez reklam.</p></details>
+      <details><summary data-i18n="faq.2q">Czy muszę zakładać konto?</summary><p data-i18n="faq.2a">Nie. Żadnych kont, żadnej konfiguracji. Pobierasz i od razu odkrywasz plaże. Możesz też w każdej chwili usunąć swoje dane z aplikacji.</p></details>
+      <details><summary data-i18n="faq.3q">Skąd pochodzą oceny?</summary><p data-i18n="faq.3a">Od prawdziwych podróżników, którzy byli na danej plaży. Każda plaża ma średnią 1–5, liczbę ocen i zdjęcia.</p></details>
+      <details><summary data-i18n="faq.4q">Na jakich urządzeniach działa?</summary><p data-i18n="faq.4a">iPhone z iOS 16+ oraz Android. Aplikacja waży tylko ~38 MB i działa w języku angielskim (strona dostępna po polsku i angielsku).</p></details>
+      <details><summary data-i18n="faq.5q">Gdzie znajdę regulamin i prywatność?</summary><p><a href="https://mlynarskimateusz.pl/RTB/Terms.html" target="_blank" rel="noopener">Terms of Use</a> • <a href="https://mlynarskimateusz.pl/RTB/Privacy.html" target="_blank" rel="noopener">Privacy Policy</a></p></details>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD CTA -->
+  <section class="cta" id="download">
+    <div class="container cta-inner">
+      <img src="assets/icon.png" alt="Rate That Beach" class="cta-icon" />
+      <h2 data-i18n="cta.title">Nigdy więcej zmarnowanego dnia na plaży</h2>
+      <p data-i18n="cta.sub">Pobierz Rate That Beach za darmo i znajdź swoją wymarzoną plażę już dziś.</p>
+      <div class="store-row center">
+        <a class="store-badge" href="https://apps.apple.com/pl/app/rate-that-beach/id6764400811" target="_blank" rel="noopener" aria-label="Pobierz z App Store" data-badge-pl="assets/apple pl.svg" data-badge-en="assets/apple en.svg">
+          <img src="assets/apple pl.svg" alt="Pobierz z App Store" class="badge-img" />
+        </a>
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.ratethatbeach.app" target="_blank" rel="noopener" aria-label="Pobierz z Google Play" data-badge-pl="assets/google pl.svg" data-badge-en="assets/google en.svg">
+          <img src="assets/google pl.svg" alt="Pobierz z Google Play" class="badge-img" />
+        </a>
+      </div>
+      <p class="micro light" data-i18n="cta.micro">Bezpłatne pobieranie • Zakupy w aplikacji: Beach Lover • Wsparcie: mlynarski.mateusz@gmail.com</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot-grid">
+      <div>
+        <div class="brand"><img src="assets/icon.png" alt="" class="brand-icon" /><span class="brand-text">Rate That Beach</span></div>
+        <p class="micro" data-i18n="foot.tag">Find the best beaches nearby. Odkrywaj i oceniaj plaże na całym świecie.</p>
+      </div>
+      <div>
+        <strong data-i18n="foot.app">Aplikacja</strong>
+        <a href="https://apps.apple.com/pl/app/rate-that-beach/id6764400811" target="_blank" rel="noopener">App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.ratethatbeach.app" target="_blank" rel="noopener">Google Play</a>
+        <a href="#premium">Beach Lover</a>
+      </div>
+      <div>
+        <strong data-i18n="foot.legal">Informacje</strong>
+        <a href="https://mlynarskimateusz.pl/RTB/Privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://mlynarskimateusz.pl/RTB/Terms.html" target="_blank" rel="noopener">Terms of Use</a>
+        <a href="https://mlynarskimateusz.pl" target="_blank" rel="noopener">Developer Website</a>
+      </div>
+      <div>
+        <strong>Kontakt</strong>
+        <a href="mailto:mlynarski.mateusz@gmail.com">mlynarski.mateusz@gmail.com</a>
+        <span class="micro">© 2026 Mateusz Młynarski</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

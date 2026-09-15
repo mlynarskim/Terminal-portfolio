@@ -47,7 +47,7 @@ export const projects: Project[] = [
     status: 'live',
     version: '3.2.4',
     links: [
-      { label: 'App Store', url: 'https://apps.apple.com/pl/app/travel-rules/id6451070215?l=pl', icon: '🍎', primary: true },
+      { label: 'App Store', url: 'https://apps.apple.com/pl/app/travel-rules/id6451070215?l=pl', icon: 'apple', primary: true },
       { label: 'Landing page', url: 'https://travelrules.eu/app', icon: '🌐' },
       { label: 'Website', url: 'https://www.travelrules.eu', icon: '🔗' },
     ],
@@ -83,8 +83,9 @@ export const projects: Project[] = [
     status: 'live',
     version: '1.0',
     links: [
-      { label: 'App Store', url: 'https://apps.apple.com/pl/app/rate-that-beach/id6764400811?l=pl', icon: '🍎', primary: true },
-      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.ratethatbeach.app', icon: '🤖' },
+      { label: 'App Store', url: 'https://apps.apple.com/pl/app/rate-that-beach/id6764400811?l=pl', icon: 'apple', primary: true },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.ratethatbeach.app', icon: 'google-play' },
+      { label: 'Landing page', url: '/RTB/', icon: '🌐' },
       { label: 'ProductHunt', url: 'https://www.producthunt.com/products/rate-that-beach?launch=rate-that-beach', icon: '🚀' },
     ],
     screenshots: [
@@ -101,9 +102,9 @@ export const projects: Project[] = [
     tagline: 'Meditation, breathing and sleep · iPhone, iPad, Apple Watch and Vision Pro',
     taglinePL: 'Medytacja, oddech i sen · iPhone, iPad, Apple Watch i Vision Pro',
     description:
-      'A native mindfulness app built for the Apple ecosystem, combining guided breathing, a flexible Just Sit timer, and calming sleep soundscapes. It includes five breathing techniques, private progress sync through iCloud, and a complete Apple Watch companion. Widgets, Live Activities, Dynamic Island, Siri, and Shortcuts make sessions easier to begin, while optional Apple Health integration records mindful minutes. ADHD Mode reduces decisions and provides shorter sessions, while Chronic Pain Mode offers gentler pacing and guidance. No ads, account, subscription, or third party analytics.',
+      'A native mindfulness app for the Apple ecosystem with guided breathing, a Just Sit timer, sleep soundscapes, and an Apple Watch companion. Progress syncs privately through iCloud, while widgets, Siri, and Shortcuts make sessions easy to start. No ads, accounts, subscriptions, or third party analytics.',
     descriptionPL:
-      'Natywna aplikacja mindfulness dla ekosystemu Apple, łącząca prowadzone ćwiczenia oddechowe, timer Just Sit i wyciszające dźwięki snu. Oferuje pięć technik oddechowych, prywatną synchronizację postępów przez iCloud oraz pełną aplikację na Apple Watch. Widżety, Live Activities, Dynamic Island, Siri i Skróty ułatwiają rozpoczęcie sesji, a opcjonalna integracja z Apple Health zapisuje uważne minuty. Tryb ADHD ogranicza liczbę decyzji i oferuje krótsze sesje, natomiast tryb dla osób z przewlekłym bólem zapewnia łagodniejsze tempo i wskazówki. Bez reklam, konta, subskrypcji i zewnętrznej analityki.',
+      'Natywna aplikacja mindfulness dla ekosystemu Apple z ćwiczeniami oddechowymi, timerem Just Sit, dźwiękami snu i aplikacją na Apple Watch. Postępy synchronizują się prywatnie przez iCloud, a widżety, Siri i Skróty ułatwiają rozpoczęcie sesji. Bez reklam, konta, subskrypcji i zewnętrznej analityki.',
     tech: ['Swift', 'SwiftUI', 'Core Data', 'CloudKit', 'WatchConnectivity', 'WidgetKit', 'ActivityKit', 'HealthKit', 'App Intents'],
     color: '#A78BFA',
     emoji: '🧘',
@@ -111,7 +112,8 @@ export const projects: Project[] = [
     status: 'live',
     version: '1.4',
     links: [
-      { label: 'App Store', url: 'https://apps.apple.com/pl/app/calmie/id6450792796?l=pl', icon: '🍎', primary: true },
+      { label: 'App Store', url: 'https://apps.apple.com/pl/app/calmie/id6450792796?l=pl', icon: 'apple', primary: true },
+      { label: 'Landing page', url: '/Calmie/', icon: '🌐' },
     ],
     screenshots: [
       '/screens/calmie/app-store-iphone.jpg',
@@ -119,6 +121,32 @@ export const projects: Project[] = [
       '/screens/calmie/app-store-ipad.jpg',
     ],
     screenshotLayout: 'gallery',
+  },
+  {
+    id: 'bms-monitor',
+    name: 'BMS Monitor',
+    tagline: 'Local LiFePO4 battery monitoring · iOS and Android',
+    taglinePL: 'Lokalny monitoring baterii LiFePO4 · iOS i Android',
+    description:
+      'A mobile app for local monitoring of compatible JK BMS LiFePO4 batteries over Bluetooth. It shows charge, current, power, cell voltages, temperatures, alarms, and per device history without an account or cloud connection. Includes a demo mode and selected BMS controls with confirmation and read back.',
+    descriptionPL:
+      'Aplikacja mobilna do lokalnego monitorowania kompatybilnych baterii LiFePO4 z JK BMS przez Bluetooth. Pokazuje poziom naładowania, prąd, moc, napięcia ogniw, temperatury, alarmy i historię dla każdego urządzenia bez konta i chmury. Zawiera tryb demo oraz wybrane funkcje sterowania BMS z potwierdzeniem i weryfikacją zapisu.',
+    tech: ['React', 'TypeScript', 'Capacitor', 'Bluetooth LE', 'iOS', 'Android'],
+    color: '#0E7C6B',
+    emoji: '🔋',
+    platform: 'ios+android',
+    status: 'live',
+    version: '1.1.2',
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/pl/app/bms-monitor-lifepo4/id6805988699', icon: 'apple', primary: true },
+      { label: 'Google Play', url: '#', icon: 'google-play', comingSoon: true },
+      { label: 'Landing page', url: '/BMS/', icon: '🌐' },
+    ],
+    screenshots: [
+      '/BMS/assets/IMG_5272.PNG',
+      '/BMS/assets/IMG_5275.PNG',
+      '/BMS/assets/IMG_5276.PNG',
+    ],
   },
   {
     id: 'travel-rules-hub',

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { projects } from '../data/projects'
 import { useGeminiChat } from '../hooks/useGeminiChat'
 import { useLanguage } from '../contexts/LanguageContext'
+import StoreIcon from './StoreIcon'
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY ?? ''
 
@@ -214,10 +215,17 @@ export default function SimpleView() {
             </div>
             {p.links.length > 0 && (
               <div className="flex flex-wrap gap-2 pt-1">
-                {p.links.map((link) => (
+                {p.links.map((link) => link.comingSoon ? (
+                  <span key={link.label}
+                    className="text-xs font-mono text-muted flex items-center gap-1 opacity-60">
+                    <StoreIcon icon={link.icon} />
+                    <span>{link.label}</span>
+                    <span className="text-[9px]">{t.projectDetail.comingSoonBadge}</span>
+                  </span>
+                ) : (
                   <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"
                     className="text-xs font-mono text-muted hover:text-accent transition-colors flex items-center gap-1">
-                    <span>{link.icon}</span><span>{link.label}</span>
+                    <StoreIcon icon={link.icon} /><span>{link.label}</span>
                   </a>
                 ))}
               </div>

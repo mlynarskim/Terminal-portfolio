@@ -1,7 +1,7 @@
 export const pl = {
   boot: {
     init: '> Inicjalizacja Portfolio OS v1.0...',
-    loading: '> Ładowanie 10 projektów...',
+    loading: '> Ładowanie 11 projektów...',
     ready: '> Wszystkie systemy gotowe.',
     pressEnter: 'Naciśnij Enter, aby zacząć',
     orClick: 'lub kliknij gdziekolwiek',
@@ -38,6 +38,7 @@ export const pl = {
       { id: 'solos',             label: 'Otwórz SOLOS',                description: 'Kurator filmowy AI · web',        action: 'project-solos',              emoji: '🎬' },
       { id: 'panda',             label: 'Otwórz Panda',                description: 'Aplikacja randkowa · iOS + Android', action: 'project-panda',           emoji: '🐼' },
       { id: 'calmie',            label: 'Otwórz Calmie',               description: 'Medytacja, oddech i sen · Apple',      action: 'project-calmie',          emoji: '🧘' },
+      { id: 'bms-monitor',       label: 'Otwórz BMS Monitor',          description: 'Monitoring LiFePO4 · iOS i Android',   action: 'project-bms-monitor',     emoji: '🔋' },
       { id: 'atlas',             label: 'Otwórz Atlas',                 description: 'Organizer zdjęć · iOS + Android',     action: 'project-atlas',           emoji: '🗺️' },
       { id: 'photo-tools',       label: 'Otwórz Photo Tools',           description: 'Organizer multimediów · Python',       action: 'project-photo-tools',     emoji: '🖼️' },
       { id: 'csv-cleaner',       label: 'Otwórz CSV Cleaner',           description: 'Czyszczenie danych · Python',          action: 'project-csv-cleaner',     emoji: '🧹' },
@@ -105,7 +106,7 @@ export const pl = {
     } as Record<string, string>,
     platform: {
       ios: 'iOS · Swift · Xcode',
-      'ios+android': 'iOS + Android · React Native',
+      'ios+android': 'iOS + Android',
       apple: 'Apple ecosystem',
       web: 'Aplikacja web',
       python: 'Aplikacja desktopowa · Python',
@@ -175,7 +176,7 @@ export const pl = {
 export const en = {
   boot: {
     init: '> Initializing Portfolio OS v1.0...',
-    loading: '> Loading 10 projects...',
+    loading: '> Loading 11 projects...',
     ready: '> All systems ready.',
     pressEnter: 'Press Enter to start',
     orClick: 'or click anywhere',
@@ -212,6 +213,7 @@ export const en = {
       { id: 'solos',             label: 'Open SOLOS',                  description: 'AI movie curator · web app',      action: 'project-solos',              emoji: '🎬' },
       { id: 'panda',             label: 'Open Panda',                  description: 'Dating app · iOS + Android',      action: 'project-panda',              emoji: '🐼' },
       { id: 'calmie',            label: 'Open Calmie',                 description: 'Meditation, breathing and sleep · Apple', action: 'project-calmie',          emoji: '🧘' },
+      { id: 'bms-monitor',       label: 'Open BMS Monitor',            description: 'LiFePO4 monitoring · iOS and Android', action: 'project-bms-monitor',       emoji: '🔋' },
       { id: 'atlas',             label: 'Open Atlas',                  description: 'Photo organizer · iOS + Android', action: 'project-atlas',              emoji: '🗺️' },
       { id: 'photo-tools',       label: 'Open Photo Tools',            description: 'Media organizer · Python',        action: 'project-photo-tools',        emoji: '🖼️' },
       { id: 'csv-cleaner',       label: 'Open CSV Cleaner',            description: 'Data cleaning · Python',           action: 'project-csv-cleaner',        emoji: '🧹' },
@@ -279,7 +281,7 @@ export const en = {
     } as Record<string, string>,
     platform: {
       ios: 'iOS · Swift · Xcode',
-      'ios+android': 'iOS + Android · React Native',
+      'ios+android': 'iOS + Android',
       apple: 'Apple ecosystem',
       web: 'Web app',
       python: 'Desktop app · Python',

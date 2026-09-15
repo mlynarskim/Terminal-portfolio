@@ -8,7 +8,7 @@
 <meta property="og:title" content="BMS Monitor: LiFePO4 — Twoja bateria pod kontrolą">
 <meta property="og:description" content="Monitoruj JK BMS przez Bluetooth. SoC, napięcia ogniw, temperatury, historia i bezpieczne ustawienia. Prywatnie, lokalnie, po polsku i angielsku.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230E7C6B'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>B</text></svg>">
+<link rel="icon" type="image/png" href="assets/bms_monitor_app_icon.png">
 <style>
 :root{
   --teal:#0E7C6B; --teal-dark:#0A5E52; --teal-light:#E6F4F0;
@@ -24,7 +24,8 @@ a{color:inherit}
 header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:10px}
 .logo{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:800;letter-spacing:.02em}
-.logo-mark{width:38px;height:38px;border-radius:11px;background:var(--teal);display:grid;place-items:center;color:#fff;font-weight:900;font-size:20px}
+.logo-mark{width:42px;height:42px;border-radius:11px;overflow:hidden;display:block;box-shadow:0 4px 12px rgba(11,30,36,.14)}
+.logo-mark img{width:100%;height:100%;display:block;object-fit:cover}
 .logo small{display:block;font-size:11px;letter-spacing:.24em;color:var(--teal);font-weight:800}
 .logo strong{font-size:17px;line-height:1}
 .nav-links{display:flex;gap:22px;font-size:14.5px;font-weight:600;color:#33444E}
@@ -114,7 +115,7 @@ footer a{color:#D7E8E3} .foot-grid{display:flex;justify-content:space-between;ga
 
 <header>
 <div class="container nav">
-  <a class="logo" href="#top"><span class="logo-mark">B</span><span><small>BMS MONITOR</small><strong>LiFePO4</strong></span></a>
+  <a class="logo" href="#top"><span class="logo-mark"><img src="assets/bms_monitor_app_icon.png" alt=""></span><span><small>BMS MONITOR</small><strong>LiFePO4</strong></span></a>
   <nav class="nav-links" id="navLinks">
     <a href="#funkcje" data-i18n="nav_features">Funkcje</a>
     <a href="#aplikacja" data-i18n="nav_preview">Podgląd</a>
@@ -151,10 +152,10 @@ footer a{color:#D7E8E3} .foot-grid{display:flex;justify-content:space-between;ga
 
     <!-- APP_LINKS -->
     <div class="store-row" id="pobierz">
-      <a class="store-btn" id="iosLink" href="#" onclick="return storeSoon(event)"><span class="store-icon"><svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></span><span><small data-i18n="store_small">Pobierz z</small><strong>App Store</strong></span><span class="soon" data-i18n="soon">WKRÓTCE</span></a>
+      <a class="store-btn" id="iosLink" href="https://apps.apple.com/pl/app/bms-monitor-lifepo4/id6805988699" target="_blank" rel="noopener"><span class="store-icon"><svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></span><span><small data-i18n="store_small">Pobierz z</small><strong>App Store</strong></span></a>
       <a class="store-btn" id="androidLink" href="#" onclick="return storeSoon(event)"><span class="store-icon"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg></span><span><small data-i18n="store_small">Pobierz z</small><strong>Google Play</strong></span><span class="soon" data-i18n="soon">WKRÓTCE</span></a>
     </div>
-    <p class="hint" data-i18n="store_hint">Linki do sklepów dodamy tutaj w momencie publikacji — ta strona jest już gotowa na podmianę jednym kliknięciem.</p>
+    <p class="hint" data-i18n="store_hint">Aplikacja jest dostępna w App Store. Wersja na Google Play pojawi się wkrótce.</p>
 
     <div class="hero-stats">
       <div><strong>13,05 V</strong><span data-i18n="stat1">podgląd na żywo</span></div>
@@ -266,7 +267,7 @@ footer a{color:#D7E8E3} .foot-grid{display:flex;justify-content:space-between;ga
   <div class="faq-item"><button class="faq-q"><span data-i18n="faq3q">Czy mogę coś zepsuć zmieniając ustawienia?</span><span>+</span></button><div class="faq-a" data-i18n="faq3a">Aplikacja celowo utrudnia przypadkowe zmiany: edytor jest za 6-cyfrowym kodem, krytyczne opcje wymagają potwierdzenia, a wartości są walidowane i weryfikowane po zapisie. Zrób kopię JSON przed zmianami dla spokoju.</div></div>
   <div class="faq-item"><button class="faq-q"><span data-i18n="faq4q">Czym jest tryb demonstracyjny?</span><span>+</span></button><div class="faq-a" data-i18n="faq4a">To podgląd aplikacji na przykładowych danych, bez łączenia z BMS. Edycja jest zablokowana i żadne komendy Bluetooth nie są wysyłane. Idealny by poznać aplikację przed zakupem baterii.</div></div>
   <div class="faq-item"><button class="faq-q"><span data-i18n="faq5q">Gdzie trafiają moje dane?</span><span>+</span></button><div class="faq-a" data-i18n="faq5a">Nigdzie poza Twój telefon. Historia i kopie ustawień są lokalne. Plik JSON opuszcza telefon tylko gdy sam go wyeksportujesz / wyślesz.</div></div>
-  <div class="faq-item"><button class="faq-q"><span data-i18n="faq6q">Kiedy aplikacja będzie w sklepach?</span><span>+</span></button><div class="faq-a" data-i18n="faq6a">Pracujemy nad publikacją. Zostaw e-mail przez formularz kontaktowy z tematem „Powiadom o premierze”, a damy znać jako pierwszym.</div></div>
+  <div class="faq-item"><button class="faq-q"><span data-i18n="faq6q">Gdzie mogę pobrać aplikację?</span><span>+</span></button><div class="faq-a" data-i18n="faq6a">BMS Monitor jest dostępny w App Store. Wersja na Google Play jest przygotowywana.</div></div>
 </div>
 </section>
 
@@ -281,7 +282,7 @@ footer a{color:#D7E8E3} .foot-grid{display:flex;justify-content:space-between;ga
       <div><label for="email"><span data-i18n="form_email">E-mail *</span></label><input id="email" name="email" type="email" placeholder="ty@przyklad.pl" autocomplete="email"><div class="error" id="e-email" data-i18n="err_email">Podaj poprawny e-mail.</div></div>
     </div>
     <div class="row2">
-      <div><label for="topic"><span data-i18n="form_topic">Temat *</span></label><select id="topic" name="topic"><option data-i18n="topic1">Pytanie techniczne / pomoc</option><option data-i18n="topic2">Kompatybilność z moim JK BMS</option><option data-i18n="topic3">Powiadom o premierze</option><option data-i18n="topic4">Propozycja funkcji</option><option data-i18n="topic5">Inne</option></select></div>
+      <div><label for="topic"><span data-i18n="form_topic">Temat *</span></label><select id="topic" name="topic"><option data-i18n="topic1">Pytanie techniczne / pomoc</option><option data-i18n="topic2">Kompatybilność z moim JK BMS</option><option data-i18n="topic3">Powiadom o wersji Google Play</option><option data-i18n="topic4">Propozycja funkcji</option><option data-i18n="topic5">Inne</option></select></div>
       <div><label for="model"><span data-i18n="form_model">Model BMS (opcjonalnie)</span></label><input id="model" name="model" data-i18n-ph="form_model_ph" placeholder="np. JK-BD6A20S, firmware…"></div>
     </div>
     <label for="msg"><span data-i18n="form_msg">Wiadomość *</span></label><textarea id="msg" name="message" data-i18n-ph="form_msg_ph" placeholder="Opisz krótko: co się dzieje, jaki telefon, jaki model BMS…"></textarea>
@@ -295,7 +296,7 @@ footer a{color:#D7E8E3} .foot-grid{display:flex;justify-content:space-between;ga
   <div class="contact-side">
     <div class="card"><div class="icon">📩</div><h3 data-i18n="direct_t">Napisz bezpośrednio</h3><p><b id="directEmail">mlynarski.mateusz@gmail.com</b></p><p data-i18n="direct_d">Odpisujemy w 24 h robocze. Dołącz screen z zakładki Ustawienia jeśli dotyczy połączenia.</p><div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-ghost btn-small" onclick="copyEmail()" data-i18n="copy_btn">Kopiuj e-mail</button><a class="btn btn-ghost btn-small" id="mailtoBtn" href="mailto:mlynarski.mateusz@gmail.com?subject=BMS%20Monitor%20—%20pomoc" data-i18n="open_mail">Otwórz pocztę</a></div></div>
     <div class="card"><div class="icon">💡</div><h3 data-i18n="before_t">Zanim napiszesz</h3><p data-i18n-html="before_d">1. Sprawdź FAQ powyżej<br>2. Wypróbuj tryb demo w aplikacji<br>3. Zanotuj model BMS + wersję iOS/Android<br>To przyspieszy pomoc o połowę.</p></div>
-    <div class="card" style="background:var(--teal);border-color:var(--teal);color:#fff"><h3 style="color:#fff" data-i18n="notify_t">🚀 Powiadom o premierze</h3><p style="color:#D6ECE7" data-i18n="notify_d">Wybierz w formularzu temat „Powiadom o premierze” i zostaw e-mail. Damy znać jako pierwszym + wyślemy krótki przewodnik po JK BMS.</p></div>
+    <div class="card" style="background:var(--teal);border-color:var(--teal);color:#fff"><h3 style="color:#fff" data-i18n="notify_t">🚀 Czekasz na Google Play?</h3><p style="color:#D6ECE7" data-i18n="notify_d">Wybierz w formularzu temat „Powiadom o wersji Google Play” i zostaw e-mail. Damy znać, gdy wersja na Androida będzie dostępna.</p></div>
   </div>
 </div>
 </section>
@@ -306,7 +307,7 @@ footer a{color:#D7E8E3} .foot-grid{display:flex;justify-content:space-between;ga
     <h2 data-i18n="final_title">Przestań zgadywać, co dzieje się w Twojej baterii.</h2>
     <p style="max-width:640px;margin:0 auto" data-i18n="final_sub">Pobierz BMS Monitor i zobacz napięcia ogniw, temperatury i prawdziwy czas pracy — w 30 sekund po połączeniu przez Bluetooth.</p>
     <div class="store-row" style="justify-content:center">
-      <a class="store-btn" href="#" onclick="return storeSoon(event)"><span class="store-icon"><svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></span><span><small data-i18n="store_small">Pobierz z</small><strong>App Store</strong></span><span class="soon" data-i18n="soon">WKRÓTCE</span></a>
+      <a class="store-btn" href="https://apps.apple.com/pl/app/bms-monitor-lifepo4/id6805988699" target="_blank" rel="noopener"><span class="store-icon"><svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></span><span><small data-i18n="store_small">Pobierz z</small><strong>App Store</strong></span></a>
       <a class="store-btn" href="#" onclick="return storeSoon(event)"><span class="store-icon"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg></span><span><small data-i18n="store_small">Pobierz z</small><strong>Google Play</strong></span><span class="soon" data-i18n="soon">WKRÓTCE</span></a>
     </div>
     <p class="hint" style="color:#9CCFC4" data-i18n="final_hint">Bez konta • Dane tylko w telefonie • Polski i English • Tryb demo bez BMS</p>
@@ -328,7 +329,7 @@ footer a{color:#D7E8E3} .foot-grid{display:flex;justify-content:space-between;ga
 // ===== KONFIGURACJA =====
 const CONTACT_EMAIL = "mlynarski.mateusz@gmail.com";
 const FORMSPREE_URL = "";
-const APP_STORE_URL = "";
+const APP_STORE_URL = "https://apps.apple.com/pl/app/bms-monitor-lifepo4/id6805988699";
 const PLAY_URL = "";
 // ========================
 
@@ -340,7 +341,7 @@ pl: {
   hero_lead:'BMS Monitor łączy się bezpośrednio z <b>JK BMS</b> i pokazuje wszystko, co ważne: poziom naładowania, napięcia ogniw, temperatury, alarmy i historię. Bez chmury. Bez kombinowania. Po prostu otwierasz i wiesz.',
   hero_c1:"⚡ SoC • V • A • W na żywo", hero_c2:"🔋 Podgląd każdego ogniwa", hero_c3:"🌡️ Temperatury i alarmy", hero_c4:"🔒 Bezpieczne sterowanie",
   store_small:"Pobierz z", soon:"WKRÓTCE",
-  store_hint:"Linki do sklepów dodamy tutaj w momencie publikacji — ta strona jest już gotowa na podmianę jednym kliknięciem.",
+  store_hint:"Aplikacja jest dostępna w App Store. Wersja na Google Play pojawi się wkrótce.",
   stat1:"podgląd na żywo", stat2:"precyzja różnic ogniw", stat3:"danych zostaje w telefonie",
   cap1:"Pulpit • Stan naładowania", cap2:"Ogniwa • 3 mV różnicy",
   trust_b:"Niezależna aplikacja do JK BMS (protokół JK02).", trust_s:"Stworzona dla użytkowników LiFePO4 w kamperach, na łodziach i w domowych magazynach energii.",
@@ -386,7 +387,7 @@ pl: {
   faq3q:"Czy mogę coś zepsuć zmieniając ustawienia?", faq3a:"Aplikacja celowo utrudnia przypadkowe zmiany: edytor jest za 6-cyfrowym kodem, krytyczne opcje wymagają potwierdzenia, a wartości są walidowane i weryfikowane po zapisie. Zrób kopię JSON przed zmianami dla spokoju.",
   faq4q:"Czym jest tryb demonstracyjny?", faq4a:"To podgląd aplikacji na przykładowych danych, bez łączenia z BMS. Edycja jest zablokowana i żadne komendy Bluetooth nie są wysyłane. Idealny by poznać aplikację przed zakupem baterii.",
   faq5q:"Gdzie trafiają moje dane?", faq5a:"Nigdzie poza Twój telefon. Historia i kopie ustawień są lokalne. Plik JSON opuszcza telefon tylko gdy sam go wyeksportujesz / wyślesz.",
-  faq6q:"Kiedy aplikacja będzie w sklepach?", faq6a:"Pracujemy nad publikacją. Zostaw e-mail przez formularz kontaktowy z tematem „Powiadom o premierze”, a damy znać jako pierwszym.",
+  faq6q:"Gdzie mogę pobrać aplikację?", faq6a:"BMS Monitor jest dostępny w App Store. Wersja na Google Play jest przygotowywana.",
   contact_kicker:"Kontakt • Pomoc", contact_title:"Masz pytanie? Pomagamy szybko.", contact_sub:"Problem z połączeniem, pytanie o kompatybilność albo pomysł na funkcję — napisz. Odpowiadamy zazwyczaj w 24 h. Pilne? Opisz dokładnie model JK BMS i wersję systemu w telefonie.",
   form_name:"Imię *", form_name_ph:"np. Marek", form_email:"E-mail *", form_topic:"Temat *", form_model:"Model BMS (opcjonalnie)", form_model_ph:"np. JK-BD6A20S, firmware…",
   form_msg:"Wiadomość *", form_msg_ph:"Opisz krótko: co się dzieje, jaki telefon, jaki model BMS…",
@@ -394,16 +395,16 @@ pl: {
   form_submit:"✉️ Wyślij wiadomość", form_hint:"Wysyłka działa też bez serwera — formularz przygotowuje e-mail.",
   form_success:'Dziękujemy! Twój program pocztowy powinien się otworzyć z gotową wiadomością. Jeśli nie — napisz bezpośrednio na '+CONTACT_EMAIL+".",
   err_name:"Podaj imię.", err_email:"Podaj poprawny e-mail.", err_msg:"Wiadomość musi mieć min. 10 znaków.", err_rodo:"Zaznacz zgodę, aby wysłać.",
-  topic1:"Pytanie techniczne / pomoc", topic2:"Kompatybilność z moim JK BMS", topic3:"Powiadom o premierze", topic4:"Propozycja funkcji", topic5:"Inne",
+  topic1:"Pytanie techniczne / pomoc", topic2:"Kompatybilność z moim JK BMS", topic3:"Powiadom o wersji Google Play", topic4:"Propozycja funkcji", topic5:"Inne",
   direct_t:"Napisz bezpośrednio", direct_d:"Odpisujemy w 24 h robocze. Dołącz screen z zakładki Ustawienia jeśli dotyczy połączenia.",
   copy_btn:"Kopiuj e-mail", open_mail:"Otwórz pocztę", before_t:"Zanim napiszesz",
   before_d:"1. Sprawdź FAQ powyżej<br>2. Wypróbuj tryb demo w aplikacji<br>3. Zanotuj model BMS + wersję iOS/Android<br>To przyspieszy pomoc o połowę.",
-  notify_t:"🚀 Powiadom o premierze", notify_d:"Wybierz w formularzu temat „Powiadom o premierze” i zostaw e-mail. Damy znać jako pierwszym + wyślemy krótki przewodnik po JK BMS.",
+  notify_t:"🚀 Czekasz na Google Play?", notify_d:"Wybierz w formularzu temat „Powiadom o wersji Google Play” i zostaw e-mail. Damy znać, gdy wersja na Androida będzie dostępna.",
   final_title:"Przestań zgadywać, co dzieje się w Twojej baterii.", final_sub:"Pobierz BMS Monitor i zobacz napięcia ogniw, temperatury i prawdziwy czas pracy — w 30 sekund po połączeniu przez Bluetooth.",
   final_hint:"Bez konta • Dane tylko w telefonie • Polski i English • Tryb demo bez BMS",
   foot_desc:"Lokalny monitoring JK BMS przez Bluetooth. Niezależne narzędzie — nie jest oficjalną aplikacją JK ani JiKong.",
   foot_rights:"Wszystkie prawa zastrzeżone.", foot_map:"Mapa", foot_contact:"Kontakt",
-  alert_soon:"Aplikacja jest w trakcie publikacji. Zostaw e-mail w formularzu z tematem „Powiadom o premierze” — damy znać jako pierwszym!",
+  alert_soon:"Wersja na Google Play pojawi się wkrótce. Możesz zostawić e-mail w formularzu, a damy znać po publikacji.",
   alert_copy:"Skopiowano: ", meta_title:"BMS Monitor: LiFePO4 — Kontrola Twojej baterii JK BMS w telefonie",
   meta_desc:"BMS Monitor to polska aplikacja do lokalnego monitorowania akumulatorów LiFePO4 z JK BMS przez Bluetooth. Poziom naładowania, ogniwa, historia, alarmy i bezpieczne sterowanie. Bez konta, bez chmury."
 },
@@ -414,7 +415,7 @@ en: {
   hero_lead:'BMS Monitor connects directly to your <b>JK BMS</b> and shows what matters: state of charge, cell voltages, temperatures, alarms and history. No cloud. No hassle. Just open it and know.',
   hero_c1:"⚡ SoC • V • A • W live", hero_c2:"🔋 Every cell in view", hero_c3:"🌡️ Temperatures & alarms", hero_c4:"🔒 Safe control",
   store_small:"Download on", soon:"SOON",
-  store_hint:"Store links will appear here at launch — this page is ready to swap with one click.",
+  store_hint:"The app is available on the App Store. The Google Play version is coming soon.",
   stat1:"live preview", stat2:"cell-diff precision", stat3:"of data stays on your phone",
   cap1:"Dashboard • State of charge", cap2:"Cells • 3 mV difference",
   trust_b:"Independent app for JK BMS (JK02 protocol).", trust_s:"Built for LiFePO4 users in campers, on boats and in home energy storage.",
@@ -460,7 +461,7 @@ en: {
   faq3q:"Can I break anything by changing settings?", faq3a:"The app deliberately makes accidental changes hard: the editor is behind a 6-digit code, critical options need confirmation, and values are validated and verified after saving. Make a JSON backup before changes for peace of mind.",
   faq4q:"What is demo mode?", faq4a:"A preview of the app with sample data, without connecting to a BMS. Editing is locked and no Bluetooth commands are sent. Perfect to explore the app before buying a battery.",
   faq5q:"Where does my data go?", faq5a:"Nowhere outside your phone. History and settings backups are local. A JSON file leaves your phone only when you export / send it yourself.",
-  faq6q:"When will the app be in the stores?", faq6a:"We are working on the release. Leave your email via the contact form with subject “Notify me at launch” and we will let you know first.",
+  faq6q:"Where can I download the app?", faq6a:"BMS Monitor is available on the App Store. The Google Play version is in preparation.",
   contact_kicker:"Contact • Help", contact_title:"Have a question? We help fast.", contact_sub:"Connection issue, compatibility question or feature idea — write to us. We usually reply within 24 h. Urgent? Describe your JK BMS model and phone OS version precisely.",
   form_name:"Name *", form_name_ph:"e.g. Mark", form_email:"Email *", form_topic:"Subject *", form_model:"BMS model (optional)", form_model_ph:"e.g. JK-BD6A20S, firmware…",
   form_msg:"Message *", form_msg_ph:"Briefly describe: what happens, which phone, which BMS model…",
@@ -468,16 +469,16 @@ en: {
   form_submit:"✉️ Send message", form_hint:"Sending also works without a server — the form prepares an email.",
   form_success:'Thank you! Your mail app should open with a ready message. If not — write directly to '+CONTACT_EMAIL+".",
   err_name:"Enter your name.", err_email:"Enter a valid email.", err_msg:"Message must be at least 10 characters.", err_rodo:"Tick the consent to send.",
-  topic1:"Technical question / help", topic2:"Compatibility with my JK BMS", topic3:"Notify me at launch", topic4:"Feature request", topic5:"Other",
+  topic1:"Technical question / help", topic2:"Compatibility with my JK BMS", topic3:"Notify me about Google Play", topic4:"Feature request", topic5:"Other",
   direct_t:"Write directly", direct_d:"We reply within 24 business hours. Attach a screenshot of the Settings tab for connection issues.",
   copy_btn:"Copy email", open_mail:"Open mail", before_t:"Before you write",
   before_d:"1. Check the FAQ above<br>2. Try demo mode in the app<br>3. Note your BMS model + iOS/Android version<br>This speeds up help by half.",
-  notify_t:"🚀 Notify me at launch", notify_d:"Choose “Notify me at launch” in the form and leave your email. We will tell you first + send a short JK BMS guide.",
+  notify_t:"🚀 Waiting for Google Play?", notify_d:"Choose “Notify me about Google Play” in the form and leave your email. We will let you know when the Android version is available.",
   final_title:"Stop guessing what is happening in your battery.", final_sub:"Get BMS Monitor and see cell voltages, temperatures and true runtime — 30 seconds after connecting via Bluetooth.",
   final_hint:"No account • Data only on your phone • Polski and English • Demo mode without BMS",
   foot_desc:"Local JK BMS monitoring via Bluetooth. Independent tool — not the official JK or JiKong app.",
   foot_rights:"All rights reserved.", foot_map:"Sitemap", foot_contact:"Contact",
-  alert_soon:"The app is being published. Leave your email in the form with subject “Notify me at launch” — we will tell you first!",
+  alert_soon:"The Google Play version is coming soon. You can leave your email in the form and we will let you know when it is published.",
   alert_copy:"Copied: ", meta_title:"BMS Monitor: LiFePO4 — Control your JK BMS battery from your phone",
   meta_desc:"BMS Monitor is an app for local monitoring of LiFePO4 batteries with JK BMS via Bluetooth. State of charge, cells, history, alarms and safe control. No account, no cloud."
 }};

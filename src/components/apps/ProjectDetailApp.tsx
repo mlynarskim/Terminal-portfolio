@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import type { Project, BuildStatus } from '../../data/projects'
 import PhoneMockup from '../PhoneMockup'
 import ImageLightbox from '../ImageLightbox'
+import StoreIcon from '../StoreIcon'
 import { useLanguage } from '../../contexts/LanguageContext'
 
 interface Props {
@@ -281,7 +282,7 @@ export default function ProjectDetailApp({ project }: Props) {
                 className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl font-semibold text-sm transition-all"
                 style={{ background: project.color, color: '#0B0B0F' }}
               >
-                <span>{primaryLink.icon}</span>
+                <StoreIcon icon={primaryLink.icon} />
                 <span>{primaryLink.label}</span>
                 <span>→</span>
               </motion.a>
@@ -294,7 +295,7 @@ export default function ProjectDetailApp({ project }: Props) {
                     className="flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 rounded-lg border border-border cursor-not-allowed select-none"
                     style={{ background: 'rgba(255,255,255,0.02)', opacity: 0.5 }}
                   >
-                    <span>{link.icon}</span>
+                    <StoreIcon icon={link.icon} />
                     <span className="text-gray-400">{link.label}</span>
                     <span className="text-[9px] px-1.5 py-0.5 rounded border border-border text-muted font-mono">
                       {t.projectDetail.comingSoonBadge}
@@ -314,7 +315,7 @@ export default function ProjectDetailApp({ project }: Props) {
                     className="flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 rounded-lg border border-border hover:border-opacity-60 transition-all text-gray-300 hover:text-white"
                     style={{ background: 'rgba(255,255,255,0.03)' }}
                   >
-                    <span>{link.icon}</span>
+                    <StoreIcon icon={link.icon} />
                     <span>{link.label}</span>
                   </a>
                 ))}
