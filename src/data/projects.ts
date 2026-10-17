@@ -139,7 +139,7 @@ export const projects: Project[] = [
     version: '1.1.2',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/pl/app/bms-monitor-lifepo4/id6805988699', icon: 'apple', primary: true },
-      { label: 'Google Play', url: '#', icon: 'google-play', comingSoon: true },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.mlynarski.bmsmonitor', icon: 'google-play' },
       { label: 'Landing page', url: '/BMS/', icon: '🌐' },
     ],
     screenshots: [
