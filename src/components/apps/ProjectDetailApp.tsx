@@ -88,6 +88,12 @@ export default function ProjectDetailApp({ project }: Props) {
               {t.projectDetail.platform.apple}
             </span>
           )}
+          {project.platform === 'macos' && (
+            <span className="text-[10px] px-2 py-0.5 rounded-full font-mono border"
+              style={{ color: project.color, borderColor: `${project.color}30`, background: `${project.color}12` }}>
+              {t.projectDetail.platform.macos}
+            </span>
+          )}
           {project.platform === 'web' && (
             <span className="text-[10px] px-2 py-0.5 rounded-full font-mono border"
               style={{ color: project.color, borderColor: `${project.color}30`, background: `${project.color}12` }}>

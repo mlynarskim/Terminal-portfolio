@@ -1,4 +1,4 @@
-export type Platform = 'ios' | 'ios+android' | 'apple' | 'web' | 'python'
+export type Platform = 'ios' | 'ios+android' | 'apple' | 'macos' | 'web' | 'python'
 
 export interface ProjectLink {
   label: string
@@ -31,6 +31,34 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    id: 'ultranotch',
+    name: 'UltraNotch',
+    tagline: 'A customizable toolbox inside your Mac notch',
+    taglinePL: 'Konfigurowalny panel narzędzi w notchu Maca',
+    description:
+      'UltraNotch is a macOS app that turns the notch area into a customizable toolbox. Control music, play videos, and access a focus timer, calendar, and handy file shelf. Three panel sizes, custom tile layouts, and separate Home and Work spaces adapt to everyday use and focused work.',
+    descriptionPL:
+      'UltraNotch to aplikacja na macOS, która zamienia obszar notcha w konfigurowalny panel narzędzi. Umożliwia sterowanie muzyką, odtwarzanie filmów, korzystanie z timera skupienia, kalendarza i podręcznej półki na pliki. Oferuje trzy rozmiary panelu, własne układy kafelków oraz osobne przestrzenie Home i Work, dopasowane do codziennego użytkowania i pracy.',
+    tech: ['macOS', 'Swift', 'Xcode', 'XCTest'],
+    color: '#A78BFA',
+    emoji: '🟣',
+    platform: 'macos',
+    status: 'coming-soon',
+    links: [
+      { label: 'Landing page', url: 'https://mlynarskimateusz.pl/UltraNotch/Index.html', icon: '🌐', primary: true },
+    ],
+    screenshots: [
+      '/screens/ultranotch/01_Your_Mac_Within_Reach.png',
+      '/screens/ultranotch/02_Mini_Max_UltraMax.png',
+      '/screens/ultranotch/03_Music_And_Video.png',
+      '/screens/ultranotch/04_Work_Mode.png',
+      '/screens/ultranotch/05_File_Shelf.png',
+      '/screens/ultranotch/06_Quick_Controls.png',
+      '/screens/ultranotch/07_Grid_Editor.png',
+    ],
+    screenshotLayout: 'gallery',
+  },
   {
     id: 'travel-rules',
     name: 'Travel Rules',

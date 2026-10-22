@@ -200,6 +200,8 @@ export default function SimpleView() {
                     ? 'iOS + Android'
                     : p.platform === 'apple'
                       ? 'Apple ecosystem'
+                    : p.platform === 'macos'
+                      ? 'macOS'
                     : p.platform === 'web'
                       ? 'Web'
                       : 'Python'}

@@ -7,6 +7,7 @@ const platformLabelMap: Record<string, string> = {
   ios: 'iOS',
   'ios+android': 'iOS + Android',
   apple: 'Apple ecosystem',
+  macos: 'macOS',
   web: 'Web',
   python: 'Python',
 }
@@ -152,6 +153,26 @@ export default function ProjectsApp({ onOpenProject }: Props) {
       </div>
 
       {mobileProjects.map((project, i) => (
+        <ProjectCard
+          key={project.id}
+          project={project}
+          index={i}
+          onOpenProject={onOpenProject}
+          lang={lang}
+          t={{ open: t.projects.open, statusLabel: t.projects.statusLabel }}
+        />
+      ))}
+
+      {/* macOS */}
+      <div className="flex items-center gap-2 mb-1">
+        <span className="text-[10px] font-mono uppercase tracking-wider text-muted">
+          macOS
+        </span>
+        <div className="flex-1 h-px bg-border" />
+        <span className="text-[9px] font-mono text-muted">{projects.filter((p) => p.platform === 'macos').length}</span>
+      </div>
+
+      {projects.filter((p) => p.platform === 'macos').map((project, i) => (
         <ProjectCard
           key={project.id}
           project={project}
