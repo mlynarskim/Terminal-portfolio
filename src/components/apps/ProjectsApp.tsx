@@ -1,3 +1,4 @@
+import ProjectIcon from '../ProjectIcon'
 import { motion } from 'framer-motion'
 import { projects } from '../../data/projects'
 import type { WindowId } from '../../hooks/useWindowManager'
@@ -82,7 +83,7 @@ function ProjectCard({
           className="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
           style={{ background: `${project.color}15`, border: `1px solid ${project.color}30` }}
         >
-          {project.emoji}
+          <ProjectIcon project={project} />
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-0.5 flex-wrap">

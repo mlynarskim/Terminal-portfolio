@@ -1,3 +1,4 @@
+import ProjectIcon from '../ProjectIcon'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Project, BuildStatus } from '../../data/projects'
@@ -52,7 +53,7 @@ export default function ProjectDetailApp({ project }: Props) {
             className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
             style={{ background: `${project.color}18`, border: `1px solid ${project.color}30` }}
           >
-            {project.emoji}
+            <ProjectIcon project={project} />
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
@@ -219,7 +220,7 @@ export default function ProjectDetailApp({ project }: Props) {
                 className="flex items-center justify-center py-10 flex-col gap-2"
                 style={{ background: `${project.color}06` }}
               >
-                <span className="text-2xl">{project.emoji}</span>
+                <span className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"><ProjectIcon project={project} /></span>
                 <span className="text-xs font-mono text-muted">{t.projectDetail.screenshotsComingSoon}</span>
               </div>
             )}

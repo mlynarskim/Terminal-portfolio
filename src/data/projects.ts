@@ -20,6 +20,7 @@ export interface Project {
   tech: string[]
   color: string
   emoji: string
+  icon?: string
   platform: Platform
   links: ProjectLink[]
   screenshots?: string[]
@@ -33,6 +34,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'ultranotch',
+    icon: '/UltraNotch/assets/app-icon.png',
     name: 'UltraNotch',
     tagline: 'A customizable toolbox inside your Mac notch',
     taglinePL: 'Konfigurowalny panel narzędzi w notchu Maca',
@@ -61,6 +63,7 @@ export const projects: Project[] = [
   },
   {
     id: 'travel-rules',
+    icon: '/screens/travel-rules/icon.jpg',
     name: 'Travel Rules',
     tagline: 'The traveler\'s rule book — iOS',
     taglinePL: 'Przewodnik podróżnika — iOS',
@@ -97,6 +100,7 @@ export const projects: Project[] = [
   },
   {
     id: 'rate-that-beach',
+    icon: '/screens/rate-that-beach/icon.png',
     name: 'Rate That Beach',
     tagline: 'Community beach reviews — iOS & Android',
     taglinePL: 'Społecznościowe recenzje plaż — iOS i Android',
@@ -126,6 +130,7 @@ export const projects: Project[] = [
   },
   {
     id: 'calmie',
+    icon: '/Calmie/assets/icon.jpg',
     name: 'Calmie',
     tagline: 'Meditation, breathing and sleep · iPhone, iPad, Apple Watch and Vision Pro',
     taglinePL: 'Medytacja, oddech i sen · iPhone, iPad, Apple Watch i Vision Pro',
@@ -152,6 +157,7 @@ export const projects: Project[] = [
   },
   {
     id: 'bms-monitor',
+    icon: '/BMS/assets/bms_monitor_app_icon.png',
     name: 'BMS Monitor',
     tagline: 'Local LiFePO4 battery monitoring · iOS and Android',
     taglinePL: 'Lokalny monitoring baterii LiFePO4 · iOS i Android',
@@ -227,6 +233,7 @@ export const projects: Project[] = [
   },
   {
     id: 'atlas',
+    icon: '/screens/atlas/icon.png',
     name: 'Atlas',
     tagline: 'Smart photo organizer by country & date — iOS & Android',
     taglinePL: 'Inteligentny organizer zdjęć po kraju i dacie — iOS i Android',

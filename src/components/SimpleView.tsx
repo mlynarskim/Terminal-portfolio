@@ -1,3 +1,4 @@
+import ProjectIcon from './ProjectIcon'
 import { useState, useRef, useEffect, KeyboardEvent } from 'react'
 import { motion } from 'framer-motion'
 import { projects } from '../data/projects'
@@ -189,7 +190,7 @@ export default function SimpleView() {
           <div key={p.id} className="border border-border rounded-xl p-4 space-y-2" style={{ background: 'rgba(26,26,31,0.6)' }}>
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
-                <span className="text-lg">{p.emoji}</span>
+                <span className="w-8 h-8 rounded-lg flex items-center justify-center text-lg flex-shrink-0"><ProjectIcon project={p} /></span>
                 <h3 className="font-semibold text-gray-100 text-sm">{p.name}</h3>
               </div>
               <span className="text-[9px] px-1.5 py-0.5 rounded font-mono flex-shrink-0"
