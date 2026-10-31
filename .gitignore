@@ -8,3 +8,4 @@ dist
 # Raw screenshots source folder (already copied to public/screens/)
 /screens/
 public/BaggageAR/assets/suitcase-prompt.txt
+public/niby_nic/.nojekyll
