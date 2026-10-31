@@ -26,3 +26,11 @@ if('IntersectionObserver' in window&&!reduceMotion.matches){document.body.classL
 const COFFEE_URL = 'https://buycoffee.to/mm88';
 if(COFFEE_URL){document.querySelectorAll('.coffee-link').forEach(link=>{link.href=COFFEE_URL;link.target='_blank';link.rel='noopener noreferrer';});}else{document.querySelector('.support-action').hidden=true;document.querySelector('.support-status').hidden=false;document.querySelector('.coffee-note .coffee-link').textContent='Drobne wsparcie kolejnych historii ↘';}
 document.querySelector('#year').textContent=new Date().getFullYear();
+
+// A deterrent for casual saving; attribution is embedded in the image files.
+function discourageImageSaving(event) {
+ if (event.target instanceof Element && event.target.closest('img')) event.preventDefault();
+}
+document.querySelectorAll('img').forEach(image => { image.draggable = false; });
+document.addEventListener('contextmenu', discourageImageSaving);
+document.addEventListener('dragstart', discourageImageSaving);
