@@ -34,3 +34,13 @@ function discourageImageSaving(event) {
 document.querySelectorAll('img').forEach(image => { image.draggable = false; });
 document.addEventListener('contextmenu', discourageImageSaving);
 document.addEventListener('dragstart', discourageImageSaving);
+
+const coloringButton = document.querySelector('#open-coloring-form');
+coloringButton?.addEventListener('click', () => {
+ const container = document.querySelector('#coloring-form-container');
+ const frame = document.querySelector('#coloring-form');
+ if (!frame.hasAttribute('src')) frame.src = frame.dataset.src;
+ container.hidden = false;
+ coloringButton.setAttribute('aria-expanded', 'true');
+ container.scrollIntoView({ behavior: reduceMotion.matches ? 'instant' : 'smooth', block: 'start' });
+});
