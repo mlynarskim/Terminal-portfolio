@@ -183,6 +183,27 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: 'baggagear',
+    icon: '/BaggageAR/assets/app-icon.png',
+    name: 'BaggageAR Measure',
+    tagline: 'Measure your baggage and check airline limits · iPhone',
+    taglinePL: 'Zmierz bagaż i sprawdź limity linii lotniczych · iPhone',
+    description:
+      'An iPhone app for estimating suitcase, backpack, and travel bag dimensions with AR, a 3D frame, or manual entry. Compare the result with baggage limits for your selected airline and fare. Supported devices can use LiDAR. Measurements are estimates; bags close to the limit should be checked with a tape measure.',
+    descriptionPL:
+      'Aplikacja na iPhone’a do szacowania wymiarów walizki, plecaka lub torby za pomocą AR, ramki 3D albo ręcznego wpisywania wymiarów. Porównuje wynik z limitami bagażu wybranej linii i taryfy. Na zgodnych urządzeniach korzysta z LiDAR. Pomiary są szacunkowe; bagaż bliski limitowi warto sprawdzić miarką.',
+    tech: ['Swift', 'SwiftUI', 'ARKit', 'LiDAR', 'StoreKit', 'iOS'],
+    color: '#718775',
+    emoji: '🧳',
+    platform: 'ios',
+    status: 'live',
+    version: '1.0',
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/pl/app/baggagear-measure/id6814157910', icon: 'apple', primary: true },
+      { label: 'Landing page', url: 'https://mlynarskimateusz.pl/BaggageAR/index.html?lang=pl', icon: '🌐' },
+    ],
+  },
+  {
     id: 'travel-rules-hub',
     name: 'Travel Rules HUB',
     tagline: 'The travel content platform — web',
