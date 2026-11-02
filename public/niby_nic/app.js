@@ -44,3 +44,4 @@ coloringButton?.addEventListener('click', () => {
  coloringButton.setAttribute('aria-expanded', 'true');
  container.scrollIntoView({ behavior: reduceMotion.matches ? 'instant' : 'smooth', block: 'start' });
 });
+
