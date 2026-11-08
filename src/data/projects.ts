@@ -46,9 +46,11 @@ export const projects: Project[] = [
     color: '#A78BFA',
     emoji: '🟣',
     platform: 'macos',
-    status: 'coming-soon',
+    status: 'live',
+    version: '1.0.0',
     links: [
-      { label: 'Landing page', url: 'https://mlynarskimateusz.pl/UltraNotch/Index.html', icon: '🌐', primary: true },
+      { label: 'App Store', url: 'https://apps.apple.com/pl/app/ultranotch/id6821866122?l=pl&mt=12', icon: 'apple', primary: true },
+      { label: 'Landing page', url: 'https://mlynarskimateusz.pl/UltraNotch/Index.html', icon: '🌐' },
     ],
     screenshots: [
       '/screens/ultranotch/01_Your_Mac_Within_Reach.png',
